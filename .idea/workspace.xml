@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c6592f20-744a-4f9f-a6d8-85012901d3f3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/popix/popix.xcodeproj/project.xcworkspace/xcuserdata/rbrookfield.xcuserdatad/UserInterfaceState.xcuserstate" afterPath="$PROJECT_DIR$/popix/popix.xcodeproj/project.xcworkspace/xcuserdata/rbrookfield.xcuserdatad/UserInterfaceState.xcuserstate" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/popix/www/index.html" afterPath="$PROJECT_DIR$/popix/www/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/popix/www/lib/css/style.css" afterPath="$PROJECT_DIR$/popix/www/lib/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/popix/www/lib/js/main.js" afterPath="$PROJECT_DIR$/popix/www/lib/js/main.js" />
     </list>
     <ignored path="popix.iws" />
@@ -37,19 +34,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="main.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/popix/www/lib/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="75" selection-start="495" selection-end="495" vertical-scroll-proportion="0.0">
+            <state line="19" column="30" selection-start="577" selection-end="577" vertical-scroll-proportion="0.39638385">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="2-app.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="2-app.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/Library/Caches/TemporaryItems/2-app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="17" selection-start="634" selection-end="634" vertical-scroll-proportion="0.40983605">
+            <state line="20" column="17" selection-start="634" selection-end="634" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -87,8 +84,8 @@
         <option value="$PROJECT_DIR$/popix/www/lib/js/jquery-ui.js" />
         <option value="$PROJECT_DIR$/popix/www/lib/css/jquery-mobile.css" />
         <option value="$PROJECT_DIR$/popix/www/index.html" />
-        <option value="$PROJECT_DIR$/popix/www/lib/js/main.js" />
         <option value="$PROJECT_DIR$/popix/www/lib/css/style.css" />
+        <option value="$PROJECT_DIR$/popix/www/lib/js/main.js" />
       </list>
     </option>
   </component>
@@ -411,16 +408,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/popix/www/lib/js/main.js">
+    <entry file="file://$USER_HOME$/Library/Caches/TemporaryItems/2-app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="75" selection-start="495" selection-end="495" vertical-scroll-proportion="0.0">
+        <state line="20" column="17" selection-start="634" selection-end="634" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Library/Caches/TemporaryItems/2-app.js">
+    <entry file="file://$PROJECT_DIR$/popix/www/lib/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="17" selection-start="634" selection-end="634" vertical-scroll-proportion="0.40983605">
+        <state line="19" column="30" selection-start="577" selection-end="577" vertical-scroll-proportion="0.39638385">
           <folding />
         </state>
       </provider>
