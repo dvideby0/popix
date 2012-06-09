@@ -11,12 +11,16 @@
     <script type="text/javascript" charset="utf-8" src="lib/js/cordova-1.7.0.js"></script>
     <script type="text/javascript" src="lib/js/jquery.js"></script>
     <script type="text/javascript" src="lib/jqm/js/jquery.mobile-1.1.0.min.js"></script>
+    <script type="text/javascript" src="lib/js/main.js"></script>
 </head>
 <body>
     <div id="MainPage" data-role="page">
         <div id="Header" data-role="header" data-position="fixed">Header</div>
         <div id="MainContent" data-role="content">
-            Content goes here
+            <button onclick="TakePicture()">Take Picture</button>
+            <div id="Frame" style="text-align: center">
+                <img id="myImage" style="max-height: 250px; max-width: 100%" src="">
+            </div>
         </div>
         <div id="Footer" data-role="footer" data-position="fixed">Footer</div>
     </div>
