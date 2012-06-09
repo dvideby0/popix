@@ -24,3 +24,6 @@
     background-image: -webkit-linear-gradient(bottom, rgb(94,94,94) 21%, rgb(158,158,158) 80%) !important;
     background-image: -ms-linear-gradient(bottom, rgb(94,94,94) 21%, rgb(158,158,158) 80%) !important;
 }
+.gallery li a{
+    border: 5px solid #cccccc !important;
+}

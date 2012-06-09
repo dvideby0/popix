@@ -12,7 +12,8 @@ function TakePicture(){
     }
 }
 socket.on('NewImage', function(msg){
-    $('#myImage').attr('src', 'data:image/jpeg;base64,' + msg);
+    $('#ImageList').append('<li><a href="data:image/jpeg;base64,' + msg + '" rel="external"><img src="data:image/jpeg;base64,' + msg + '"></a></li>');
+    var myPhotoSwipe = $(".gallery a").photoSwipe({});
 });
 socket.on('UserCount', function(msg){
     $('#UserCount .ui-btn-text').text('Online: ' + msg);
