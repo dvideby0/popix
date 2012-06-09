@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c6592f20-744a-4f9f-a6d8-85012901d3f3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-    </list>
+    <list default="true" id="c6592f20-744a-4f9f-a6d8-85012901d3f3" name="Default" comment="" />
     <ignored path="popix.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -42,10 +40,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="2-app.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Library/Caches/TemporaryItems/2-app.js">
+      <file leaf-file-name="1-popix.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$USER_HOME$/Library/Caches/TemporaryItems/1-popix.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="17" selection-start="634" selection-end="634" vertical-scroll-proportion="0.0">
+            <state line="20" column="17" selection-start="634" selection-end="634" vertical-scroll-proportion="0.40983605">
               <folding />
             </state>
           </provider>
@@ -60,10 +58,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="README.md" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="48" selection-start="121" selection-end="121" vertical-scroll-proportion="0.10245901">
+            <state line="5" column="48" selection-start="121" selection-end="121" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -400,30 +398,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/popix/www/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="45" selection-start="1643" selection-end="1643" vertical-scroll-proportion="-18.125">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/popix/Server/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="20" column="17" selection-start="634" selection-end="634" vertical-scroll-proportion="0.40983605">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/popix/www/lib/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="30" selection-start="577" selection-end="577" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Library/Caches/TemporaryItems/2-app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="17" selection-start="634" selection-end="634" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -451,7 +428,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="48" selection-start="121" selection-end="121" vertical-scroll-proportion="0.10245901">
+        <state line="5" column="48" selection-start="121" selection-end="121" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/popix/www/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="45" selection-start="1643" selection-end="1643" vertical-scroll-proportion="-18.125">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Caches/TemporaryItems/2-app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="17" selection-start="634" selection-end="634" vertical-scroll-proportion="0.40983605">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/popix/www/lib/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="30" selection-start="577" selection-end="577" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Caches/TemporaryItems/1-popix.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="17" selection-start="634" selection-end="634" vertical-scroll-proportion="0.40983605">
           <folding />
         </state>
       </provider>
