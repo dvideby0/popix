@@ -7,6 +7,9 @@ For more information please feel free to visit http://apps.moby.io/popix
 
 Built on top of NodeJS, Phonegap and JQM
 
+
+<iframe width="560" height="315" src="http://www.youtube.com/embed/TworTztXB5s" frameborder="0" allowfullscreen></iframe>
+
 Authors:
 Richard Brookfield & Jason Campbell
 
