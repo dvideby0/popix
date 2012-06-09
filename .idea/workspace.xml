@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c6592f20-744a-4f9f-a6d8-85012901d3f3" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/popix/www/cordova-1.7.0.js" afterPath="$PROJECT_DIR$/popix/www/lib/js/cordova-1.7.0.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/popix/www/index.html" afterPath="$PROJECT_DIR$/popix/www/index.html" />
     </list>
     <ignored path="popix.iws" />
@@ -40,7 +38,7 @@
       <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/popix/www/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="63" selection-start="476" selection-end="476" vertical-scroll-proportion="0.21186441">
+            <state line="22" column="7" selection-start="1001" selection-end="1001" vertical-scroll-proportion="0.4661017">
               <folding />
             </state>
           </provider>
@@ -322,7 +320,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/popix/www/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="63" selection-start="476" selection-end="476" vertical-scroll-proportion="0.21186441">
+        <state line="22" column="7" selection-start="1001" selection-end="1001" vertical-scroll-proportion="0.4661017">
           <folding />
         </state>
       </provider>
