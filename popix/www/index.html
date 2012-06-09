@@ -16,14 +16,18 @@
 </head>
 <body>
     <div id="MainPage" data-role="page">
-        <div id="Header" data-role="header" data-position="fixed">Header</div>
+        <div id="Header" data-role="header" data-position="fixed">
+            <a href="javascript:" data-icon="grid" style="margin-top: 3px;">Menu</a>
+            POPIX
+            <a href="javascript:" id="UserCount" style="margin-top: 3px;">Online: </a>
+        </div>
         <div id="MainContent" data-role="content" style="margin: 0 !important; padding: 0 !important;">
             <div id="Frame" style="text-align: center">
                 <img id="myImage" style="max-width: 100%" src="">
             </div>
         </div>
         <div id="Footer" data-role="footer" data-position="fixed">
-            <a href="javascript:TakePicture();">Capture</a>
+            <a href="javascript:TakePicture();" style="margin-top: -15px;">Capture</a>
         </div>
     </div>
 </body>

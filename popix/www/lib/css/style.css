@@ -3,4 +3,24 @@
     font-size: 20px;
     text-align: center;
     padding-top: 10px;
+    border: #666666;
+    background-image: linear-gradient(bottom, rgb(59,59,59) 28%, rgb(117,117,117) 73%);
+    background-image: -o-linear-gradient(bottom, rgb(59,59,59) 28%, rgb(117,117,117) 73%);
+    background-image: -moz-linear-gradient(bottom, rgb(59,59,59) 28%, rgb(117,117,117) 73%);
+    background-image: -webkit-linear-gradient(bottom, rgb(59,59,59) 28%, rgb(117,117,117) 73%);
+    background-image: -ms-linear-gradient(bottom, rgb(59,59,59) 28%, rgb(117,117,117) 73%);
+}
+.ui-btn-corner-all{
+    background-image: linear-gradient(bottom, rgb(171,168,171) 41%, rgb(217,217,217) 62%);
+    background-image: -o-linear-gradient(bottom, rgb(171,168,171) 41%, rgb(217,217,217) 62%);
+    background-image: -moz-linear-gradient(bottom, rgb(171,168,171) 41%, rgb(217,217,217) 62%);
+    background-image: -webkit-linear-gradient(bottom, rgb(171,168,171) 41%, rgb(217,217,217) 62%);
+    background-image: -ms-linear-gradient(bottom, rgb(171,168,171) 41%, rgb(217,217,217) 62%);
+}
+[data-role="page"]{
+    background-image: linear-gradient(bottom, rgb(94,94,94) 21%, rgb(158,158,158) 80%) !important;
+    background-image: -o-linear-gradient(bottom, rgb(94,94,94) 21%, rgb(158,158,158) 80%) !important;
+    background-image: -moz-linear-gradient(bottom, rgb(94,94,94) 21%, rgb(158,158,158) 80%) !important;
+    background-image: -webkit-linear-gradient(bottom, rgb(94,94,94) 21%, rgb(158,158,158) 80%) !important;
+    background-image: -ms-linear-gradient(bottom, rgb(94,94,94) 21%, rgb(158,158,158) 80%) !important;
 }

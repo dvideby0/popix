@@ -14,3 +14,7 @@ function TakePicture(){
 socket.on('NewImage', function(msg){
     $('#myImage').attr('src', 'data:image/jpeg;base64,' + msg);
 });
+socket.on('UserCount', function(msg){
+    $('#UserCount .ui-btn-text').text('Online: ' + msg);
+
+});
