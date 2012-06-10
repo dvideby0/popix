@@ -36,3 +36,16 @@
 .gallery li a{
     border: 3px solid #cccccc !important;
 }
+#MainMenu{
+    width: 100px;
+    display: none;
+    color: #ffffff;
+    background-color: #666666;
+    z-index: 500;
+    position: absolute;
+    opacity:0.8;
+    border: 3px solid;
+    border-color: #191919;
+    border-radius: 8px;
+    font-size: 20px;
+}

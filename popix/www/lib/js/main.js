@@ -22,10 +22,30 @@ socket.on('NewImage', function(msg){
             PhotoSwipe.detatch(myPhotoSwipe);
         }
     }(window.Code.PhotoSwipe));
-    $('#ImageList').append('<li><a href="data:image/jpeg;base64,' + msg + '" rel="external"><img src="data:image/jpeg;base64,' + msg + '"></a></li>');
-    myPhotoSwipe = $(".gallery a").photoSwipe({captionAndToolbarOpacity: 1, captionAndToolbarShowEmptyCaptions: false, allowRotationOnUserZoom: false});
+    $('#ImageList').append('<li><a href="data:image/jpeg;base64,' + msg.Image + '" rel="external"><img src="data:image/jpeg;base64,' + msg.Image + '" alt="Hello"></a></li>');
+    myPhotoSwipe = $(".gallery a").photoSwipe(
+        {
+            captionAndToolbarOpacity: 1,
+            captionAndToolbarAutoHideDelay: 0,
+            allowUserZoom: false,
+            imageScaleMethod: 'zoom',
+            getImageCaption: function(){
+                var mybanner            = document.createElement("div");
+                mybanner.style.padding    = '5px 10px 5px 10px';
+                mybanner.style.backgroundColor = '#1ea600';
+                mybanner.style.borderRadius = '3px';
+                mybanner.style.border = '2px solid';
+                mybanner.style.borderColor = '#000000'
+                mybanner.innerHTML        = "Vote Up";
+                mybanner.setAttribute('onClick',"alert(" + msg.Sender + ");");
+                return mybanner;
+            }
+        });
 });
 socket.on('UserCount', function(msg){
     $('#UserCount .ui-btn-text').text('Online: ' + msg);
 
 });
+function SlideMenu(){
+    $('#MainMenu').toggle();
+}
