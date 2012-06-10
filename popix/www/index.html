@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>PoPix</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta charset="utf-8">
     <link rel="stylesheet" href="lib/jqm/css/jquery.mobile-1.1.0.css">
     <link rel="stylesheet" href="lib/jqm/css/jquery.mobile.structure-1.1.0.min.css">
@@ -27,12 +27,17 @@
             <a href="javascript:" id="UserCount" style="margin-top: 3px;">Online: </a>
         </div>
         <div id="MainContent" data-role="content" style="margin: 0 !important; padding: 0 !important;">
-            <div id="MainMenu">Hello<br />Hello<br />Hello<br />Hello<br />Hello<br /></div>
+            <div id="MainMenu" onblur="alert('hello')">
+                <div class="MMIcon">My Pics</div>
+                <div class="MMIcon">Highest Rated</div>
+                <div class="MMIcon">Favorites</div>
+                <div class="MMIcon">Friends</div>
+            </div>
             <ul class="gallery" id="ImageList">
             </ul>
         </div>
         <div id="Footer" data-role="footer" data-position="fixed">
-            <a href="javascript:TakePicture();" style="margin-top: -15px;">Capture</a>
+            <a href="javascript:TakePicture();">Capture</a>
         </div>
     </div>
 </body>

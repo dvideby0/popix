@@ -2,7 +2,6 @@
     height: 35px !important;
     font-size: 20px;
     text-align: center;
-    padding-top: 10px;
     border: #666666;
     background-image: linear-gradient(bottom, rgb(38,38,38) 49%, rgb(61,61,61) 50%, rgb(102,102,102) 100%);
     background-image: -o-linear-gradient(bottom, rgb(38,38,38) 49%, rgb(61,61,61) 50%, rgb(102,102,102) 100%);
@@ -13,8 +12,17 @@
 [data-role="header"]{
     border-bottom: 1px solid;
     border-bottom-color: #444444 !important;
+    padding-top: 3px;
+    padding-bottom: 7px;
+    color: #dddddd;
+    text-shadow: 0 -1px #222222 !important;
+    font-weight: lighter;
+    font-size: 33px;
+    font-family: "Courier";
 }
 [data-role="footer"]{
+    padding-top: 7px;
+    padding-bottom: 3px;
     border-top: 1px solid;
     border-top-color: #888888 !important;
 }
@@ -40,12 +48,23 @@
     width: 100px;
     display: none;
     color: #ffffff;
-    background-color: #666666;
+    background-color: #cccccc !important;
     z-index: 500;
     position: absolute;
-    opacity:0.8;
+    opacity:0.9;
     border: 3px solid;
-    border-color: #191919;
-    border-radius: 8px;
-    font-size: 20px;
+    border-color: #222222;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    font-size: 15px;
+}
+.MMIcon{
+    border: 5px solid;
+    border-color: #444444;
+    margin: 10px;
+    padding: 10px 5px 10px 5px;
+    height: 45px;
+    color: #444444;
+    text-align: center;
+    border-radius: 10px;
 }

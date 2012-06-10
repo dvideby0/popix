@@ -22,7 +22,7 @@ socket.on('NewImage', function(msg){
             PhotoSwipe.detatch(myPhotoSwipe);
         }
     }(window.Code.PhotoSwipe));
-    $('#ImageList').append('<li><a href="data:image/jpeg;base64,' + msg.Image + '" rel="external"><img src="data:image/jpeg;base64,' + msg.Image + '" alt="Hello"></a></li>');
+    $('#ImageList').append('<li><a href="data:image/jpeg;base64,' + msg.Image + '" rel="external"><img src="data:image/jpeg;base64,' + msg.Image + '"></a></li>');
     myPhotoSwipe = $(".gallery a").photoSwipe(
         {
             captionAndToolbarOpacity: 1,
