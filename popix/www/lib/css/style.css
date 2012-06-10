@@ -45,7 +45,7 @@
     border: 3px solid #cccccc !important;
 }
 #MainMenu{
-    width: 100px;
+    width: 90px;
     display: none;
     color: #ffffff;
     background-color: #cccccc !important;
@@ -61,7 +61,7 @@
 .MMIcon{
     border: 5px solid;
     border-color: #444444;
-    margin: 10px;
+    margin: 10px 5px 10px 5px;
     padding: 10px 5px 10px 5px;
     height: 45px;
     color: #444444;
