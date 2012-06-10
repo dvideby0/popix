@@ -50,25 +50,20 @@ function SlideMenu(){
 }
 function GetUserImages(){
     socket.emit('GetUserImages', device.uuid);
+    $('#ImageList').empty();
 }
 socket.on('UserImages', function(msg){
-    $('#ImageList').empty();
-    var Responses = JSON.parse(msg);
+    msg = JSON.parse(msg);
     (function(PhotoSwipe){
         if(myPhotoSwipe){
             PhotoSwipe.detatch(myPhotoSwipe);
         }
     }(window.Code.PhotoSwipe));
-    for (var i = 0; i < Responses.length; i++){
-        $('#ImageList').append('<li><a href="data:image/jpeg;base64,' + Responses[i].Image + '" rel="external"><img src="data:image/jpeg;base64,' + Responses[i].Image + '"></a></li>');
-        if (i == Responses.length -1){
-            myPhotoSwipe = $(".gallery a").photoSwipe({
-                captionAndToolbarOpacity: 1,
-                captionAndToolbarAutoHideDelay: 0,
-                allowUserZoom: false,
-                imageScaleMethod: 'zoom'
-            });
-        }
-    }
-
+    $('#ImageList').append('<li><a href="data:image/jpeg;base64,' + msg.Image + '" rel="external"><img src="data:image/jpeg;base64,' + msg.Image + '"></a></li>');
+    myPhotoSwipe = $(".gallery a").photoSwipe({
+        captionAndToolbarOpacity: 1,
+        captionAndToolbarAutoHideDelay: 0,
+        allowUserZoom: false,
+        imageScaleMethod: 'zoom'
+    });
 });
