@@ -2,6 +2,7 @@ var socket = io.connect('http://apps.moby.io:8989');
 $(document).on('pageinit','[data-role=page]', function(){
     $('[data-position=fixed]').fixedtoolbar({ tapToggle:false });
 });
+var mainPhotoSwipe;
 var myPhotoSwipe;
 function TakePicture(){
     navigator.camera.getPicture(onSuccess, onFail, {
@@ -22,16 +23,15 @@ function TakePicture(){
 }
 socket.on('NewImage', function(msg){
     (function(PhotoSwipe){
-        if(myPhotoSwipe){
-            PhotoSwipe.detatch(myPhotoSwipe);
+        if(mainPhotoSwipe){
+            PhotoSwipe.detatch(mainPhotoSwipe);
         }
     }(window.Code.PhotoSwipe));
     $('#ImageList').append('<li><a href="data:image/jpeg;base64,' + msg.Image + '" rel="external"><img src="data:image/jpeg;base64,' + msg.Image + '"></a></li>');
-    myPhotoSwipe = $("#ImageList a").photoSwipe({
+    mainPhotoSwipe = $("#ImageList a").photoSwipe({
         captionAndToolbarOpacity: 1,
         captionAndToolbarAutoHideDelay: 0,
         allowUserZoom: false,
-        preventHide: true,
         imageScaleMethod: 'zoom',
         getImageCaption: function(){
             var mybanner            = document.createElement("div");
@@ -39,7 +39,7 @@ socket.on('NewImage', function(msg){
             mybanner.style.backgroundColor = '#1ea600';
             mybanner.style.borderRadius = '3px';
             mybanner.style.border = '2px solid';
-            mybanner.style.borderColor = '#000000'
+            mybanner.style.borderColor = '#000000';
             mybanner.innerHTML        = "Vote Up";
             mybanner.setAttribute('onClick',"alert(" + msg.Sender + ");");
             return mybanner;
@@ -68,7 +68,6 @@ socket.on('UserImages', function(msg){
         captionAndToolbarOpacity: 1,
         captionAndToolbarAutoHideDelay: 0,
         allowUserZoom: false,
-        preventHide: true,
         imageScaleMethod: 'zoom'
     });
 });
