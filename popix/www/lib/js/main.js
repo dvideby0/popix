@@ -1,4 +1,7 @@
 var socket = io.connect('http://apps.moby.io:8989');
+$(document).on('pageinit','[data-role=page]', function(){
+    $('[data-position=fixed]').fixedtoolbar({ tapToggle:false });
+});
 var myPhotoSwipe;
 function TakePicture(){
     navigator.camera.getPicture(onSuccess, onFail, {
@@ -10,6 +13,7 @@ function TakePicture(){
 
     function onSuccess(imageData) {
         socket.emit('ClientSendImage', {Author: device.uuid, Image: imageData});
+        $('#MyImageList').append('<li><a href="data:image/jpeg;base64,' + imageData + '" rel="external"><img src="data:image/jpeg;base64,' + imageData + '"></a></li>');
     }
 
     function onFail(message) {
@@ -23,10 +27,11 @@ socket.on('NewImage', function(msg){
         }
     }(window.Code.PhotoSwipe));
     $('#ImageList').append('<li><a href="data:image/jpeg;base64,' + msg.Image + '" rel="external"><img src="data:image/jpeg;base64,' + msg.Image + '"></a></li>');
-    myPhotoSwipe = $(".gallery a").photoSwipe({
+    myPhotoSwipe = $("#ImageList a").photoSwipe({
         captionAndToolbarOpacity: 1,
         captionAndToolbarAutoHideDelay: 0,
         allowUserZoom: false,
+        preventHide: true,
         imageScaleMethod: 'zoom',
         getImageCaption: function(){
             var mybanner            = document.createElement("div");
@@ -45,12 +50,11 @@ socket.on('UserCount', function(msg){
     $('#UserCount .ui-btn-text').text('Online: ' + msg);
 
 });
-function SlideMenu(){
-    $('#MainMenu').toggle();
-}
 function GetUserImages(){
+    $('#MyImageList').empty();
+    $('#ImageList').toggle();
+    $('#MyImageList').toggle();
     socket.emit('GetUserImages', device.uuid);
-    $('#ImageList').empty();
 }
 socket.on('UserImages', function(msg){
     msg = JSON.parse(msg);
@@ -59,11 +63,12 @@ socket.on('UserImages', function(msg){
             PhotoSwipe.detatch(myPhotoSwipe);
         }
     }(window.Code.PhotoSwipe));
-    $('#ImageList').append('<li><a href="data:image/jpeg;base64,' + msg.Image + '" rel="external"><img src="data:image/jpeg;base64,' + msg.Image + '"></a></li>');
-    myPhotoSwipe = $(".gallery a").photoSwipe({
+    $('#MyImageList').append('<li><a href="data:image/jpeg;base64,' + msg.Image + '" rel="external"><img src="data:image/jpeg;base64,' + msg.Image + '"></a></li>');
+    myPhotoSwipe = $("#MyImageList a").photoSwipe({
         captionAndToolbarOpacity: 1,
         captionAndToolbarAutoHideDelay: 0,
         allowUserZoom: false,
+        preventHide: true,
         imageScaleMethod: 'zoom'
     });
 });

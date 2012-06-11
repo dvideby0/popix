@@ -13,6 +13,7 @@
     <script type="text/javascript" charset="utf-8" src="lib/js/cordova-1.7.0.js"></script>
     <script type="text/javascript" src="lib/js/jquery.js"></script>
     <script type="text/javascript" src="lib/js/klass.min.js"></script>
+
     <script type="text/javascript" src="lib/jqm/js/jquery.mobile-1.1.0.min.js"></script>
     <script src='http://apps.moby.io:8989/socket.io/socket.io.js'></script>
     <script type="text/javascript" src="lib/js/code.photoswipe.jquery-3.0.4.min.js"></script>
@@ -21,23 +22,20 @@
 <body>
 
     <div id="MainPage" data-role="page" class="gallery-page">
-        <div id="Header" data-role="header" data-position="fixed">
-            <a href="javascript:SlideMenu();" data-icon="grid" style="margin-top: 3px;">Menu</a>
+        <div data-id="Header" data-role="header" data-position="fixed">
             POPIX
             <a href="javascript:" id="UserCount" style="margin-top: 3px;">Online: </a>
         </div>
         <div id="MainContent" data-role="content" style="margin: 0 !important; padding: 0 !important;">
-            <div id="MainMenu">
-                <div class="MMIcon" onclick="GetUserImages();">My Pics</div>
-                <div class="MMIcon">Highest Rated</div>
-                <div class="MMIcon">Favorites</div>
-                <div class="MMIcon">Friends</div>
-            </div>
+            <ul class="gallery" id="MyImageList">
+            </ul>
             <ul class="gallery" id="ImageList">
             </ul>
         </div>
-        <div id="Footer" data-role="footer" data-position="fixed">
+        <div data-id="Footer" data-role="footer" data-position="fixed">
+            <a href="javascript:GetUserImages();">Channels</a>
             <a href="javascript:TakePicture();">Capture</a>
+            <a href="javascript:TakePicture();">Settings</a>
         </div>
     </div>
 </body>

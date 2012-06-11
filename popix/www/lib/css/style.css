@@ -44,19 +44,8 @@
 .gallery li a{
     border: 3px solid #cccccc !important;
 }
-#MainMenu{
-    width: 90px;
+#MyImageList{
     display: none;
-    color: #ffffff;
-    background-color: #cccccc !important;
-    z-index: 500;
-    position: absolute;
-    opacity:0.9;
-    border: 3px solid;
-    border-color: #222222;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    font-size: 15px;
 }
 .MMIcon{
     border: 5px solid;
