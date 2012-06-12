@@ -57,3 +57,35 @@
     text-align: center;
     border-radius: 10px;
 }
+#HTForm{
+    margin-top: -17px;
+    padding: 20px 5px 10px 5px;
+    display: none;
+    width: 250px !important;
+    background-color: #222222;
+    text-align: center;
+    text-shadow: none;
+    color: #cccccc;
+    border-bottom: 5px solid;
+    border-left: 5px solid;
+    border-right: 5px solid;
+    border-color: #cccccc;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+#HTForm input{
+    margin-left: 5px;
+    width: 225px !important;
+}
+.ui-slider-label .ui-slider-label-b .ui-btn-down-c .ui-btn-corner-all{
+    height: 20px !important;
+}
+div.ui-slider-switch.ui-slider-mini .ui-slider-handle{
+    height: 25px !important;
+}
+div.ui-slider-switch.ui-slider-mini a.ui-slider-handle .ui-btn-inner {
+    height: 20px;
+    width: 25px;
+    padding: 0;
+    margin: 0;
+}

@@ -4,6 +4,7 @@ $(document).on('pageinit','[data-role=page]', function(){
 });
 var mainPhotoSwipe;
 var myPhotoSwipe;
+var ImageData;
 function TakePicture(){
     navigator.camera.getPicture(onSuccess, onFail, {
         quality: 20,
@@ -13,14 +14,21 @@ function TakePicture(){
     });
 
     function onSuccess(imageData) {
-        socket.emit('ClientSendImage', {Author: device.uuid, Image: imageData});
-        $('#MyImageList').append('<li><a href="data:image/jpeg;base64,' + imageData + '" rel="external"><img src="data:image/jpeg;base64,' + imageData + '"></a></li>');
+        $("#HTForm").slideDown("slow");
+        ImageData = imageData;
     }
 
     function onFail(message) {
         alert('Failed because: ' + message);
     }
 }
+function SendPicture(){
+    $("#HTForm").slideUp("slow");
+    socket.emit('ClientSendImage', {Author: device.uuid, Image: ImageData, HashTag: $('#HashTag').val(), Anonymous: parseInt($('#Anonymous').val())});
+    $('#MyImageList').append('<li><a href="data:image/jpeg;base64,' + ImageData + '" rel="external"><img src="data:image/jpeg;base64,' + ImageData + '"></a></li>');
+}
+
+
 socket.on('NewImage', function(msg){
     (function(PhotoSwipe){
         if(mainPhotoSwipe){

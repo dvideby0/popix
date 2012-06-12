@@ -27,6 +27,18 @@
             <a href="javascript:" id="UserCount" style="margin-top: 3px;">Online: </a>
         </div>
         <div id="MainContent" data-role="content" style="margin: 0 !important; padding: 0 !important;">
+            <center><div id="HTForm">
+                <h3>Please tag for your photo</h3>
+                <input id="HashTag" type="text">
+                <p>
+                    Anonymous:
+                    <select style="height: 40px;" id="Anonymous" data-role="slider" data-theme="b" data-mini="true">
+                        <option value=0>Off</option>
+                        <option value=1>On</option>
+                    </select>
+                </p>
+                <button onclick="SendPicture();">Submit</button>
+            </div></center>
             <ul class="gallery" id="MyImageList">
             </ul>
             <ul class="gallery" id="ImageList">
@@ -35,7 +47,7 @@
         <div data-id="Footer" data-role="footer" data-position="fixed">
             <a href="javascript:GetUserImages();">Channels</a>
             <a href="javascript:TakePicture();">Capture</a>
-            <a href="javascript:TakePicture();">Settings</a>
+            <a href="javascript:OpenDialoge();">Settings</a>
         </div>
     </div>
 </body>
