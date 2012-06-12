@@ -14,6 +14,7 @@ function TakePicture(){
     });
 
     function onSuccess(imageData) {
+        $('#HashTag').val('');
         $("#HTForm").slideDown("slow");
         ImageData = imageData;
     }
@@ -22,10 +23,21 @@ function TakePicture(){
         alert('Failed because: ' + message);
     }
 }
+function DoNothing(){}
 function SendPicture(){
-    $("#HTForm").slideUp("slow");
-    socket.emit('ClientSendImage', {Author: device.uuid, Image: ImageData, HashTag: $('#HashTag').val(), Anonymous: parseInt($('#Anonymous').val())});
-    $('#MyImageList').append('<li><a href="data:image/jpeg;base64,' + ImageData + '" rel="external"><img src="data:image/jpeg;base64,' + ImageData + '"></a></li>');
+    if(!$('#HashTag').val()){
+        navigator.notification.alert(
+            'Tag Required',
+             DoNothing,
+            'Error',
+            'Ok'
+        );
+    }
+    else{
+        $("#HTForm").slideUp("slow");
+        socket.emit('ClientSendImage', {Author: device.uuid, Image: ImageData, HashTag: $('#HashTag').val(), Anonymous: parseInt($('#Anonymous').val())});
+        $('#MyImageList').append('<li><a href="data:image/jpeg;base64,' + ImageData + '" rel="external"><img src="data:image/jpeg;base64,' + ImageData + '"></a></li>');
+    }
 }
 
 
@@ -35,23 +47,12 @@ socket.on('NewImage', function(msg){
             PhotoSwipe.detatch(mainPhotoSwipe);
         }
     }(window.Code.PhotoSwipe));
-    $('#ImageList').append('<li><a href="data:image/jpeg;base64,' + msg.Image + '" rel="external"><img src="data:image/jpeg;base64,' + msg.Image + '"></a></li>');
+    $('#ImageList').append('<li><a href="data:image/jpeg;base64,' + msg.Image + '" rel="external" alt="' + msg.HashTag + '"><img src="data:image/jpeg;base64,' + msg.Image + '" alt="' + msg.HashTag + '"></a></li>');
     mainPhotoSwipe = $("#ImageList a").photoSwipe({
         captionAndToolbarOpacity: 1,
         captionAndToolbarAutoHideDelay: 0,
         allowUserZoom: false,
-        imageScaleMethod: 'zoom',
-        getImageCaption: function(){
-            var mybanner            = document.createElement("div");
-            mybanner.style.padding    = '5px 10px 5px 10px';
-            mybanner.style.backgroundColor = '#1ea600';
-            mybanner.style.borderRadius = '3px';
-            mybanner.style.border = '2px solid';
-            mybanner.style.borderColor = '#000000';
-            mybanner.innerHTML        = "Vote Up";
-            mybanner.setAttribute('onClick',"alert(" + msg.Sender + ");");
-            return mybanner;
-        }
+        imageScaleMethod: 'zoom'
     });
 });
 socket.on('UserCount', function(msg){
@@ -71,7 +72,7 @@ socket.on('UserImages', function(msg){
             PhotoSwipe.detatch(myPhotoSwipe);
         }
     }(window.Code.PhotoSwipe));
-    $('#MyImageList').append('<li><a href="data:image/jpeg;base64,' + msg.Image + '" rel="external"><img src="data:image/jpeg;base64,' + msg.Image + '"></a></li>');
+    $('#MyImageList').append('<li><a href="data:image/jpeg;base64,' + msg.Image + '" rel="external" alt="' + msg.HashTag + '"><img src="data:image/jpeg;base64,' + msg.Image + '" alt="' + msg.HashTag + '"></a></li>');
     myPhotoSwipe = $("#MyImageList a").photoSwipe({
         captionAndToolbarOpacity: 1,
         captionAndToolbarAutoHideDelay: 0,
