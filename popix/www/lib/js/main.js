@@ -52,7 +52,19 @@ socket.on('NewImage', function(msg){
         captionAndToolbarOpacity: 1,
         captionAndToolbarAutoHideDelay: 0,
         allowUserZoom: false,
-        imageScaleMethod: 'zoom'
+        imageScaleMethod: 'zoom',
+        getToolbar: function(){
+            var Say = '\'Hello\'';
+            return '<div class="ps-toolbar-close" style="padding-top: 12px;"><div class="ps-toolbar-content"></div></div>' +
+                '<div class="ps-toolbar-play" style="padding-top: 12px;"><div class="ps-toolbar-content"></div></div>' +
+                '<div class="ps-toolbar-previous" style="padding-top: 12px;"><div class="ps-toolbar-content"></div></div>' +
+                '<div class="ps-toolbar-next" style="padding-top: 12px;"><div class="ps-toolbar-content"></div></div>' +
+                '<div id="SayHi"><img src="lib/images/thumbs.png" alt=""></div>';
+        }
+    });
+    mainPhotoSwipe.addEventHandler(Code.PhotoSwipe.EventTypes.onToolbarTap, function(e){
+        console.log('onToolbarTap');
+        console.log(e);
     });
 });
 socket.on('UserCount', function(msg){
@@ -77,6 +89,14 @@ socket.on('UserImages', function(msg){
         captionAndToolbarOpacity: 1,
         captionAndToolbarAutoHideDelay: 0,
         allowUserZoom: false,
-        imageScaleMethod: 'zoom'
+        imageScaleMethod: 'zoom',
+        getToolbar: function(){
+            var Say = '\'Hello\'';
+            return '<div class="ps-toolbar-close" style="padding-top: 12px;"><div class="ps-toolbar-content"></div>' +
+                '</div><div class="ps-toolbar-play" style="padding-top: 12px;"><div class="ps-toolbar-content"></div>' +
+                '</div><div class="ps-toolbar-previous" style="padding-top: 12px;"><div class="ps-toolbar-content"></div>' +
+                '</div><div class="ps-toolbar-next" style="padding-top: 12px;"><div class="ps-toolbar-content"></div>' +
+                '</div><div id="SayHi"><img src="lib/images/thumbs.png" alt=""></div>';
+        }
     });
 });
