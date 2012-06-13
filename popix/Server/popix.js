@@ -15,18 +15,29 @@ io.sockets.on('connection', function(socket) {
     io.sockets.emit('UserCount', Users);
     socket.on('ClientSendImage', function(msg){
         socket.broadcast.emit('NewImage', {
-            Image: msg,
-            Sender: socket.id
+            Image: msg.Image,
+            Sender: msg.Author,
+            HashTag: msg.HashTag
         });
         posts.insert({
-            User: socket.id,
+            User: msg.Author,
             Created: new Date,
-            Image: msg
+            Image: msg.Image,
+            Votes: 0,
+            HashTag: msg.HashTag,
+            Anonymous: msg.Anonymous
         });
     });
     socket.on('disconnect', function () {
         Users = Users - 1;
         socket.broadcast.emit('UserCount', Users);
+    });
+    socket.on('GetUserImages', function (msg) {
+        posts.find({User: msg}, {Image:1, HashTag:1}).toArray(function (err, array) {
+            for(var i = 0; i < array.length; i++){
+                socket.emit('UserImages',JSON.stringify(array[i]));
+            }
+        });
     });
 });
 app.listen(8989);
