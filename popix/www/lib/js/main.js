@@ -59,12 +59,11 @@ socket.on('NewImage', function(msg){
                 '<div class="ps-toolbar-play" style="padding-top: 12px;"><div class="ps-toolbar-content"></div></div>' +
                 '<div class="ps-toolbar-previous" style="padding-top: 12px;"><div class="ps-toolbar-content"></div></div>' +
                 '<div class="ps-toolbar-next" style="padding-top: 12px;"><div class="ps-toolbar-content"></div></div>' +
-                '<div id="SayHi"><img src="lib/images/thumbs.png" alt=""></div>';
+                '<div id="SayHi"><img id="ThumbsUp" src="lib/images/thumbs.png" alt=""></div>';
         }
     });
-    mainPhotoSwipe.addEventHandler(Code.PhotoSwipe.EventTypes.onToolbarTap, function(e){
-        console.log('onToolbarTap');
-        console.log(e);
+    mainPhotoSwipe.addEventHandler(window.Code.PhotoSwipe.EventTypes.onToolbarTap, function(e){
+        //alert(e.tapTarget.id);
     });
 });
 socket.on('UserCount', function(msg){
@@ -92,11 +91,14 @@ socket.on('UserImages', function(msg){
         imageScaleMethod: 'zoom',
         getToolbar: function(){
             var Say = '\'Hello\'';
-            return '<div class="ps-toolbar-close" style="padding-top: 12px;"><div class="ps-toolbar-content"></div>' +
-                '</div><div class="ps-toolbar-play" style="padding-top: 12px;"><div class="ps-toolbar-content"></div>' +
-                '</div><div class="ps-toolbar-previous" style="padding-top: 12px;"><div class="ps-toolbar-content"></div>' +
-                '</div><div class="ps-toolbar-next" style="padding-top: 12px;"><div class="ps-toolbar-content"></div>' +
+            return '<div class="ps-toolbar-close"><div class="ps-toolbar-content"></div>' +
+                '</div><div class="ps-toolbar-play"><div class="ps-toolbar-content"></div>' +
+                '</div><div class="ps-toolbar-previous"><div class="ps-toolbar-content"></div>' +
+                '</div><div class="ps-toolbar-next"><div class="ps-toolbar-content"></div>' +
                 '</div><div id="SayHi"><img src="lib/images/thumbs.png" alt=""></div>';
         }
+    });
+    myPhotoSwipe.addEventHandler(window.Code.PhotoSwipe.EventTypes.onToolbarTap, function(e){
+        //alert(e.tapTarget.id);
     });
 });
