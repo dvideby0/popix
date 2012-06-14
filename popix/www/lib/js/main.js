@@ -29,6 +29,7 @@ function TakePicture(){
 }
 function DoNothing(){}
 function GetTopImages(){
+    $('#TopImageList').empty();
     $('ul').hide();
     $('#TopImageList').show();
     socket.emit('GetTopImages','');
