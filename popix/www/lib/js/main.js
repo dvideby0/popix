@@ -97,7 +97,7 @@ socket.on('UserImages', function(msg){
             PhotoSwipe.detatch(myPhotoSwipe);
         }
     }(window.Code.PhotoSwipe));
-    $('#MyImageList').append('<li><a href="data:image/jpeg;base64,' + msg.Image + '" rel="external" alt="' + msg.HashTag + '"><img src="data:image/jpeg;base64,' + msg.Image + '" alt="' + msg.HashTag + '"></a></li>');
+    $('#MyImageList').append('<li><a href="data:image/jpeg;base64,' + msg.Image + '" rel="external" alt="' + msg.HashTag + '"><img src="data:image/jpeg;base64,' + msg.Image + '" alt="Tag: ' + msg.HashTag + ' Votes: ' + msg.Votes + '"></a></li>');
     myPhotoSwipe = $("#MyImageList a").photoSwipe({
         captionAndToolbarOpacity: 1,
         captionAndToolbarAutoHideDelay: 0,
@@ -142,5 +142,5 @@ socket.on('TopImages', function(msg){
     });
 });
 socket.on('Error', function(msg){
-    alert(msg);
+    navigator.notification.alert(msg, DoNothing, 'Error', 'OK')
 });
