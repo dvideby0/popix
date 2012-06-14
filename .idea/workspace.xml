@@ -2,12 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c6592f20-744a-4f9f-a6d8-85012901d3f3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/popix/popix.xcodeproj/project.xcworkspace/xcuserdata/rbrookfield.xcuserdatad/UserInterfaceState.xcuserstate" afterPath="$PROJECT_DIR$/popix/popix.xcodeproj/project.xcworkspace/xcuserdata/rbrookfield.xcuserdatad/UserInterfaceState.xcuserstate" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/popix/popix/main.m" afterPath="$PROJECT_DIR$/popix/popix/main.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/popix/www/index.html" afterPath="$PROJECT_DIR$/popix/www/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/popix/www/lib/css/photoswipe.css" afterPath="$PROJECT_DIR$/popix/www/lib/css/photoswipe.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/popix/www/lib/css/style.css" afterPath="$PROJECT_DIR$/popix/www/lib/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/popix/www/lib/js/main.js" afterPath="$PROJECT_DIR$/popix/www/lib/js/main.js" />
     </list>
     <ignored path="popix.iws" />
@@ -39,19 +33,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="main.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/popix/www/lib/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="8" selection-start="301" selection-end="301" vertical-scroll-proportion="0.0">
+            <state line="117" column="203" selection-start="4698" selection-end="4698" vertical-scroll-proportion="0.45757997">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="1-popix.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="1-popix.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/Library/Caches/TemporaryItems/1-popix.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="56" column="10" selection-start="1874" selection-end="1874" vertical-scroll-proportion="0.83002836">
+            <state line="41" column="51" selection-start="1367" selection-end="1372" vertical-scroll-proportion="-10.423077">
               <folding />
             </state>
           </provider>
@@ -103,8 +97,8 @@
         <option value="$PROJECT_DIR$/popix/www/lib/css/photoswipe.css" />
         <option value="$PROJECT_DIR$/popix/www/lib/css/style.css" />
         <option value="$PROJECT_DIR$/popix/www/index.html" />
-        <option value="$PROJECT_DIR$/popix/www/lib/js/main.js" />
         <option value="$USER_HOME$/Library/Caches/TemporaryItems/1-popix.js" />
+        <option value="$PROJECT_DIR$/popix/www/lib/js/main.js" />
       </list>
     </option>
   </component>
@@ -430,16 +424,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/popix/www/lib/js/main.js">
+    <entry file="file://$USER_HOME$/Library/Caches/TemporaryItems/1-popix.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="8" selection-start="301" selection-end="301" vertical-scroll-proportion="0.0">
+        <state line="41" column="51" selection-start="1367" selection-end="1372" vertical-scroll-proportion="-10.423077">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Library/Caches/TemporaryItems/1-popix.js">
+    <entry file="file://$PROJECT_DIR$/popix/www/lib/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="10" selection-start="1874" selection-end="1874" vertical-scroll-proportion="0.83002836">
+        <state line="117" column="203" selection-start="4698" selection-end="4698" vertical-scroll-proportion="0.45757997">
           <folding />
         </state>
       </provider>

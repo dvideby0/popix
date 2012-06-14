@@ -5,6 +5,7 @@ $(document).on('pageinit','[data-role=page]', function(){
 });
 var mainPhotoSwipe;
 var myPhotoSwipe;
+var topPhotoSwipe;
 var ImageData;
 function TakePicture(){
     $('ul').hide();
@@ -108,5 +109,30 @@ socket.on('UserImages', function(msg){
     });
 });
 socket.on('TopImages', function(msg){
-    console.log(msg);
+    msg = JSON.parse(msg);
+    (function(PhotoSwipe){
+        if(topPhotoSwipe){
+            PhotoSwipe.detatch(topPhotoSwipe);
+        }
+    }(window.Code.PhotoSwipe));
+    $('#TopImageList').append('<li><a id="' + msg.ID + '" href="data:image/jpeg;base64,' + msg.Image + '" rel="external"><img src="data:image/jpeg;base64,' + msg.Image + '" alt="Tag: ' + msg.HashTag + ' Votes: ' + msg.Votes + '"></a></li>');
+    topPhotoSwipe = $("#TopImageList a").photoSwipe({
+        captionAndToolbarOpacity: 1,
+        captionAndToolbarAutoHideDelay: 0,
+        allowUserZoom: false,
+        imageScaleMethod: 'zoom',
+        getToolbar: function(){
+            return '<div class="ps-toolbar-close"><div class="ps-toolbar-content"></div></div>' +
+                '<div class="ps-toolbar-play"><div class="ps-toolbar-content"></div></div>' +
+                '<div class="ps-toolbar-previous"><div class="ps-toolbar-content"></div></div>' +
+                '<div class="ps-toolbar-next"><div class="ps-toolbar-content"></div></div>' +
+                '<div id="SayHi"><img id="ThumbsUp" src="lib/images/thumbs.png" alt=""></div>';
+        }
+    });
+    topPhotoSwipe.addEventHandler(window.Code.PhotoSwipe.EventTypes.onToolbarTap, function(e){
+        if($(e.tapTarget).attr('id') == 'ThumbsUp'){
+            var ImgObj = topPhotoSwipe.getCurrentImage();
+            socket.emit('VoteUp', ImgObj.refObj.id);
+        }
+    });
 });
