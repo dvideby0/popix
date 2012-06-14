@@ -1,8 +1,12 @@
 var socket = io.connect('http://apps.moby.io:8989');
-var USID = '';
 $(document).on('pageinit','[data-role=page]', function(){
     $('[data-position=fixed]').fixedtoolbar({ tapToggle:false });
 });
+var DeviceID
+function AssignVars(){
+    DeviceID = device.uuid;
+}
+document.addEventListener("deviceready", AssignVars, false);
 var mainPhotoSwipe;
 var myPhotoSwipe;
 var topPhotoSwipe;
@@ -11,7 +15,7 @@ function TakePicture(){
     $('ul').hide();
     $('#ImageList').show();
     navigator.camera.getPicture(onSuccess, onFail, {
-        quality: 20,
+        quality: 30,
         destinationType: Camera.DestinationType.DATA_URL,
         targetWidth: 640,
         targetHeight: 960
@@ -72,7 +76,7 @@ socket.on('NewImage', function(msg){
     mainPhotoSwipe.addEventHandler(window.Code.PhotoSwipe.EventTypes.onToolbarTap, function(e){
         if($(e.tapTarget).attr('id') == 'ThumbsUp'){
             var ImgObj = mainPhotoSwipe.getCurrentImage();
-            socket.emit('VoteUp', ImgObj.refObj.id);
+            socket.emit('VoteUp', {ImageID: ImgObj.refObj.id, UserID: device.uuid});
         }
     });
 });
@@ -133,7 +137,10 @@ socket.on('TopImages', function(msg){
     topPhotoSwipe.addEventHandler(window.Code.PhotoSwipe.EventTypes.onToolbarTap, function(e){
         if($(e.tapTarget).attr('id') == 'ThumbsUp'){
             var ImgObj = topPhotoSwipe.getCurrentImage();
-            socket.emit('VoteUp', ImgObj.refObj.id);
+            socket.emit('VoteUp', {ImageID: ImgObj.refObj.id, UserID: DeviceID});
         }
     });
+});
+socket.on('Error', function(msg){
+    alert(msg);
 });
