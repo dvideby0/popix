@@ -24,7 +24,8 @@
     <div id="MainPage" data-role="page" class="gallery-page">
         <div data-id="Header" data-role="header" data-position="fixed">
             POPIX
-            <a href="javascript:" id="UserCount" style="margin-top: 3px;">Online: </a>
+            <a href="javascript:" class="ui-disabled" id="UserCount" style="margin-top: 3px;">Online: </a>
+            <a href="javascript:OpenDialoge();" style="margin-top: 3px;">Settings</a>
         </div>
         <div id="MainContent" data-role="content" style="margin: 0 !important; padding: 0 !important;">
             <center><div id="HTForm">
@@ -39,15 +40,17 @@
                 </p>
                 <button onclick="SendPicture();">Submit</button>
             </div></center>
+            <ul class="gallery" id="TopImageList">
+            </ul>
             <ul class="gallery" id="MyImageList">
             </ul>
             <ul class="gallery" id="ImageList">
             </ul>
         </div>
         <div data-id="Footer" data-role="footer" data-position="fixed">
-            <a href="javascript:GetUserImages();">Channels</a>
+            <a href="javascript:GetUserImages();">My Pix</a>
             <a href="javascript:TakePicture();">Capture</a>
-            <a href="javascript:OpenDialoge();">Settings</a>
+            <a href="javascript:GetTopImages();">Top Pix</a>
         </div>
     </div>
 </body>
