@@ -24,7 +24,7 @@
     <div id="MainPage" data-role="page" class="gallery-page">
         <div data-id="Header" data-role="header" data-position="fixed">
             POPIX
-            <a href="javascript:" class="ui-disabled" id="UserCount" style="margin-top: 3px;">Online: </a>
+            <a href="javascript:" id="UserCount" style="margin-top: 3px;">Online: </a>
             <a href="javascript:OpenDialoge();" style="margin-top: 3px;">Settings</a>
         </div>
         <div id="MainContent" data-role="content" style="margin: 0 !important; padding: 0 !important;">
@@ -48,9 +48,10 @@
             </ul>
         </div>
         <div data-id="Footer" data-role="footer" data-position="fixed">
-            <a href="javascript:GetUserImages();">My Pix</a>
-            <a href="javascript:TakePicture();">Capture</a>
+            <a href="javascript:GetFeedImages();">Pix Feed</a>
             <a href="javascript:GetTopImages();">Top Pix</a>
+            <a href="javascript:GetUserImages();">My Pix</a>
+            <a id="CaptureBtn" href="javascript:TakePicture();">Capture</a>
         </div>
     </div>
 </body>

@@ -12,8 +12,6 @@ var myPhotoSwipe;
 var topPhotoSwipe;
 var ImageData;
 function TakePicture(){
-    $('ul').hide();
-    $('#ImageList').show();
     navigator.camera.getPicture(onSuccess, onFail, {
         quality: 30,
         destinationType: Camera.DestinationType.DATA_URL,
@@ -32,6 +30,10 @@ function TakePicture(){
     }
 }
 function DoNothing(){}
+function GetFeedImages(){
+    $('ul').hide();
+    $('#ImageList').show();
+}
 function GetTopImages(){
     $('#TopImageList').empty();
     $('ul').hide();
