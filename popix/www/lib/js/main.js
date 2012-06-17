@@ -15,6 +15,7 @@ function TakePicture(){
     navigator.camera.getPicture(onSuccess, onFail, {
         quality: 30,
         destinationType: Camera.DestinationType.DATA_URL,
+        encodingType: Camera.EncodingType.JPEG,
         targetWidth: 640,
         targetHeight: 960
     });
@@ -52,7 +53,6 @@ function SendPicture(){
     else{
         $("#HTForm").slideUp("slow");
         socket.emit('ClientSendImage', {Author: device.uuid, Image: ImageData, HashTag: $('#HashTag').val(), Anonymous: parseInt($('#Anonymous').val())});
-        $('#MyImageList').append('<li><a href="data:image/jpeg;base64,' + ImageData + '" rel="external"><img src="data:image/jpeg;base64,' + ImageData + '"></a></li>');
     }
 }
 socket.on('NewImage', function(msg){
@@ -61,7 +61,7 @@ socket.on('NewImage', function(msg){
             PhotoSwipe.detatch(mainPhotoSwipe);
         }
     }(window.Code.PhotoSwipe));
-    $('#ImageList').append('<li><a id="' + msg.ID + '" href="data:image/jpeg;base64,' + msg.Image + '" rel="external"><img src="data:image/jpeg;base64,' + msg.Image + '" alt="' + msg.HashTag + '"></a></li>');
+    $('#ImageList').append('<li><a id="' + msg.ID + '" href="' + msg.ImageFull + '" rel="external"><img src="' + msg.ImageThumb + '" alt="' + msg.HashTag + '"></a></li>');
     mainPhotoSwipe = $("#ImageList a").photoSwipe({
         captionAndToolbarOpacity: 1,
         captionAndToolbarAutoHideDelay: 0,
@@ -99,7 +99,7 @@ socket.on('UserImages', function(msg){
             PhotoSwipe.detatch(myPhotoSwipe);
         }
     }(window.Code.PhotoSwipe));
-    $('#MyImageList').append('<li><a href="data:image/jpeg;base64,' + msg.Image + '" rel="external" alt="' + msg.HashTag + '"><img src="data:image/jpeg;base64,' + msg.Image + '" alt="Tag: ' + msg.HashTag + ' Votes: ' + msg.Votes + '"></a></li>');
+    $('#MyImageList').append('<li><a href="' + msg.ImageFull + '" rel="external" alt="' + msg.HashTag + '"><img src="' + msg.ImageThumb + '" alt="Tag: ' + msg.HashTag + ' Votes: ' + msg.Votes + '"></a></li>');
     myPhotoSwipe = $("#MyImageList a").photoSwipe({
         captionAndToolbarOpacity: 1,
         captionAndToolbarAutoHideDelay: 0,
@@ -122,7 +122,7 @@ socket.on('TopImages', function(msg){
             PhotoSwipe.detatch(topPhotoSwipe);
         }
     }(window.Code.PhotoSwipe));
-    $('#TopImageList').append('<li><a id="' + msg.ID + '" href="data:image/jpeg;base64,' + msg.Image + '" rel="external"><img src="data:image/jpeg;base64,' + msg.Image + '" alt="Tag: ' + msg.HashTag + ' Votes: ' + msg.Votes + '"></a></li>');
+    $('#TopImageList').append('<li><a id="' + msg.ID + '" href="' + msg.ImageFull + '" rel="external"><img src="' + msg.ImageThumb + '" alt="Tag: ' + msg.HashTag + ' Votes: ' + msg.Votes + '"></a></li>');
     topPhotoSwipe = $("#TopImageList a").photoSwipe({
         captionAndToolbarOpacity: 1,
         captionAndToolbarAutoHideDelay: 0,

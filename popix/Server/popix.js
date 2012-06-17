@@ -2,6 +2,14 @@ var http = require('http');
 var Mongolian = require("mongolian");
 var uuid = require('node-uuid');
 var server = new Mongolian;
+var knox = require('knox');
+var fs = require('fs');
+var im = require('imagemagick');
+var client = knox.createClient({
+    key: 'AKIAJSCSCE45OUFCBTIA',
+    secret: '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',
+    bucket: 'popix'
+});
 var app = http.createServer(function(req, res) {
     res.writeHead(200, {'Content-Type': 'text/html'});
     res.end();
@@ -20,31 +28,62 @@ io.sockets.on('connection', function(socket) {
     io.sockets.emit('UserCount', Users);
     socket.on('ClientSendImage', function(msg){
         var UUID = uuid.v1();
-        socket.broadcast.emit('NewImage', {
-            Image: msg.Image,
-            Sender: msg.Author,
-            HashTag: msg.HashTag,
-            ID: UUID
-        });
         posts.insert({
             ID: UUID,
             User: msg.Author,
             Created: new Date,
-            Image: msg.Image,
+            ImageFull: 'https://s3.amazonaws.com/popix/imgposts/full/' + UUID + '.jpg',
+            ImageThumb: 'https://s3.amazonaws.com/popix/imgposts/thumb/' + UUID + '.jpg',
             Votes: 0,
             HashTag: msg.HashTag,
             Anonymous: msg.Anonymous
         });
+        var dataBuffer = new Buffer(msg.Image, 'base64');
+        im.resize({
+            srcData: dataBuffer,
+            width:  640,
+            height: 857
+        }, function(err, stdout, stderr){
+            var imgBuffer = new Buffer(stdout, 'binary');
+            if (err) throw err;
+            var req = client.put('/imgposts/full/' + UUID + '.jpg', {
+                'Content-Length': stdout.length,
+                'Content-Type': 'image/jpeg'
+            });
+            req.end(imgBuffer);
+        });
+        im.resize({
+            srcData: dataBuffer,
+            width:  160,
+            height: 240
+        }, function(err, stdout, stderr){
+            var imgBuffer = new Buffer(stdout, 'binary');
+            if (err) throw err;
+            var req = client.put('/imgposts/thumb/' + UUID + '.jpg', {
+                'Content-Length': stdout.length,
+                'Content-Type': 'image/jpeg'
+            });
+            req.end(imgBuffer);
+        });
+        socket.broadcast.emit('NewImage', {
+            ImageThumb: 'https://s3.amazonaws.com/popix/imgposts/thumb/' + UUID + '.jpg',
+            ImageFull: 'https://s3.amazonaws.com/popix/imgposts/full/' + UUID + '.jpg',
+            Sender: msg.Author,
+            HashTag: msg.HashTag,
+            ID: UUID
+        });
+
     });
     socket.on('disconnect', function () {
         Users = Users - 1;
         socket.broadcast.emit('UserCount', Users);
     });
     socket.on('GetUserImages', function (msg) {
-        posts.find({User: msg}, {Image:1, HashTag:1, Votes:1, ID:1}).toArray(function (err, array) {
+        posts.find({User: msg}, {ImageFull:1, ImageThumb:1, HashTag:1, Votes:1, ID:1}).toArray(function (err, array) {
             for(var i = 0; i < array.length; i++){
                 socket.emit('UserImages',JSON.stringify({
-                    Image: array[i].Image,
+                    ImageFull: array[i].ImageFull,
+                    ImageThumb: array[i].ImageThumb,
                     ID: array[i].ID,
                     HashTag: array[i].HashTag,
                     Votes: array[i].Votes
@@ -81,7 +120,8 @@ io.sockets.on('connection', function(socket) {
         posts.find().sort({Votes: -1}).limit(20).toArray(function (err, array) {
             for(var i = 0; i < array.length; i++){
                 socket.emit('TopImages',JSON.stringify({
-                    Image: array[i].Image,
+                    ImageFull: array[i].ImageFull,
+                    ImageThumb: array[i].ImageThumb,
                     ID: array[i].ID,
                     HashTag: array[i].HashTag,
                     Votes: array[i].Votes
