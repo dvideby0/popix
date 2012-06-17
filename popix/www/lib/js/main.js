@@ -2,7 +2,7 @@ var socket = io.connect('http://apps.moby.io:8989');
 $(document).on('pageinit','[data-role=page]', function(){
     $('[data-position=fixed]').fixedtoolbar({ tapToggle:false });
 });
-var DeviceID
+var DeviceID;
 function AssignVars(){
     DeviceID = device.uuid;
 }
@@ -22,7 +22,7 @@ function TakePicture(){
 
     function onSuccess(imageData) {
         $('#HashTag').val('');
-        $("#HTForm").slideDown("slow");
+        $.mobile.changePage( "#HTForm", { transition: "none"} );
         ImageData = imageData;
     }
 
@@ -51,7 +51,7 @@ function SendPicture(){
         );
     }
     else{
-        $("#HTForm").slideUp("slow");
+        $('#HTForm').dialog('close')
         socket.emit('ClientSendImage', {Author: device.uuid, Image: ImageData, HashTag: $('#HashTag').val(), Anonymous: parseInt($('#Anonymous').val())});
     }
 }

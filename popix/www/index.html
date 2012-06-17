@@ -12,8 +12,14 @@
     <link rel="stylesheet" href="lib/css/style.css">
     <script type="text/javascript" charset="utf-8" src="lib/js/cordova-1.7.0.js"></script>
     <script type="text/javascript" src="lib/js/jquery.js"></script>
+    <script type="text/javascript">
+        $(document).bind("mobileinit", function(){
+            $.extend(  $.mobile , {
+                defaultPageTransition: "none"
+            });
+        });
+    </script>
     <script type="text/javascript" src="lib/js/klass.min.js"></script>
-
     <script type="text/javascript" src="lib/jqm/js/jquery.mobile-1.1.0.min.js"></script>
     <script src='http://apps.moby.io:8989/socket.io/socket.io.js'></script>
     <script type="text/javascript" src="lib/js/code.photoswipe.jquery-3.0.4.min.js"></script>
@@ -25,21 +31,9 @@
         <div data-id="Header" data-role="header" data-position="fixed">
             POPIX
             <a href="javascript:" id="UserCount" style="margin-top: 3px;">Online: </a>
-            <a href="javascript:OpenDialoge();" style="margin-top: 3px;">Settings</a>
+            <a href="javascript:" style="margin-top: 3px;">Settings</a>
         </div>
         <div id="MainContent" data-role="content" style="margin: 0 !important; padding: 0 !important;">
-            <center><div id="HTForm">
-                <h3>Please tag your photo</h3>
-                <input id="HashTag" type="text">
-                <p>
-                    Anonymous:
-                    <select style="height: 40px;" id="Anonymous" data-role="slider" data-theme="b" data-mini="true">
-                        <option value=0>Off</option>
-                        <option value=1>On</option>
-                    </select>
-                </p>
-                <button onclick="SendPicture();">Submit</button>
-            </div></center>
             <ul class="gallery" id="TopImageList">
             </ul>
             <ul class="gallery" id="MyImageList">
@@ -53,6 +47,18 @@
             <a href="javascript:GetUserImages();">My Pix</a>
             <a id="CaptureBtn" href="javascript:TakePicture();">Capture</a>
         </div>
+    </div>
+    <div data-role="dialog" id="HTForm">
+        <h3>Please tag your photo</h3>
+        <center><input id="HashTag" type="text"></center>
+        <p>
+            Anonymous:
+            <select style="height: 40px;" id="Anonymous" data-role="slider" data-theme="b" data-mini="true">
+                <option value=0>Off</option>
+                <option value=1>On</option>
+            </select>
+        </p>
+        <button onclick="SendPicture();">Submit</button>
     </div>
 </body>
 </html>
