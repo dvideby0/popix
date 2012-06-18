@@ -14,7 +14,6 @@ var app = http.createServer(function(req, res) {
     res.writeHead(200, {'Content-Type': 'text/html'});
     res.end();
 });
-var Users = 0;
 var io = require('socket.io').listen(app);
 io.enable('browser client minification');
 io.enable('browser client etag');
@@ -24,8 +23,6 @@ var db = server.db("popix");
 var posts = db.collection("posts");
 var votes = db.collection("votes");
 io.sockets.on('connection', function(socket) {
-    Users = Users + 1;
-    io.sockets.emit('UserCount', Users);
     socket.on('ClientSendImage', function(msg){
         var UUID = uuid.v1();
         posts.insert({
@@ -35,6 +32,7 @@ io.sockets.on('connection', function(socket) {
             ImageFull: 'https://s3.amazonaws.com/popix/imgposts/full/' + UUID + '.jpg',
             ImageThumb: 'https://s3.amazonaws.com/popix/imgposts/thumb/' + UUID + '.jpg',
             Votes: 0,
+            Caption: msg.Caption,
             HashTag: msg.HashTag,
             Anonymous: msg.Anonymous
         });

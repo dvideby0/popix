@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c6592f20-744a-4f9f-a6d8-85012901d3f3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/popix/popix.xcodeproj/project.xcworkspace/xcuserdata/rbrookfield.xcuserdatad/UserInterfaceState.xcuserstate" afterPath="$PROJECT_DIR$/popix/popix.xcodeproj/project.xcworkspace/xcuserdata/rbrookfield.xcuserdatad/UserInterfaceState.xcuserstate" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/popix/www/index.html" afterPath="$PROJECT_DIR$/popix/www/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/popix/www/lib/css/style.css" afterPath="$PROJECT_DIR$/popix/www/lib/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/popix/Server/popix.js" afterPath="$PROJECT_DIR$/popix/Server/popix.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/popix/www/lib/js/main.js" afterPath="$PROJECT_DIR$/popix/www/lib/js/main.js" />
     </list>
     <ignored path="popix.iws" />
@@ -36,19 +35,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/popix/www/lib/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="99" column="146" selection-start="3500" selection-end="3500" vertical-scroll-proportion="0.11255411">
+            <state line="117" column="9" selection-start="4581" selection-end="4581" vertical-scroll-proportion="-29.538462">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="1-popix.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="1-popix.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$USER_HOME$/Library/Caches/TemporaryItems/1-popix.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="33" selection-start="1223" selection-end="1223" vertical-scroll-proportion="8.653846">
+            <state line="58" column="31" selection-start="2056" selection-end="2056" vertical-scroll-proportion="0.19121814">
               <folding />
             </state>
           </provider>
@@ -96,13 +95,13 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$USER_HOME$/Library/Caches/TemporaryItems/1-mongo.js" />
         <option value="$PROJECT_DIR$/popix/www/lib/css/photoswipe.css" />
-        <option value="$PROJECT_DIR$/popix/Server/popix.js" />
         <option value="$PROJECT_DIR$/popix/www/lib/js/windget.js" />
         <option value="$PROJECT_DIR$/popix/www/lib/css/cbox.css" />
         <option value="$PROJECT_DIR$/popix/www/index.html" />
         <option value="$PROJECT_DIR$/popix/www/lib/css/style.css" />
         <option value="$USER_HOME$/Library/Caches/TemporaryItems/1-popix.js" />
         <option value="$PROJECT_DIR$/popix/www/lib/js/main.js" />
+        <option value="$PROJECT_DIR$/popix/Server/popix.js" />
       </list>
     </option>
   </component>
@@ -428,13 +427,6 @@
         <state line="152" column="176" selection-start="71137" selection-end="71149" vertical-scroll-proportion="0.6103896" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/popix/Server/popix.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="132" column="17" selection-start="4939" selection-end="4939" vertical-scroll-proportion="2.7049181">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/popix/www/lib/js/jquery.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="4" column="0" selection-start="94848" selection-end="94848" vertical-scroll-proportion="0.0" />
@@ -463,16 +455,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Library/Caches/TemporaryItems/1-popix.js">
+    <entry file="file://$PROJECT_DIR$/popix/www/lib/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="33" selection-start="1223" selection-end="1223" vertical-scroll-proportion="8.653846">
+        <state line="117" column="9" selection-start="4581" selection-end="4581" vertical-scroll-proportion="-29.538462">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/popix/www/lib/js/main.js">
+    <entry file="file://$PROJECT_DIR$/popix/Server/popix.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="99" column="146" selection-start="3500" selection-end="3500" vertical-scroll-proportion="0.11255411">
+        <state line="130" column="17" selection-start="4894" selection-end="4894" vertical-scroll-proportion="2.0860655">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Caches/TemporaryItems/1-popix.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="58" column="31" selection-start="2056" selection-end="2056" vertical-scroll-proportion="0.19121814">
           <folding />
         </state>
       </provider>

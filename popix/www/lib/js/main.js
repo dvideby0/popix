@@ -104,13 +104,18 @@ socket.on('UserImages', function(msg){
         allowUserZoom: false,
         imageScaleMethod: 'zoom',
         getToolbar: function(){
-            return '<div class="ps-toolbar-close"><div class="ps-toolbar-content"></div>' +
-                '</div><div class="ps-toolbar-play"><div class="ps-toolbar-content"></div>' +
-                '</div><div class="ps-toolbar-previous"><div class="ps-toolbar-content"></div>' +
-                '</div><div class="ps-toolbar-next"><div class="ps-toolbar-content"></div>';
+            return '<div class="ps-toolbar-close"><div class="ps-toolbar-content"></div></div>' +
+                '<div class="ps-toolbar-play"><div class="ps-toolbar-content"></div></div>' +
+                '<div class="ps-toolbar-previous"><div class="ps-toolbar-content"></div></div>' +
+                '<div class="ps-toolbar-next"><div class="ps-toolbar-content"></div></div>' +
+                '<div id="SayHi"><img id="ThumbsUp" src="lib/images/thumbs.png" alt=""></div>';
         }
     });
     myPhotoSwipe.addEventHandler(window.Code.PhotoSwipe.EventTypes.onToolbarTap, function(e){
+        if($(e.tapTarget).attr('id') == 'ThumbsUp'){
+            var ImgObj = topPhotoSwipe.getCurrentImage();
+            socket.emit('VoteUp', {ImageID: ImgObj.refObj.id, UserID: DeviceID});
+        }
     });
 });
 socket.on('TopImages', function(msg){
