@@ -30,8 +30,8 @@
     <div id="MainPage" data-role="page" class="gallery-page">
         <div data-id="Header" data-role="header" data-position="fixed">
             POPIX
-            <a href="javascript:" id="UserCount" style="margin-top: 3px;">Online: </a>
-            <a href="javascript:" style="margin-top: 3px;">Settings</a>
+            <a class="HeaderBtn" href="javascript:" style="margin-top: 3px;">Search</a>
+            <a class="HeaderBtn" href="javascript:" style="margin-top: 3px;">Settings</a>
         </div>
         <div id="MainContent" data-role="content" style="margin: 0 !important; padding: 0 !important;">
             <ul class="gallery" id="TopImageList">
@@ -42,14 +42,16 @@
             </ul>
         </div>
         <div data-id="Footer" data-role="footer" data-position="fixed">
-            <a href="javascript:GetFeedImages();">Pix Feed</a>
-            <a href="javascript:GetTopImages();">Top Pix</a>
-            <a href="javascript:GetUserImages();">My Pix</a>
+            <a class="FooterBtn" href="javascript:GetFeedImages();">Pix Feed</a>
+            <a class="FooterBtn" href="javascript:GetTopImages();">Top Pix</a>
+            <a class="FooterBtn" href="javascript:GetUserImages();">My Pix</a>
             <a id="CaptureBtn" href="javascript:TakePicture();">Capture</a>
         </div>
     </div>
     <div data-role="dialog" id="HTForm">
-        <h3>Please tag your photo</h3>
+        <h3>Caption</h3>
+        <center><input id="Caption" type="text"></center>
+        <h3>Tags</h3>
         <center><input id="HashTag" type="text"></center>
         <p>
             Anonymous:

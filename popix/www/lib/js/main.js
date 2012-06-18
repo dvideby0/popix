@@ -11,8 +11,9 @@ var mainPhotoSwipe;
 var myPhotoSwipe;
 var topPhotoSwipe;
 var ImageData;
+function DoNothing(){}
 function TakePicture(){
-    navigator.camera.getPicture(onSuccess, onFail, {
+    navigator.camera.getPicture(onSuccess, DoNothing, {
         quality: 30,
         destinationType: Camera.DestinationType.DATA_URL,
         encodingType: Camera.EncodingType.JPEG,
@@ -22,15 +23,11 @@ function TakePicture(){
 
     function onSuccess(imageData) {
         $('#HashTag').val('');
+        $('#Caption').val('');
         $.mobile.changePage( "#HTForm", { transition: "none"} );
         ImageData = imageData;
     }
-
-    function onFail(message) {
-        alert('Failed because: ' + message);
-    }
 }
-function DoNothing(){}
 function GetFeedImages(){
     $('ul').hide();
     $('#ImageList').show();
@@ -52,7 +49,12 @@ function SendPicture(){
     }
     else{
         $('#HTForm').dialog('close')
-        socket.emit('ClientSendImage', {Author: device.uuid, Image: ImageData, HashTag: $('#HashTag').val(), Anonymous: parseInt($('#Anonymous').val())});
+        socket.emit('ClientSendImage', {
+            Author: device.uuid,
+            Image: ImageData,
+            HashTag: $('#HashTag').val(),
+            Caption: $('#Caption').val(),
+            Anonymous: parseInt($('#Anonymous').val())});
     }
 }
 socket.on('NewImage', function(msg){
@@ -61,7 +63,7 @@ socket.on('NewImage', function(msg){
             PhotoSwipe.detatch(mainPhotoSwipe);
         }
     }(window.Code.PhotoSwipe));
-    $('#ImageList').append('<li><a id="' + msg.ID + '" href="' + msg.ImageFull + '" rel="external"><img src="' + msg.ImageThumb + '" alt="' + msg.HashTag + '"></a></li>');
+    $('#ImageList').append('<li><a id="' + msg.ID + '" href="' + msg.ImageFull + '" rel="external"><img src="' + msg.ImageThumb + '" alt="' + msg.Caption + '"></a></li>');
     mainPhotoSwipe = $("#ImageList a").photoSwipe({
         captionAndToolbarOpacity: 1,
         captionAndToolbarAutoHideDelay: 0,
@@ -82,10 +84,6 @@ socket.on('NewImage', function(msg){
         }
     });
 });
-socket.on('UserCount', function(msg){
-    $('#UserCount .ui-btn-text').text('Online: ' + msg);
-
-});
 function GetUserImages(){
     $('#MyImageList').empty();
     $('ul').hide();
@@ -99,7 +97,7 @@ socket.on('UserImages', function(msg){
             PhotoSwipe.detatch(myPhotoSwipe);
         }
     }(window.Code.PhotoSwipe));
-    $('#MyImageList').append('<li><a href="' + msg.ImageFull + '" rel="external" alt="' + msg.HashTag + '"><img src="' + msg.ImageThumb + '" alt="Tag: ' + msg.HashTag + ' Votes: ' + msg.Votes + '"></a></li>');
+    $('#MyImageList').append('<li><a href="' + msg.ImageFull + '" rel="external" alt="' + msg.HashTag + '"><img src="' + msg.ImageThumb + '" alt="' + msg.Caption + ' Votes: ' + msg.Votes + '"></a></li>');
     myPhotoSwipe = $("#MyImageList a").photoSwipe({
         captionAndToolbarOpacity: 1,
         captionAndToolbarAutoHideDelay: 0,
@@ -122,7 +120,7 @@ socket.on('TopImages', function(msg){
             PhotoSwipe.detatch(topPhotoSwipe);
         }
     }(window.Code.PhotoSwipe));
-    $('#TopImageList').append('<li><a id="' + msg.ID + '" href="' + msg.ImageFull + '" rel="external"><img src="' + msg.ImageThumb + '" alt="Tag: ' + msg.HashTag + ' Votes: ' + msg.Votes + '"></a></li>');
+    $('#TopImageList').append('<li><a id="' + msg.ID + '" href="' + msg.ImageFull + '" rel="external"><img src="' + msg.ImageThumb + '" alt="' + msg.Caption + ' Votes: ' + msg.Votes + '"></a></li>');
     topPhotoSwipe = $("#TopImageList a").photoSwipe({
         captionAndToolbarOpacity: 1,
         captionAndToolbarAutoHideDelay: 0,

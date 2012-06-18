@@ -80,24 +80,24 @@ div.ui-slider-switch.ui-slider-mini a.ui-slider-handle .ui-btn-inner {
     margin: 0;
 }
 #CaptureBtn .ui-btn-corner-all{
+    background-image: linear-gradient(bottom, rgb(194,11,39) 48%, rgb(250,70,70) 56%);
+    background-image: -o-linear-gradient(bottom, rgb(194,11,39) 48%, rgb(250,70,70) 56%);
+    background-image: -moz-linear-gradient(bottom, rgb(194,11,39) 48%, rgb(250,70,70) 56%);
+    background-image: -webkit-linear-gradient(bottom, rgb(194,11,39) 48%, rgb(250,70,70) 56%);
+    background-image: -ms-linear-gradient(bottom, rgb(194,11,39) 48%, rgb(250,70,70) 56%);
+    border-color: #292929;
+    border-radius: 3px;
+    color: #ffffff;
+}
+#CaptureBtn .ui-btn-text, .HeaderBtn .ui-btn-text{
+    text-shadow: 0 -1px 0 #000000;
+}
+.HeaderBtn .ui-btn-corner-all{
     background-image: linear-gradient(bottom, rgb(84,103,179) 49%, rgb(111,141,212) 56%, rgb(138,159,235) 87%);
     background-image: -o-linear-gradient(bottom, rgb(84,103,179) 49%, rgb(111,141,212) 56%, rgb(138,159,235) 87%);
     background-image: -moz-linear-gradient(bottom, rgb(84,103,179) 49%, rgb(111,141,212) 56%, rgb(138,159,235) 87%);
     background-image: -webkit-linear-gradient(bottom, rgb(84,103,179) 49%, rgb(111,141,212) 56%, rgb(138,159,235) 87%);
     background-image: -ms-linear-gradient(bottom, rgb(84,103,179) 49%, rgb(111,141,212) 56%, rgb(138,159,235) 87%);
-    border-color: #292929;
-    border-radius: 3px;
-    color: #ffffff;
-}
-#CaptureBtn .ui-btn-text, #UserCount .ui-btn-text{
-    text-shadow: 0px 1px 0px #000000;
-}
-#UserCount .ui-btn-corner-all{
-    background-image: linear-gradient(bottom, rgb(124,168,70) 49%, rgb(112,212,112) 56%, rgb(138,235,138) 87%);
-    background-image: -o-linear-gradient(bottom, rgb(124,168,70) 49%, rgb(112,212,112) 56%, rgb(138,235,138) 87%);
-    background-image: -moz-linear-gradient(bottom, rgb(124,168,70) 49%, rgb(112,212,112) 56%, rgb(138,235,138) 87%);
-    background-image: -webkit-linear-gradient(bottom, rgb(124,168,70) 49%, rgb(112,212,112) 56%, rgb(138,235,138) 87%);
-    background-image: -ms-linear-gradient(bottom, rgb(124,168,70) 49%, rgb(112,212,112) 56%, rgb(138,235,138) 87%);
     border-color: #292929;
     border-radius: 3px;
     color: #ffffff;
