@@ -80,17 +80,17 @@ div.ui-slider-switch.ui-slider-mini a.ui-slider-handle .ui-btn-inner {
     margin: 0;
 }
 #CaptureBtn .ui-btn-corner-all{
-    background-image: linear-gradient(bottom, rgb(194,11,39) 48%, rgb(250,70,70) 56%);
-    background-image: -o-linear-gradient(bottom, rgb(194,11,39) 48%, rgb(250,70,70) 56%);
-    background-image: -moz-linear-gradient(bottom, rgb(194,11,39) 48%, rgb(250,70,70) 56%);
-    background-image: -webkit-linear-gradient(bottom, rgb(194,11,39) 48%, rgb(250,70,70) 56%);
-    background-image: -ms-linear-gradient(bottom, rgb(194,11,39) 48%, rgb(250,70,70) 56%);
+    background-image: linear-gradient(bottom, rgb(199,42,42) 48%, rgb(250,75,75) 53%);
+    background-image: -o-linear-gradient(bottom, rgb(199,42,42) 48%, rgb(250,75,75) 53%);
+    background-image: -moz-linear-gradient(bottom, rgb(199,42,42) 48%, rgb(250,75,75) 53%);
+    background-image: -webkit-linear-gradient(bottom, rgb(199,42,42) 48%, rgb(250,75,75) 53%);
+    background-image: -ms-linear-gradient(bottom, rgb(199,42,42) 48%, rgb(250,75,75) 53%);
     border-color: #292929;
     border-radius: 3px;
     color: #ffffff;
 }
-#CaptureBtn .ui-btn-text, .HeaderBtn .ui-btn-text{
-    text-shadow: 0 -1px 0 #000000;
+#CaptureBtn .ui-btn-text, .HeaderBtn .ui-btn-text, .FooterBtn .ui-btn-text{
+    text-shadow: 0 0 0.3em #000000;
 }
 .HeaderBtn .ui-btn-corner-all{
     background-image: linear-gradient(bottom, rgb(84,103,179) 49%, rgb(111,141,212) 56%, rgb(138,159,235) 87%);
@@ -98,6 +98,16 @@ div.ui-slider-switch.ui-slider-mini a.ui-slider-handle .ui-btn-inner {
     background-image: -moz-linear-gradient(bottom, rgb(84,103,179) 49%, rgb(111,141,212) 56%, rgb(138,159,235) 87%);
     background-image: -webkit-linear-gradient(bottom, rgb(84,103,179) 49%, rgb(111,141,212) 56%, rgb(138,159,235) 87%);
     background-image: -ms-linear-gradient(bottom, rgb(84,103,179) 49%, rgb(111,141,212) 56%, rgb(138,159,235) 87%);
+    border-color: #292929;
+    border-radius: 3px;
+    color: #ffffff;
+}
+.FooterBtn .ui-btn-corner-all{
+    background-image: linear-gradient(bottom, rgb(242,137,24) 48%, rgb(255,185,99) 53%);
+    background-image: -o-linear-gradient(bottom, rgb(242,137,24) 48%, rgb(255,185,99) 53%);
+    background-image: -moz-linear-gradient(bottom, rgb(242,137,24) 48%, rgb(255,185,99) 53%);
+    background-image: -webkit-linear-gradient(bottom, rgb(242,137,24) 48%, rgb(255,185,99) 53%);
+    background-image: -ms-linear-gradient(bottom, rgb(242,137,24) 48%, rgb(255,185,99) 53%);
     border-color: #292929;
     border-radius: 3px;
     color: #ffffff;

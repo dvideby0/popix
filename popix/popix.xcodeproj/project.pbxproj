@@ -39,6 +39,10 @@
 		EE605599158318B90069492C /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE605598158318B90069492C /* MainViewController.xib */; };
 		EE60559D158318B90069492C /* verify.sh in Resources */ = {isa = PBXBuildFile; fileRef = EE60559C158318B90069492C /* verify.sh */; };
 		EE6055A4158318FD0069492C /* www in Resources */ = {isa = PBXBuildFile; fileRef = EE6055A3158318FD0069492C /* www */; };
+		EEFE32191590090500CD29DE /* ChildBrowser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EEFE32131590090500CD29DE /* ChildBrowser.bundle */; };
+		EEFE321A1590090500CD29DE /* ChildBrowserCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = EEFE32151590090500CD29DE /* ChildBrowserCommand.m */; };
+		EEFE321B1590090500CD29DE /* ChildBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEFE32171590090500CD29DE /* ChildBrowserViewController.m */; };
+		EEFE321C1590090500CD29DE /* ChildBrowserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEFE32181590090500CD29DE /* ChildBrowserViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +84,12 @@
 		EE60559B158318B90069492C /* README */ = {isa = PBXFileReference; lastKnownFileType = text; name = README; path = Plugins/README; sourceTree = "<group>"; };
 		EE60559C158318B90069492C /* verify.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = verify.sh; sourceTree = "<group>"; };
 		EE6055A3158318FD0069492C /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = "<group>"; };
+		EEFE32131590090500CD29DE /* ChildBrowser.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ChildBrowser.bundle; sourceTree = "<group>"; };
+		EEFE32141590090500CD29DE /* ChildBrowserCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildBrowserCommand.h; sourceTree = "<group>"; };
+		EEFE32151590090500CD29DE /* ChildBrowserCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildBrowserCommand.m; sourceTree = "<group>"; };
+		EEFE32161590090500CD29DE /* ChildBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildBrowserViewController.h; sourceTree = "<group>"; };
+		EEFE32171590090500CD29DE /* ChildBrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildBrowserViewController.m; sourceTree = "<group>"; };
+		EEFE32181590090500CD29DE /* ChildBrowserViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChildBrowserViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -257,6 +267,12 @@
 		EE60559A158318B90069492C /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
+				EEFE32131590090500CD29DE /* ChildBrowser.bundle */,
+				EEFE32141590090500CD29DE /* ChildBrowserCommand.h */,
+				EEFE32151590090500CD29DE /* ChildBrowserCommand.m */,
+				EEFE32161590090500CD29DE /* ChildBrowserViewController.h */,
+				EEFE32171590090500CD29DE /* ChildBrowserViewController.m */,
+				EEFE32181590090500CD29DE /* ChildBrowserViewController.xib */,
 				EE60559B158318B90069492C /* README */,
 			);
 			name = Plugins;
@@ -334,6 +350,8 @@
 				EE605599158318B90069492C /* MainViewController.xib in Resources */,
 				EE60559D158318B90069492C /* verify.sh in Resources */,
 				EE6055A4158318FD0069492C /* www in Resources */,
+				EEFE32191590090500CD29DE /* ChildBrowser.bundle in Resources */,
+				EEFE321C1590090500CD29DE /* ChildBrowserViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,6 +381,8 @@
 				EE60556C158318B80069492C /* main.m in Sources */,
 				EE605594158318B90069492C /* AppDelegate.m in Sources */,
 				EE605597158318B90069492C /* MainViewController.m in Sources */,
+				EEFE321A1590090500CD29DE /* ChildBrowserCommand.m in Sources */,
+				EEFE321B1590090500CD29DE /* ChildBrowserViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -28,13 +28,26 @@ function TakePicture(){
         ImageData = imageData;
     }
 }
+function OpenCB(page){
+    var cb = window.plugins.childBrowser;
+    if(cb != null)
+    {
+        cb.onLocationChange = function(loc){ root.locChanged(loc); };
+        cb.onClose = function(){root.onCloseBrowser()};
+        cb.onOpenExternal = function(){root.onOpenExternal();};
+        window.plugins.childBrowser.showWebPage(page);
+
+    }
+}
 function GetFeedImages(){
     $('ul').hide();
+    $('body').scrollTop(0);
     $('#ImageList').show();
 }
 function GetTopImages(){
     $('#TopImageList').empty();
     $('ul').hide();
+    $('body').scrollTop(0);
     $('#TopImageList').show();
     socket.emit('GetTopImages','');
 }
@@ -48,7 +61,7 @@ function SendPicture(){
         );
     }
     else{
-        $('#HTForm').dialog('close')
+        $('#HTForm').dialog('close');
         socket.emit('ClientSendImage', {
             Author: device.uuid,
             Image: ImageData,
@@ -87,6 +100,7 @@ socket.on('NewImage', function(msg){
 function GetUserImages(){
     $('#MyImageList').empty();
     $('ul').hide();
+    $('body').scrollTop(0);
     $('#MyImageList').show();
     socket.emit('GetUserImages', device.uuid);
 }
@@ -113,7 +127,7 @@ socket.on('UserImages', function(msg){
     });
     myPhotoSwipe.addEventHandler(window.Code.PhotoSwipe.EventTypes.onToolbarTap, function(e){
         if($(e.tapTarget).attr('id') == 'ThumbsUp'){
-            var ImgObj = topPhotoSwipe.getCurrentImage();
+            var ImgObj = myPhotoSwipe.getCurrentImage();
             socket.emit('VoteUp', {ImageID: ImgObj.refObj.id, UserID: DeviceID});
         }
     });
