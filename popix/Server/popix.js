@@ -61,29 +61,29 @@ io.sockets.on('connection', function(socket) {
                 'Content-Length': stdout.length,
                 'Content-Type': 'image/jpeg'
             });
+            req.on('response', function(){
+                io.sockets.emit('NewImage', {
+                    ImageThumb: 'https://s3.amazonaws.com/popix/imgposts/thumb/' + UUID + '.jpg',
+                    ImageFull: 'https://s3.amazonaws.com/popix/imgposts/full/' + UUID + '.jpg',
+                    Sender: msg.Author,
+                    Caption: msg.Caption,
+                    ID: UUID
+                });
+            });
             req.end(imgBuffer);
-        });
-        socket.broadcast.emit('NewImage', {
-            ImageThumb: 'https://s3.amazonaws.com/popix/imgposts/thumb/' + UUID + '.jpg',
-            ImageFull: 'https://s3.amazonaws.com/popix/imgposts/full/' + UUID + '.jpg',
-            Sender: msg.Author,
-            HashTag: msg.HashTag,
-            ID: UUID
         });
 
     });
     socket.on('disconnect', function () {
-        Users = Users - 1;
-        socket.broadcast.emit('UserCount', Users);
     });
     socket.on('GetUserImages', function (msg) {
-        posts.find({User: msg}, {ImageFull:1, ImageThumb:1, HashTag:1, Votes:1, ID:1}).toArray(function (err, array) {
+        posts.find({User: msg}, {ImageFull:1, ImageThumb:1, Caption:1, Votes:1, ID:1}).toArray(function (err, array) {
             for(var i = 0; i < array.length; i++){
                 socket.emit('UserImages',JSON.stringify({
                     ImageFull: array[i].ImageFull,
                     ImageThumb: array[i].ImageThumb,
                     ID: array[i].ID,
-                    HashTag: array[i].HashTag,
+                    Caption: array[i].Caption,
                     Votes: array[i].Votes
                 }));
             }
@@ -121,7 +121,7 @@ io.sockets.on('connection', function(socket) {
                     ImageFull: array[i].ImageFull,
                     ImageThumb: array[i].ImageThumb,
                     ID: array[i].ID,
-                    HashTag: array[i].HashTag,
+                    Caption: array[i].Caption,
                     Votes: array[i].Votes
                 }));
             }
