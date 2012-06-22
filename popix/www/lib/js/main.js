@@ -9,7 +9,7 @@ function AssignVars(){
 function AlertKey(){
     $.ajax({
         type: 'GET',
-        url: 'https://graph.facebook.com/me?fields=id,name&access_token=AAACEdEose0cBAP8smK3DYpTAJ9HCgZA1RBSxmS0RFzcFZAgnxLNpUa71XdEsB6x6PmwQOMaGhEeqvdQ0hBZCqI0XQUTMZALyV5uGhyaLZBgPf8G2GBsxX',
+        url: 'https://graph.facebook.com/me?fields=id,name&access_token=' + window.localStorage.getItem(window.plugins.fbConnect.facebookkey),
         cache: false,
         dataType: 'json',
         complete: function (xhrObj) {

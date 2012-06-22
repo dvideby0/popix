@@ -57,6 +57,10 @@
 #LoginContent img{
     padding-top: 50px;
 }
+.LoginFooter{
+    font-family: 'MarkerFelt-Wide';
+    font-size: 20px;
+}
 .MMIcon{
     border: 5px solid;
     border-color: #444444;
