@@ -163,3 +163,26 @@ socket.on('TopImages', function(msg){
 socket.on('Error', function(msg){
     navigator.notification.alert(msg, DoNothing, 'Error', 'OK')
 });
+var facebookkey = "facebook";
+
+function InitializeFB(){
+    var facebookoptions = {        // create an application in facebook  and populate the values below
+        consumerKey: '379478488778007',
+        consumerSecret: '5d11396e67edc8eb60e64d74cf1220a7',
+        callbackUrl: 'http://www.facebook.com/connect/login_success.html' };
+    var fb = FBConnect.install();
+    fb.connect(facebookoptions);
+    fb.onConnect = onFacebookConnected;
+};
+
+function onFacebookConnected() {
+    var access_token = window.localStorage.getItem(window.plugins.fbConnect.facebookkey);
+    var req = window.plugins.fbConnect.getUser();
+    req.onload = facebook_register;
+}
+
+function facebook_register( data ) {
+    var user = JSON.parse(data.target.responseText);
+    var oauth_token = window.localStorage.getItem(window.plugins.fbConnect.facebookkey);
+    //you own application logic to store user details in database.
+}
