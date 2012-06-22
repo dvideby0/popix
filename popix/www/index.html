@@ -12,9 +12,6 @@
     <link rel="stylesheet" href="lib/css/style.css">
     <script type="text/javascript" charset="utf-8" src="lib/js/cordova-1.7.0.js"></script>
     <script type="text/javascript" src="lib/js/ChildBrowser.js"></script>
-    <script type="text/javascript" src="lib/js/jsOAuth-1.3.1.js"></script>
-    <script type="text/javascript" src="lib/js/FBConnect.js"></script>
-    <script type="text/javascript" src="lib/js/TwitterConnect.js"></script>
     <script type="text/javascript" src="lib/js/jquery.js"></script>
     <script type="text/javascript">
         $(document).bind("mobileinit", function(){
@@ -27,14 +24,18 @@
     <script type="text/javascript" src="lib/jqm/js/jquery.mobile-1.1.0.min.js"></script>
     <script src='http://apps.moby.io:8989/socket.io/socket.io.js'></script>
     <script type="text/javascript" src="lib/js/code.photoswipe.jquery-3.0.4.min.js"></script>
+    <script type="text/javascript" src="lib/js/jsOAuth-1.3.1.js"></script>
+    <script type="text/javascript" src="lib/js/FBConnect.js"></script>
+    <script type="text/javascript" src="lib/js/TwitterConnect.js"></script>
     <script type="text/javascript" src="lib/js/main.js"></script>
+
 </head>
 <body>
 
     <div id="MainPage" data-role="page" class="gallery-page">
         <div data-id="Header" data-role="header" data-position="fixed">
             POPIX
-            <a class="HeaderBtn" href="javascript:OpenCB('http://apps.moby.io')" style="margin-top: 3px;">Search</a>
+            <a class="HeaderBtn" href="javascript:AlertKey();" style="margin-top: 3px;">Search</a>
             <a class="HeaderBtn" id="facebook_button" href="javascript:InitializeFB();" style="margin-top: 3px;">Settings</a>
         </div>
         <div id="MainContent" data-role="content" style="margin: 0 !important; padding: 0 !important;">

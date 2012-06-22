@@ -1,13 +1,11 @@
 /* MIT licensed */
 // (c) 2010 Jesse MacFadyen, Nitobi
 
-
-(function() {
-
-var cordovaRef = window.PhoneGap || window.Cordova || window.cordova; // old to new fallbacks
+/*global PhoneGap */
 
 function ChildBrowser() {
     // Does nothing
+    this.isActive = false;
 }
 
 // Callback when the location of the page changes
@@ -21,6 +19,7 @@ ChildBrowser._onLocationChange = function(newLoc)
 // called from native
 ChildBrowser._onClose = function()
 {
+    window.plugins.childBrowser.isActive = false;
     window.plugins.childBrowser.onClose();
 };
 
@@ -46,13 +45,24 @@ ChildBrowser._onJSCallback = function(js,loc)
 // Show a webpage, will result in a callback to onLocationChange
 ChildBrowser.prototype.showWebPage = function(loc)
 {
-    cordovaRef.exec("ChildBrowserCommand.showWebPage", loc);
+    if(!this.isActive)
+    {
+        PhoneGap.exec("ChildBrowserCommand.showWebPage", loc);
+        this.isActive = true;
+    }
+    else
+    {
+        console.log("oops, ChildBrowser is already active ...  consider calling close first.");
+
+    }
 };
 
 // close the browser, will NOT result in close callback
 ChildBrowser.prototype.close = function()
 {
-    cordovaRef.exec("ChildBrowserCommand.close");
+
+    PhoneGap.exec("ChildBrowserCommand.close");
+    this.isActive = false;
 };
 
 // Not Implemented
@@ -69,19 +79,7 @@ ChildBrowser.install = function()
     if(!window.plugins) {
         window.plugins = {};
     }
-        if ( ! window.plugins.childBrowser ) {
-        window.plugins.childBrowser = new ChildBrowser();
-    }
 
+    window.plugins.childBrowser = new ChildBrowser();
+    return window.plugins.childBrowser;
 };
-
-
-if (cordovaRef && cordovaRef.addConstructor) {
-    cordovaRef.addConstructor(ChildBrowser.install);
-} else {
-    console.log("ChildBrowser Cordova Plugin could not be installed.");
-    return null;
-}
-
-
-})();

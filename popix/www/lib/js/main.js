@@ -6,6 +6,9 @@ var DeviceID;
 function AssignVars(){
     DeviceID = device.uuid;
 }
+function AlertKey(){
+    alert(window.localStorage.getItem(window.plugins.fbConnect.facebookkey));
+}
 document.addEventListener("deviceready", AssignVars, false);
 var mainPhotoSwipe;
 var myPhotoSwipe;
@@ -26,17 +29,6 @@ function TakePicture(){
         $('#Caption').val('');
         $.mobile.changePage( "#HTForm", { transition: "none"} );
         ImageData = imageData;
-    }
-}
-function OpenCB(page){
-    var cb = window.plugins.childBrowser;
-    if(cb != null)
-    {
-        cb.onLocationChange = function(loc){ root.locChanged(loc); };
-        cb.onClose = function(){root.onCloseBrowser()};
-        cb.onOpenExternal = function(){root.onOpenExternal();};
-        window.plugins.childBrowser.showWebPage(page);
-
     }
 }
 function GetFeedImages(){
@@ -173,7 +165,7 @@ function InitializeFB(){
     var fb = FBConnect.install();
     fb.connect(facebookoptions);
     fb.onConnect = onFacebookConnected;
-};
+}
 
 function onFacebookConnected() {
     var access_token = window.localStorage.getItem(window.plugins.fbConnect.facebookkey);
@@ -181,8 +173,23 @@ function onFacebookConnected() {
     req.onload = facebook_register;
 }
 
-function facebook_register( data ) {
+function facebook_register(data) {
     var user = JSON.parse(data.target.responseText);
     var oauth_token = window.localStorage.getItem(window.plugins.fbConnect.facebookkey);
-    //you own application logic to store user details in database.
+}
+
+function PostFB(){
+        var facebookoptions = {        // create an application in facebook  and populate the values below
+            consumerKey: '379478488778007',
+            consumerSecret: '5d11396e67edc8eb60e64d74cf1220a7',
+            callbackUrl: 'http://www.facebook.com/connect/login_success.html' };
+        var fb = FBConnect.install();
+        fb.connect(facebookoptions);
+        fb.onConnect = onFacebookConnected;
+
+    function onFacebookConnected() {
+        var access_token = window.localStorage.getItem(window.plugins.fbConnect.facebookkey);
+        var req = window.plugins.fbConnect.wallPost('Candy Mountain Charlie');
+        req.onload = shared;
+    }
 }

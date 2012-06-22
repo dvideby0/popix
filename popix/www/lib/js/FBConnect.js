@@ -15,7 +15,7 @@ function FBConnect()
 FBConnect.prototype.connect = function(options)
 {
 	this.client_id = options.consumerKey;
-	this.client_secret = options.consumerSecret
+	this.client_secret = options.consumerSecret;
 	this.redirect_uri = options.callbackUrl;
 	oauth = OAuth(options);
 	var authorize_url  = "https://www.facebook.com/dialog/oauth?";
@@ -26,11 +26,11 @@ FBConnect.prototype.connect = function(options)
 		//authorize_url += "&type=user_agent";
 		authorize_url += "&scope=email,read_stream,publish_stream";
     
-	window.plugins.childBrowser.showWebPage(authorize_url, 
+	window.plugins.childBrowser.showWebPage(authorize_url,
 	            { showLocationBar : false });
 	var self = this;
 	window.plugins.childBrowser.onLocationChange = function(loc){self.onLocationChange(loc);};
-}
+};
 
 FBConnect.prototype.onLocationChange = function(loc)
 {
@@ -47,12 +47,12 @@ FBConnect.prototype.onLocationChange = function(loc)
     if (loc.indexOf("access_token") >= 0) {
 
     	var access_token = loc.match(/access_token=(.*)$/)[1];
-    	console.log("facebook token" + access_token); 
+    	console.log("facebook token: " + access_token);
     	window.localStorage.setItem(window.plugins.fbConnect.facebookkey, access_token);
     	window.plugins.childBrowser.close();
     	this.onConnect();
     }
-}
+};
 
 FBConnect.prototype.getUser = function()
 {
@@ -63,7 +63,7 @@ FBConnect.prototype.getUser = function()
 	req.send(null);
 	req.onerror = function(){alert("Error");};
 	return req;
-}
+};
 
 FBConnect.prototype.wallPost = function(message)
 {
@@ -86,5 +86,5 @@ FBConnect.install = function()
 	}
 	window.plugins.fbConnect = new FBConnect();
 	return window.plugins.fbConnect;
-}
+};
 
