@@ -47,8 +47,10 @@ FBConnect.prototype.onLocationChange = function(loc)
     if (loc.indexOf("access_token") >= 0) {
 
     	var access_token = loc.match(/access_token=(.*)$/)[1];
+        access_token = access_token.replace(/\&expires_in.*/, '');
     	console.log("facebook token: " + access_token);
     	window.localStorage.setItem(window.plugins.fbConnect.facebookkey, access_token);
+        $.mobile.changePage('#MainPage');
     	window.plugins.childBrowser.close();
     	this.onConnect();
     }

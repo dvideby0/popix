@@ -7,7 +7,16 @@ function AssignVars(){
     DeviceID = device.uuid;
 }
 function AlertKey(){
-    alert(window.localStorage.getItem(window.plugins.fbConnect.facebookkey));
+    $.ajax({
+        type: 'GET',
+        url: 'https://graph.facebook.com/me?fields=id,name&access_token=AAACEdEose0cBAP8smK3DYpTAJ9HCgZA1RBSxmS0RFzcFZAgnxLNpUa71XdEsB6x6PmwQOMaGhEeqvdQ0hBZCqI0XQUTMZALyV5uGhyaLZBgPf8G2GBsxX',
+        cache: false,
+        dataType: 'json',
+        complete: function (xhrObj) {
+            var Response = $.parseJSON(xhrObj.responseText);
+            alert('Hello: ' + Response.name + '\nUser ID: ' + Response.id);
+        }
+    });
 }
 document.addEventListener("deviceready", AssignVars, false);
 var mainPhotoSwipe;
@@ -176,20 +185,4 @@ function onFacebookConnected() {
 function facebook_register(data) {
     var user = JSON.parse(data.target.responseText);
     var oauth_token = window.localStorage.getItem(window.plugins.fbConnect.facebookkey);
-}
-
-function PostFB(){
-        var facebookoptions = {        // create an application in facebook  and populate the values below
-            consumerKey: '379478488778007',
-            consumerSecret: '5d11396e67edc8eb60e64d74cf1220a7',
-            callbackUrl: 'http://www.facebook.com/connect/login_success.html' };
-        var fb = FBConnect.install();
-        fb.connect(facebookoptions);
-        fb.onConnect = onFacebookConnected;
-
-    function onFacebookConnected() {
-        var access_token = window.localStorage.getItem(window.plugins.fbConnect.facebookkey);
-        var req = window.plugins.fbConnect.wallPost('Candy Mountain Charlie');
-        req.onload = shared;
-    }
 }

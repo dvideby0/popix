@@ -47,6 +47,16 @@
 #MyImageList{
     display: none;
 }
+#MainContent ul{
+    margin-top: 45px !important;
+    margin-bottom: 45px !important;
+}
+#LoginContent{
+    text-align: center;
+}
+#LoginContent img{
+    padding-top: 50px;
+}
 .MMIcon{
     border: 5px solid;
     border-color: #444444;
