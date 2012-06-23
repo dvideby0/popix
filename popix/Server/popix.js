@@ -5,6 +5,7 @@ var server = new Mongolian;
 var knox = require('knox');
 var fs = require('fs');
 var im = require('imagemagick');
+var url = require('url');
 var client = knox.createClient({
     key: 'AKIAJSCSCE45OUFCBTIA',
     secret: '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',
@@ -12,7 +13,7 @@ var client = knox.createClient({
 });
 var app = http.createServer(function(req, res) {
     res.writeHead(200, {'Content-Type': 'text/html'});
-    res.end();
+    res.end('Success!');
 });
 var io = require('socket.io').listen(app);
 io.enable('browser client minification');
@@ -69,6 +70,9 @@ io.sockets.on('connection', function(socket) {
                     Caption: msg.Caption,
                     ID: UUID
                 });
+                if(msg.Anonymous == 0){
+                    socket.emit('ImageURL', {URL:'https://s3.amazonaws.com/popix/imgposts/full/' + UUID + '.jpg', Caption: msg.Caption});
+                }
             });
             req.end(imgBuffer);
         });
