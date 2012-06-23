@@ -38,18 +38,17 @@
         <div id="LoginContent" data-role="content">
             <div>
                 <img onclick="InitializeFB();" src="lib/images/facebook-login.png">
-                <img src="lib/images/twitter-login.png">
+                <img onclick="InitializeTwitter();" src="lib/images/twitter-login.png">
             </div>
         </div>
         <div data-id="Footer" data-role="footer" data-position="fixed" class="LoginFooter">
-            <font color="#1e90ff">moby</font><font color="#7cfc00">io</font>
         </div>
     </div>
     <div id="MainPage" data-role="page" class="gallery-page">
         <div data-id="Header" data-role="header" data-position="fixed">
             POPIX
-            <a class="HeaderBtn" href="javascript:AlertKey();" style="margin-top: 3px;">Search</a>
-            <a class="HeaderBtn" id="facebook_button" href="javascript:" style="margin-top: 3px;">Settings</a>
+            <a class="HeaderBtn" href="javascript:" style="margin-top: 3px;">Search</a>
+            <a class="HeaderBtn" id="facebook_button" href="javascript:AlertTwitter()" style="margin-top: 3px;">Settings</a>
         </div>
         <div id="MainContent" data-role="content" style="margin: 0 !important; padding: 0 !important;">
             <ul class="gallery" id="TopImageList">

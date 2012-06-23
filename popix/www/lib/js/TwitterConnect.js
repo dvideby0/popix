@@ -24,21 +24,21 @@ TwitterConnect.prototype.connect = function(options)
                 if (typeof window.plugins.childBrowser.onLocationChange !== "function") {
                     window.plugins.childBrowser.onLocationChange = function(loc){
                     	   // If user hit "No, thanks" when asked to authorize access
-                        if (loc.indexOf("http://tastykhana.in/?denied") >= 0) {
-                            $('#oauthStatus').html('<span style="color:red;">User declined access</span>');
+                        if (loc.indexOf("http://moby.io:8989/?denied") >= 0) {
+                            alert('Access Denied');
                             window.plugins.childBrowser.close();
                             return;
                         }
 
                         // Same as above, but user went to app's homepage instead
                         // of back to app. Don't close the browser in this case.
-                        if (loc === "http://tastykhana.in") {
-                            $('#oauthStatus').html('<span style="color:red;">User declined access</span>');
+                        if (loc === "http://moby.io") {
+                            alert('You must accept in order to access');
                             return;
                         }
                         
                         // The supplied oauth_callback_url for this session is being loaded
-                        if (loc.indexOf("http://tastykhana.in") >= 0) {
+                        if (loc.indexOf("http://moby.io:8989") >= 0) {
                             var index, verifier = '';            
                             var params = loc.substr(loc.indexOf('?') + 1);
                             
@@ -68,19 +68,20 @@ TwitterConnect.prototype.connect = function(options)
                                         accessData.accessTokenSecret = accessParams.oauth_token_secret;
                                         console.log("AppLaudLog: Storing token key/secret in localStorage");
                                         window.localStorage.setItem(window.plugins.twitterConnect.twitterKey, JSON.stringify(accessData));
+                                        $.mobile.changePage('#MainPage');
                                         window.plugins.childBrowser.close();
                                         window.plugins.twitterConnect.onConnect();
                                 },
                                 function(data) { 
                                     console.log("AppLaudLog: 1 Error " + data.text); 
-                                    $('#oauthStatus').html('<span style="color:red;">Error during authorization</span>');
+                                    alert('Error during authorization');
                                 }
                             );
                         }
                     };
                 }
             },
-            function(data) { 
+            function(data) {
                 window.plugins.childBrowser.close();
             }
     );

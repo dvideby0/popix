@@ -3,10 +3,10 @@ $(document).on('pageinit','[data-role=page]', function(){
     $('[data-position=fixed]').fixedtoolbar({ tapToggle:false });
 });
 var DeviceID;
+var RealName;
 function AssignVars(){
-    DeviceID = device.uuid;
 }
-function AlertKey(){
+function LoginWithFB(){
     $.ajax({
         type: 'GET',
         url: 'https://graph.facebook.com/me?fields=id,name&access_token=' + window.localStorage.getItem(window.plugins.fbConnect.facebookkey),
@@ -14,9 +14,13 @@ function AlertKey(){
         dataType: 'json',
         complete: function (xhrObj) {
             var Response = $.parseJSON(xhrObj.responseText);
-            alert('Hello: ' + Response.name + '\nUser ID: ' + Response.id);
+            DeviceID = Response.id;
+            RealName = Response.name;
         }
     });
+}
+function AlertTwitter(){
+    alert(window.localStorage.getItem(window.plugins.twitterConnect.twitterKey));
 }
 document.addEventListener("deviceready", AssignVars, false);
 var mainPhotoSwipe;
@@ -64,13 +68,16 @@ function SendPicture(){
     else{
         $('#HTForm').dialog('close');
         socket.emit('ClientSendImage', {
-            Author: device.uuid,
+            Author: DeviceID,
             Image: ImageData,
             HashTag: $('#HashTag').val(),
             Caption: $('#Caption').val(),
             Anonymous: parseInt($('#Anonymous').val())});
     }
 }
+socket.on('ImageURL', function(msg){
+    window.plugins.fbConnect.photoPost('"' + msg.Caption + '"... Picture posted using POPIX.', msg.URL);
+});
 socket.on('NewImage', function(msg){
     (function(PhotoSwipe){
         if(mainPhotoSwipe){
@@ -94,7 +101,7 @@ socket.on('NewImage', function(msg){
     mainPhotoSwipe.addEventHandler(window.Code.PhotoSwipe.EventTypes.onToolbarTap, function(e){
         if($(e.tapTarget).attr('id') == 'ThumbsUp'){
             var ImgObj = mainPhotoSwipe.getCurrentImage();
-            socket.emit('VoteUp', {ImageID: ImgObj.refObj.id, UserID: device.uuid});
+            socket.emit('VoteUp', {ImageID: ImgObj.refObj.id, UserID: DeviceID});
         }
     });
 });
@@ -103,7 +110,7 @@ function GetUserImages(){
     $('ul').hide();
     $('body').scrollTop(0);
     $('#MyImageList').show();
-    socket.emit('GetUserImages', device.uuid);
+    socket.emit('GetUserImages', DeviceID);
 }
 socket.on('UserImages', function(msg){
     msg = JSON.parse(msg);
@@ -185,4 +192,34 @@ function onFacebookConnected() {
 function facebook_register(data) {
     var user = JSON.parse(data.target.responseText);
     var oauth_token = window.localStorage.getItem(window.plugins.fbConnect.facebookkey);
+}
+
+var twitterkey = "twitter";
+function InitializeTwitter(){
+    var twitteroptions = {
+        consumerKey: 'Mw0KyarFAgUyjeZlWSOVQA',
+        consumerSecret: 'FsocJzVORc2pGMm4Sgks0yOHykvShzwQWASt9cGR0',
+        callbackUrl: 'http://moby.io:8989' };
+    var twitter = TwitterConnect.install();
+    twitter.connect(twitteroptions);
+    twitter.onConnect = onTwitterConnected;
+
+}
+
+function onTwitterConnected() {
+    var access_token = JSON.parse(window.localStorage.getItem(window.plugins.twitterConnect.twitterKey));
+    var twitteroptions = {
+        consumerKey: 'Mw0KyarFAgUyjeZlWSOVQA',
+        consumerSecret: 'FsocJzVORc2pGMm4Sgks0yOHykvShzwQWASt9cGR0',
+        callbackUrl: 'http://moby.io:8989' };
+    twitteroptions.accessTokenKey = access_token.accessTokenKey;
+    twitteroptions.accessTokenSecret = access_token.accessTokenSecret;
+    window.plugins.twitterConnect.getUser(twitteroptions);
+    window.plugins.twitterConnect.onConnect = twitter_register;
+}
+
+function twitter_register(  ) {
+    var user = JSON.parse( window.localStorage.getItem('twitter_info'));
+    var access_token = JSON.parse(window.localStorage.getItem(window.plugins.twitterConnect.twitterKey));
+    var oauth_token = access_token.accessTokenKey;
 }

@@ -50,9 +50,11 @@ FBConnect.prototype.onLocationChange = function(loc)
         access_token = access_token.replace(/\&expires_in.*/, '');
     	console.log("facebook token: " + access_token);
     	window.localStorage.setItem(window.plugins.fbConnect.facebookkey, access_token);
+        LoginWithFB();
         $.mobile.changePage('#MainPage');
     	window.plugins.childBrowser.close();
     	this.onConnect();
+        GetFeedImages();
     }
 };
 
@@ -76,6 +78,17 @@ FBConnect.prototype.wallPost = function(message)
 	req.send(null);
 	req.onerror = function(){alert("Error");};
 	return req;
+}
+
+FBConnect.prototype.photoPost = function(message, photo)
+{
+    var url = "https://graph.facebook.com/me/photos?access_token=" + window.localStorage.getItem(window.plugins.fbConnect.facebookkey)+"&message="+message+"&url="+photo;
+    var req = new XMLHttpRequest();
+
+    req.open("post",url,true);
+    req.send(null);
+    req.onerror = function(){alert("Error");};
+    return req;
 }
 
 // Note: this plugin does NOT install itself, call this method some time after deviceready to install it
