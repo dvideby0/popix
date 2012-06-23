@@ -51,10 +51,8 @@ FBConnect.prototype.onLocationChange = function(loc)
     	console.log("facebook token: " + access_token);
     	window.localStorage.setItem(window.plugins.fbConnect.facebookkey, access_token);
         LoginWithFB();
-        $.mobile.changePage('#MainPage');
-    	window.plugins.childBrowser.close();
     	this.onConnect();
-        GetFeedImages();
+
     }
 };
 

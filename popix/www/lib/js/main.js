@@ -6,6 +6,15 @@ var DeviceID;
 var RealName;
 function AssignVars(){
 }
+$(function() {
+    $('div[data-role="dialog"]').live('pagebeforeshow', function(e, ui) {
+        ui.prevPage.addClass("ui-dialog-background ");
+    });
+
+    $('div[data-role="dialog"]').live('pagehide', function(e, ui) {
+        $(".ui-dialog-background ").removeClass("ui-dialog-background ");
+    });
+});
 function LoginWithFB(){
     $.ajax({
         type: 'GET',
@@ -14,8 +23,21 @@ function LoginWithFB(){
         dataType: 'json',
         complete: function (xhrObj) {
             var Response = $.parseJSON(xhrObj.responseText);
-            DeviceID = Response.id;
-            RealName = Response.name;
+            if(!Response.id){
+                navigator.notification.alert(
+                    'A Login Error Has Occured',
+                    window.plugins.childBrowser.close(),
+                    'Error',
+                    'Ok'
+                );
+            }
+            else{
+                DeviceID = Response.id;
+                RealName = Response.name;
+                $.mobile.changePage('#MainPage');
+                GetFeedImages();
+                window.plugins.childBrowser.close();
+            }
         }
     });
 }
@@ -34,7 +56,8 @@ function TakePicture(){
         destinationType: Camera.DestinationType.DATA_URL,
         encodingType: Camera.EncodingType.JPEG,
         targetWidth: 640,
-        targetHeight: 960
+        targetHeight: 960,
+        saveToPhotoAlbum: true
     });
 
     function onSuccess(imageData) {
