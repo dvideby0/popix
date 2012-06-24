@@ -26,14 +26,27 @@
     border-top: 1px solid;
     border-top-color: #888888 !important;
 }
+.LoginForm{
+    margin-top: 50px;
+    font-size: 33px;
+    text-shadow: none !important;
+    color: #1e90ff;
+    font-family: "Chalkduster";
+}
+.LoginFooter{
+    font-size: 22px;
+    font-family: 'Verdana';
+}
 .ui-btn-corner-all{
-    background-image: linear-gradient(bottom, rgb(163,163,163) 49%, rgb(181,177,181) 50%, rgb(235,235,235) 100%);
-    background-image: -o-linear-gradient(bottom, rgb(163,163,163) 49%, rgb(181,177,181) 50%, rgb(235,235,235) 100%);
-    background-image: -moz-linear-gradient(bottom, rgb(163,163,163) 49%, rgb(181,177,181) 50%, rgb(235,235,235) 100%);
-    background-image: -webkit-linear-gradient(bottom, rgb(163,163,163) 49%, rgb(181,177,181) 50%, rgb(235,235,235) 100%);
-    background-image: -ms-linear-gradient(bottom, rgb(163,163,163) 49%, rgb(181,177,181) 50%, rgb(235,235,235) 100%);
+    background-image: linear-gradient(bottom, rgb(84,103,179) 49%, rgb(111,141,212) 56%, rgb(138,159,235) 87%);
+    background-image: -o-linear-gradient(bottom, rgb(84,103,179) 49%, rgb(111,141,212) 56%, rgb(138,159,235) 87%);
+    background-image: -moz-linear-gradient(bottom, rgb(84,103,179) 49%, rgb(111,141,212) 56%, rgb(138,159,235) 87%);
+    background-image: -webkit-linear-gradient(bottom, rgb(84,103,179) 49%, rgb(111,141,212) 56%, rgb(138,159,235) 87%);
+    background-image: -ms-linear-gradient(bottom, rgb(84,103,179) 49%, rgb(111,141,212) 56%, rgb(138,159,235) 87%);
     border-color: #292929;
     border-radius: 3px;
+    color: #ffffff;
+    text-shadow: 0 0 0.3em #000000;
 }
 [data-role="page"]{
     background-image: linear-gradient(bottom, rgb(13,13,13) 0%, rgb(51,51,51) 53%, rgb(54,54,54) 77%);
@@ -55,8 +68,8 @@
 #LoginContent{
     text-align: center;
 }
-#LoginContent img{
-    padding-top: 50px;
+#LoginContent img, LoginContent p{
+    vertical-align: middle;
 }
 .MMIcon{
     border: 5px solid;
@@ -71,9 +84,13 @@
 #HTForm .ui-dialog-contain{
     padding: 20px 5px 10px 5px;
     text-align: center;
-    text-shadow: none;
-    color: #cccccc;
-    background-color: #292929;
+    color: #ffffff;
+    background-image: linear-gradient(bottom, rgb(13,13,13) 0%, rgb(51,51,51) 53%, rgb(54,54,54) 77%);
+    background-image: -o-linear-gradient(bottom, rgb(13,13,13) 0%, rgb(51,51,51) 53%, rgb(54,54,54) 77%);
+    background-image: -moz-linear-gradient(bottom, rgb(13,13,13) 0%, rgb(51,51,51) 53%, rgb(54,54,54) 77%);
+    background-image: -webkit-linear-gradient(bottom, rgb(13,13,13) 0%, rgb(51,51,51) 53%, rgb(54,54,54) 77%);
+    background-image: -ms-linear-gradient(bottom, rgb(13,13,13) 0%, rgb(51,51,51) 53%, rgb(54,54,54) 77%);
+    text-shadow: 0 0 0.3em #000000 !important;
 }
 .ui-dialog-background {
     opacity: 0.5;
