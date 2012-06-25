@@ -9,7 +9,6 @@
 }
 #menu {
     margin-top: 45px;
-    margin-bottom: 45px;
     width: 165px;
     height: 100%;
     display: block !important;
@@ -22,7 +21,7 @@
 }
 #menu h3{
     font-family:arial;
-    font-size:12px;
+    font-size:18px;
     color:#fff;
     margin:0;
     background-color:#5a5959;
@@ -35,6 +34,7 @@
 #menu ul {
     margin: 0;
     padding: 0;
+    width: inherit;
 }
 #menu ul li {
     list-style-type: none;
@@ -63,4 +63,7 @@
     color:#fff;
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(30,29,29,1)), color-stop(21%,rgba(56,55,55,1)));
     text-shadow: 0px 1px 1px #000;
+}
+.SliderMenu{
+    position: fixed !important;
 }

@@ -251,31 +251,35 @@ $(function(){
 
     $("a.showMenu").click(function(){
         if(menuStatus != true){
+            $('#menu').addClass('SliderMenu');
             $(".ui-page-active").animate({
                 marginLeft: "165px"
-            }, 300, function(){menuStatus = true});
+            }, 200, function(){menuStatus = true});
             return false;
         } else {
+            $('#menu').removeClass('SliderMenu');
             $(".ui-page-active").animate({
                 marginLeft: "0px"
-            }, 300, function(){menuStatus = false});
+            }, 200, function(){menuStatus = false});
             return false;
         }
     });
 
     $('.pages').live("swipeleft", function(){
         if (menuStatus){
+            $('#menu').removeClass('SliderMenu');
             $(".ui-page-active").animate({
                 marginLeft: "0px"
-            }, 300, function(){menuStatus = false});
+            }, 200, function(){menuStatus = false});
         }
     });
 
     $('.pages').live("swiperight", function(){
         if (!menuStatus){
+            $('#menu').addClass('SliderMenu');
             $(".ui-page-active").animate({
                 marginLeft: "165px"
-            }, 300, function(){menuStatus = true});
+            }, 200, function(){menuStatus = true});
         }
     });
 

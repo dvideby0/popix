@@ -1,9 +1,5 @@
 body{
-    background-image: linear-gradient(bottom, rgb(13,13,13) 0%, rgb(51,51,51) 53%, rgb(54,54,54) 77%);
-    background-image: -o-linear-gradient(bottom, rgb(13,13,13) 0%, rgb(51,51,51) 53%, rgb(54,54,54) 77%);
-    background-image: -moz-linear-gradient(bottom, rgb(13,13,13) 0%, rgb(51,51,51) 53%, rgb(54,54,54) 77%);
-    background-image: -webkit-linear-gradient(bottom, rgb(13,13,13) 0%, rgb(51,51,51) 53%, rgb(54,54,54) 77%);
-    background-image: -ms-linear-gradient(bottom, rgb(13,13,13) 0%, rgb(51,51,51) 53%, rgb(54,54,54) 77%);
+
 }
 
 [data-role="header"], [data-role="footer"]{
