@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="lib/css/jquery-mobile.css">
     <link rel="stylesheet" href="lib/css/photoswipe.css">
     <link rel="stylesheet" href="lib/css/style.css">
+    <link rel="stylesheet" href="lib/css/slider.css">
     <script type="text/javascript" charset="utf-8" src="lib/js/cordova-1.7.0.js"></script>
     <script type="text/javascript" src="lib/js/ChildBrowser.js"></script>
     <script type="text/javascript" src="lib/js/jquery.js"></script>
@@ -31,6 +32,16 @@
 
 </head>
 <body>
+    <div id="menu">
+        <ul id="MenuList">
+            <li><a href="javascript:GetFeedImages();" class="contentLink">Main Feed</a></li>
+            <li><a href="javascript:GetTopImages();" class="contentLink">Top Rated</a></li>
+            <li><a href="javascript:" class="contentLink">Friends </a></li>
+            <li><a href="javascript:GetUserImages();" class="contentLink">My Pix </a></li>
+            <li><a href="javascript:AlertTwitter();" class="contentLink">Settings </a></li>
+            <li><a href="javascript:" class="contentLink">Search </a></li>
+        </ul>
+    </div>
     <div id="LoginPage" data-role="page">
         <div data-id="Header" data-role="header" data-position="fixed">
             POPIX
@@ -48,9 +59,8 @@
     </div>
     <div id="MainPage" data-role="page" class="gallery-page">
         <div data-id="Header" data-role="header" data-position="fixed">
+            <a style="margin-top: 3px" href="#"class="showMenu">Menu</a>
             POPIX
-            <a class="HeaderBtn" href="javascript:" style="margin-top: 3px;">Search</a>
-            <a class="HeaderBtn" id="facebook_button" href="javascript:AlertTwitter()" style="margin-top: 3px;">Settings</a>
         </div>
         <div id="MainContent" data-role="content" style="margin: 0 !important; padding: 0 !important;">
             <ul class="gallery" id="TopImageList">
@@ -61,10 +71,7 @@
             </ul>
         </div>
         <div data-id="Footer" data-role="footer" data-position="fixed">
-            <a class="FooterBtn" href="javascript:GetFeedImages();">Pix Feed</a>
-            <a class="FooterBtn" href="javascript:GetTopImages();">Top Pix</a>
-            <a class="FooterBtn" href="javascript:GetUserImages();">My Pix</a>
-            <a id="CaptureBtn" href="javascript:TakePicture();">Capture</a>
+            <a id="CaptureBtn" href="javascript:TakePicture();">Camera</a>
         </div>
     </div>
     <div data-role="dialog" id="HTForm">
