@@ -67,3 +67,6 @@
 .SliderMenu{
     position: fixed !important;
 }
+body{
+    background-color: #333333 !important;
+}

@@ -260,7 +260,7 @@ $(function(){
             $('#menu').removeClass('SliderMenu');
             $(".ui-page-active").animate({
                 marginLeft: "0px"
-            }, 200, function(){menuStatus = false});
+            }, 300, function(){menuStatus = false});
             return false;
         }
     });
@@ -270,7 +270,7 @@ $(function(){
             $('#menu').removeClass('SliderMenu');
             $(".ui-page-active").animate({
                 marginLeft: "0px"
-            }, 200, function(){menuStatus = false});
+            }, 300, function(){menuStatus = false});
         }
     });
 
