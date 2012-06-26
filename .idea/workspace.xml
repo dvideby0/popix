@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c6592f20-744a-4f9f-a6d8-85012901d3f3" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/popix/www/lib/css/slider.css" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/popix/popix.xcodeproj/project.xcworkspace/xcuserdata/rbrookfield.xcuserdatad/UserInterfaceState.xcuserstate" afterPath="$PROJECT_DIR$/popix/popix.xcodeproj/project.xcworkspace/xcuserdata/rbrookfield.xcuserdatad/UserInterfaceState.xcuserstate" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/popix/Server/popix.js" afterPath="$PROJECT_DIR$/popix/Server/popix.js" />
@@ -33,16 +32,7 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/popix/www/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="65" selection-start="1011" selection-end="1011" vertical-scroll-proportion="-5.1">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="popix.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/popix/Server/popix.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="118" column="12" selection-start="4613" selection-end="4613" vertical-scroll-proportion="0.26229507">
+            <state line="16" column="50" selection-start="945" selection-end="945" vertical-scroll-proportion="-4.8">
               <folding />
             </state>
           </provider>
@@ -51,7 +41,7 @@
       <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/popix/www/lib/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="441" column="12" selection-start="17552" selection-end="17552" vertical-scroll-proportion="0.0">
+            <state line="387" column="41" selection-start="15890" selection-end="15890" vertical-scroll-proportion="5.6538463">
               <folding />
             </state>
           </provider>
@@ -60,7 +50,7 @@
       <file leaf-file-name="1-popix.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/Library/Caches/TemporaryItems/1-popix.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="25" selection-start="0" selection-end="5754" vertical-scroll-proportion="0.0">
+            <state line="148" column="17" selection-start="5754" selection-end="5754" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -69,7 +59,16 @@
       <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/popix/www/lib/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="172" column="30" selection-start="6062" selection-end="6073" vertical-scroll-proportion="-21.961538">
+            <state line="163" column="1" selection-start="5919" selection-end="5919" vertical-scroll-proportion="-4.6153846">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="1-qrcode.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$USER_HOME$/Library/Caches/TemporaryItems/1-qrcode.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="95" column="18" selection-start="2826" selection-end="4289" vertical-scroll-proportion="0.8122392">
               <folding />
             </state>
           </provider>
@@ -90,7 +89,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$USER_HOME$/Library/Caches/TemporaryItems/1-main.js" />
         <option value="$USER_HOME$/Library/Caches/TemporaryItems/1-listing.json" />
         <option value="$PROJECT_DIR$/popix/www/lib/js/ChildBrowser.js" />
         <option value="$PROJECT_DIR$/popix/www/lib/js/jsOAuth-1.3.1.js" />
@@ -102,10 +100,11 @@
         <option value="$USER_HOME$/Library/Caches/TemporaryItems/1-parser.js" />
         <option value="$USER_HOME$/Library/Caches/TemporaryItems/1-FMCode.js" />
         <option value="$USER_HOME$/Library/Caches/TemporaryItems/1-popix.js" />
-        <option value="$PROJECT_DIR$/popix/www/lib/css/style.css" />
-        <option value="$PROJECT_DIR$/popix/www/lib/js/main.js" />
-        <option value="$PROJECT_DIR$/popix/www/index.html" />
         <option value="$PROJECT_DIR$/popix/Server/popix.js" />
+        <option value="$PROJECT_DIR$/popix/www/index.html" />
+        <option value="$PROJECT_DIR$/popix/www/lib/js/main.js" />
+        <option value="$PROJECT_DIR$/popix/www/lib/css/style.css" />
+        <option value="$USER_HOME$/Library/Caches/TemporaryItems/1-qrcode.js" />
       </list>
     </option>
   </component>
@@ -327,15 +326,15 @@
     <editor active="true" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32938075" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25432277" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25432277" sideWeight="0.67193675" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32806325" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -455,37 +454,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/popix/www/lib/css/style.css">
+    <entry file="file://$PROJECT_DIR$/popix/Server/popix.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="172" column="30" selection-start="6062" selection-end="6073" vertical-scroll-proportion="-21.961538">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/popix/www/lib/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="441" column="12" selection-start="17552" selection-end="17552" vertical-scroll-proportion="0.0">
+        <state line="148" column="17" selection-start="5754" selection-end="5754" vertical-scroll-proportion="0.9590164">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/popix/www/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="65" selection-start="1011" selection-end="1011" vertical-scroll-proportion="-5.1">
+        <state line="16" column="50" selection-start="945" selection-end="945" vertical-scroll-proportion="-4.8">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/Library/Caches/TemporaryItems/1-popix.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="25" selection-start="0" selection-end="5754" vertical-scroll-proportion="0.0">
+        <state line="148" column="17" selection-start="5754" selection-end="5754" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/popix/Server/popix.js">
+    <entry file="file://$PROJECT_DIR$/popix/www/lib/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="118" column="12" selection-start="4613" selection-end="4613" vertical-scroll-proportion="0.26229507">
+        <state line="387" column="41" selection-start="15890" selection-end="15890" vertical-scroll-proportion="5.6538463">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/popix/www/lib/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="163" column="1" selection-start="5919" selection-end="5919" vertical-scroll-proportion="-4.6153846">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Caches/TemporaryItems/1-qrcode.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="95" column="18" selection-start="2826" selection-end="4289" vertical-scroll-proportion="0.8122392">
           <folding />
         </state>
       </provider>

@@ -116,7 +116,7 @@ io.sockets.on('connection', function(socket) {
                     posts.save(post);
                 });
             }
-        }); 
+        });
     });
     socket.on('GetTopImages', function(){
         posts.find().sort({Votes: -1}).limit(20).toArray(function (err, array) {
@@ -146,4 +146,4 @@ io.sockets.on('connection', function(socket) {
         });
     });
 });
-app.listen(8989);2d1eaz
+app.listen(8989);
