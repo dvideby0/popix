@@ -7,6 +7,7 @@ var RealName;
 var mainPhotoSwipe;
 var myPhotoSwipe;
 var topPhotoSwipe;
+var searchPhotoSwipe;
 var ImageData;
 
 //--------------------------------------------------------------------------------------------
@@ -29,8 +30,9 @@ function DoNothing(){}
 //----------------------------Called After "Device Ready"------------------------------------
 function AssignVars(){
     $('#SearchInput').keyup(function(e) {
-        if(e.keyCode == 13)
-        alert('Hello');
+        if(e.keyCode == 13){
+            GetSearchImages($('#SearchInput').val());
+        }
     });
 }
 
@@ -231,10 +233,8 @@ function GetTopImages(){
 //------------------------------Get Search Stream-------------------------
 function GetSearchImages(query){
     $('#SearchImageList').empty();
-    $('ul').not('#SearchImageList').hide();
-    $('body').scrollTop(0);
     $('#SearchImageList').show();
-    socket.emit('SearchForImages', query);
+    socket.emit('SearchForImages', query.split(' '));
 }
 
 //------------------------------Get User Stream-------------------------
@@ -340,6 +340,34 @@ socket.on('TopImages', function(msg){
         }
     });
 });
+socket.on('ImageSearchResults', function(msg){
+    msg = JSON.parse(msg);
+    (function(PhotoSwipe){
+        if(searchPhotoSwipe){
+            PhotoSwipe.detatch(searchPhotoSwipe);
+        }
+    }(window.Code.PhotoSwipe));
+    $('#SearchImageList').append('<li><a id="' + msg.ID + '" href="' + msg.ImageFull + '" rel="external"><img src="' + msg.ImageThumb + '" alt="' + msg.Caption + ' Votes: ' + msg.Votes + '"></a></li>');
+    searchPhotoSwipe = $("#SearchImageList a").photoSwipe({
+        captionAndToolbarOpacity: 1,
+        captionAndToolbarAutoHideDelay: 0,
+        allowUserZoom: false,
+        imageScaleMethod: 'zoom',
+        getToolbar: function(){
+            return '<div class="ps-toolbar-close"><div class="ps-toolbar-content"></div></div>' +
+                '<div class="ps-toolbar-play"><div class="ps-toolbar-content"></div></div>' +
+                '<div class="ps-toolbar-previous"><div class="ps-toolbar-content"></div></div>' +
+                '<div class="ps-toolbar-next"><div class="ps-toolbar-content"></div></div>' +
+                '<div id="SayHi"><img id="ThumbsUp" src="lib/images/thumbs.png" alt=""></div>';
+        }
+    });
+    searchPhotoSwipe.addEventHandler(window.Code.PhotoSwipe.EventTypes.onToolbarTap, function(e){
+        if($(e.tapTarget).attr('id') == 'ThumbsUp'){
+            var ImgObj = searchPhotoSwipe.getCurrentImage();
+            socket.emit('VoteUp', {ImageID: ImgObj.refObj.id, UserID: DeviceID});
+        }
+    });
+});
 socket.on('Error', function(msg){
     navigator.notification.alert(msg, DoNothing, 'Error', 'OK')
 });
@@ -353,22 +381,23 @@ socket.on('Error', function(msg){
 
 
 
-
 $(function(){
     var menuStatus;
 
     $("a.showMenu").click(function(){
         if(menuStatus != true){
+            $('#HeaderSearch').hide();
+            $('#HeaderItems').show();
             $('#menu').addClass('SliderMenu');
             $(".ui-page-active").animate({
                 marginLeft: "165px"
-            }, 200, function(){menuStatus = true});
+            }, 100, function(){menuStatus = true});
             return false;
         } else {
             $('#menu').removeClass('SliderMenu');
             $(".ui-page-active").animate({
                 marginLeft: "0px"
-            }, 200, function(){menuStatus = false});
+            }, 100, function(){menuStatus = false});
             return false;
         }
     });
@@ -378,20 +407,24 @@ $(function(){
             $('#menu').removeClass('SliderMenu');
             $(".ui-page-active").animate({
                 marginLeft: "0px"
-            }, 200, function(){menuStatus = false});
+            }, 100, function(){menuStatus = false});
         }
     });
 
     $('.pages').live("swiperight", function(){
         if (!menuStatus){
+            $('#HeaderSearch').hide();
+            $('#HeaderItems').show();
             $('#menu').addClass('SliderMenu');
             $(".ui-page-active").animate({
                 marginLeft: "165px"
-            }, 200, function(){menuStatus = true});
+            }, 100, function(){menuStatus = true});
         }
     });
 
-    $("#menu li a").click(function(){
+    $("#menu li a").not('#SearchBtn').click(function(){
+        $('#HeaderSearch').hide();
+        $('#HeaderItems').show();
         var p = $(this).parent();
         if($(p).hasClass('active')){
             $("#menu li").removeClass('active');
@@ -400,14 +433,16 @@ $(function(){
             $(p).addClass('active');
         }
     });
-    $('div[data-role="page"]').live('pageshow', function(){
-        menuStatus = false;
+    $('#SearchBtn').click(function(){
+        $('ul').not('#MenuList').hide();
+        $('body').scrollTop(0);
         $('#menu').removeClass('SliderMenu');
+        $(".ui-page-active").animate({
+            marginLeft: "0px"
+        }, 100, function(){
+            menuStatus = false;
+            $('#HeaderItems').hide();
+            $('#HeaderSearch').show();
+        });
     });
-    $('[data-role="page"]').live('pagebeforehide', function(){
-        $('div[data-role="page"]').animate({
-                marginLeft: "0px"
-            }, 200, DoNothing());
-    });
-
 });

@@ -10,15 +10,12 @@
     <link rel="stylesheet" href="lib/css/jquery-mobile.css">
     <link rel="stylesheet" href="lib/css/photoswipe.css">
     <link rel="stylesheet" href="lib/css/style.css">
-    <link rel="stylesheet" href="lib/css/slider.css">
     <script type="text/javascript" charset="utf-8" src="lib/js/cordova-1.7.0.js"></script>
     <script type="text/javascript" src="lib/js/ChildBrowser.js"></script>
     <script type="text/javascript" src="lib/js/jquery.js"></script>
     <script type="text/javascript">
         $(document).bind("mobileinit", function(){
-            $.event.special.swipe.scrollSupressionThreshold = 10;
-            $.event.special.swipe.durationThreshold = 800;
-            $.event.special.swipe.horizontalDistanceThreshold = 30;
+            $.event.special.swipe.horizontalDistanceThreshold = 50;
             $.event.special.swipe.verticalDistanceThreshold = 30;
             $.extend(  $.mobile , {
                 defaultPageTransition: "none"
@@ -38,13 +35,12 @@
 <body>
     <div id="menu">
         <ul id="MenuList">
-
             <li><a href="javascript:GetFeedImages();" class="contentLink">Main Feed</a></li>
             <li><a href="javascript:GetTopImages();" class="contentLink">Top Rated</a></li>
             <li><a href="javascript:" class="contentLink">Friends </a></li>
             <li><a href="javascript:GetUserImages();" class="contentLink">My Pix </a></li>
             <li><a href="javascript:AlertTwitter();" class="contentLink">Settings </a></li>
-            <li><a href="#SearchPage" class="contentLink">Search </a></li>
+            <li><a href="javascript:" id="SearchBtn" class="contentLink">Search </a></li>
         </ul>
     </div>
     <div id="LoginPage" data-role="page">
@@ -63,9 +59,12 @@
         </div>
     </div>
     <div id="MainPage" data-role="page" class="gallery-page pages">
-        <div data-id="Header" data-role="header" data-position="fixed">
+        <div data-id="Header" id="MainHeader" data-role="header" data-position="fixed">
             <a style="margin-top: 3px" href="#"class="showMenu">Menu</a>
-            POPIX
+            <div id="HeaderItems">POPIX</div>
+            <div id="HeaderSearch" style="margin-left: 80px">
+                <input id="SearchInput" placeholder="Search" style="width:93%; height: 15px; margin-top: 5px;" class="ui-input-text ui-body-null ui-corner-all ui-shadow-inset ui-body-c" value="" />
+            </div>
         </div>
         <div id="MainContent" data-role="content" style="margin: 0 !important; padding: 0 !important;">
             <ul class="gallery" id="TopImageList">
@@ -79,17 +78,6 @@
         </div>
         <div data-id="Footer" data-role="footer" data-position="fixed">
             <a id="CaptureBtn" href="javascript:TakePicture();">Camera</a>
-        </div>
-    </div>
-    <div id="SearchPage" data-role="page" class="pages">
-        <div data-id="Header" data-role="header" data-position="fixed">
-            <div><input id="SearchInput" placeholder="Search" value="" /></div>
-        </div>
-        <div id="SearchContent" data-role="content" style="padding:45px 0 0 0;">
-
-        </div>
-        <div data-id="Footer" data-role="footer" data-position="fixed" class="LoginFooter">
-            <font color="#1e90ff">moby</font><font color="#7cfc00">io</font>
         </div>
     </div>
     <div data-role="dialog" id="HTForm">

@@ -116,7 +116,7 @@ io.sockets.on('connection', function(socket) {
                     posts.save(post);
                 });
             }
-        });
+        }); 
     });
     socket.on('GetTopImages', function(){
         posts.find().sort({Votes: -1}).limit(20).toArray(function (err, array) {
@@ -131,5 +131,19 @@ io.sockets.on('connection', function(socket) {
             }
         })
     });
+    socket.on('SearchForImages', function(msg){
+        var query = new RegExp('(' + msg.join(')|(') + ')', 'i');
+        posts.find({'HashTag': query}).limit(21).toArray(function (err, array) {
+            for(var i = 0; i < array.length; i++){
+                socket.emit('ImageSearchResults',JSON.stringify({
+                    ImageFull: array[i].ImageFull,
+                    ImageThumb: array[i].ImageThumb,
+                    ID: array[i].ID,
+                    Caption: array[i].Caption,
+                    Votes: array[i].Votes
+                }));
+            }
+        });
+    });
 });
-app.listen(8989);
+app.listen(8989);2d1eaz
