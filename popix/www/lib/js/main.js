@@ -1,11 +1,41 @@
+
+//-----------------------------------------GLOBALS--------------------------------------------
+
 var socket = io.connect('http://apps.moby.io:8989');
+var DeviceID;
+var RealName;
+var mainPhotoSwipe;
+var myPhotoSwipe;
+var topPhotoSwipe;
+var ImageData;
+
+//--------------------------------------------------------------------------------------------
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////Initialization & Annonymous Functions//////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+//------------------------------------On Page Init------------------------------------------
+
 $(document).on('pageinit','[data-role=page]', function(){
     $('[data-position=fixed]').fixedtoolbar({ tapToggle:false });
 });
-var DeviceID;
-var RealName;
+
+//------------------------------------Junk Function------------------------------------------
+function DoNothing(){}
+
+//----------------------------Called After "Device Ready"------------------------------------
 function AssignVars(){
+    $('#SearchInput').keyup(function(e) {
+        if(e.keyCode == 13)
+        alert('Hello');
+    });
 }
+
+//--------------------------------Device Ready Listener---------------------------------------
+document.addEventListener("deviceready", AssignVars, false);
 $(function() {
     $('div[data-role="dialog"]').live('pagebeforeshow', function(e, ui) {
         ui.prevPage.addClass("ui-dialog-background ");
@@ -15,6 +45,18 @@ $(function() {
         $(".ui-dialog-background ").removeClass("ui-dialog-background ");
     });
 });
+
+//--------------------------------------------------------------------------------------------
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////Login Functions//////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+//------------------------------------------Login Using Facebook--------------------------------
+
+
 function LoginWithFB(){
     $.ajax({
         type: 'GET',
@@ -41,15 +83,80 @@ function LoginWithFB(){
         }
     });
 }
+
+//----------------------------------------Login Using Twitter------------------------------
+
 function AlertTwitter(){
     alert(window.localStorage.getItem(window.plugins.twitterConnect.twitterKey));
 }
-document.addEventListener("deviceready", AssignVars, false);
-var mainPhotoSwipe;
-var myPhotoSwipe;
-var topPhotoSwipe;
-var ImageData;
-function DoNothing(){}
+
+//--------------------------------------Initialize Facebook--------------------------------------
+
+var facebookkey = "facebook";
+
+function InitializeFB(){
+    var facebookoptions = {        // create an application in facebook  and populate the values below
+        consumerKey: '379478488778007',
+        consumerSecret: '5d11396e67edc8eb60e64d74cf1220a7',
+        callbackUrl: 'http://www.facebook.com/connect/login_success.html' };
+    var fb = FBConnect.install();
+    fb.connect(facebookoptions);
+    fb.onConnect = onFacebookConnected;
+}
+
+function onFacebookConnected() {
+    var access_token = window.localStorage.getItem(window.plugins.fbConnect.facebookkey);
+    var req = window.plugins.fbConnect.getUser();
+    req.onload = facebook_register;
+}
+
+function facebook_register(data) {
+    var user = JSON.parse(data.target.responseText);
+    var oauth_token = window.localStorage.getItem(window.plugins.fbConnect.facebookkey);
+}
+
+//------------------------------------Initialize Twitter-------------------------------------------
+
+var twitterkey = "twitter";
+function InitializeTwitter(){
+    var twitteroptions = {
+        consumerKey: 'Mw0KyarFAgUyjeZlWSOVQA',
+        consumerSecret: 'FsocJzVORc2pGMm4Sgks0yOHykvShzwQWASt9cGR0',
+        callbackUrl: 'http://moby.io:8989' };
+    var twitter = TwitterConnect.install();
+    twitter.connect(twitteroptions);
+    twitter.onConnect = onTwitterConnected;
+
+}
+
+function onTwitterConnected() {
+    var access_token = JSON.parse(window.localStorage.getItem(window.plugins.twitterConnect.twitterKey));
+    var twitteroptions = {
+        consumerKey: 'Mw0KyarFAgUyjeZlWSOVQA',
+        consumerSecret: 'FsocJzVORc2pGMm4Sgks0yOHykvShzwQWASt9cGR0',
+        callbackUrl: 'http://moby.io:8989' };
+    twitteroptions.accessTokenKey = access_token.accessTokenKey;
+    twitteroptions.accessTokenSecret = access_token.accessTokenSecret;
+    window.plugins.twitterConnect.getUser(twitteroptions);
+    window.plugins.twitterConnect.onConnect = twitter_register;
+}
+
+function twitter_register(  ) {
+    var user = JSON.parse( window.localStorage.getItem('twitter_info'));
+    var access_token = JSON.parse(window.localStorage.getItem(window.plugins.twitterConnect.twitterKey));
+    var oauth_token = access_token.accessTokenKey;
+}
+
+//----------------------------------------------------------------------------------------------
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////Taking And Sending Pictures////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+//-------------==----------------------Take Picture-----------------------------------------
+
 function TakePicture(){
     navigator.camera.getPicture(onSuccess, DoNothing, {
         quality: 30,
@@ -67,23 +174,14 @@ function TakePicture(){
         ImageData = imageData;
     }
 }
-function GetFeedImages(){
-    $('ul').not('#MenuList').hide();
-    $('body').scrollTop(0);
-    $('#ImageList').show();
-}
-function GetTopImages(){
-    $('#TopImageList').empty();
-    $('ul').not('#MenuList').hide();
-    $('body').scrollTop(0);
-    $('#TopImageList').show();
-    socket.emit('GetTopImages','');
-}
+
+//-------------------------------Post Picture To Server-------------------------------
+
 function SendPicture(){
     if(!$('#HashTag').val()){
         navigator.notification.alert(
             'Tag Required',
-             DoNothing,
+            DoNothing,
             'Error',
             'Ok'
         );
@@ -98,9 +196,66 @@ function SendPicture(){
             Anonymous: parseInt($('#Anonymous').val())});
     }
 }
+
+//-----------------------Send Picture To Facebook----------------------------------
+
 socket.on('ImageURL', function(msg){
     window.plugins.fbConnect.photoPost('"' + msg.Caption + '"... Picture posted using POPIX.', msg.URL);
 });
+
+//---------------------------------------------------------------------------------
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////Get Various Image Streams//////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+//------------------------------Get Main Stream-------------------------
+
+function GetFeedImages(){
+    $('ul').not('#MenuList').hide();
+    $('body').scrollTop(0);
+    $('#ImageList').show();
+}
+
+//------------------------------Get Top Stream-------------------------
+function GetTopImages(){
+    $('#TopImageList').empty();
+    $('ul').not('#MenuList').hide();
+    $('body').scrollTop(0);
+    $('#TopImageList').show();
+    socket.emit('GetTopImages','');
+}
+
+//------------------------------Get Search Stream-------------------------
+function GetSearchImages(query){
+    $('#SearchImageList').empty();
+    $('ul').not('#SearchImageList').hide();
+    $('body').scrollTop(0);
+    $('#SearchImageList').show();
+    socket.emit('SearchForImages', query);
+}
+
+//------------------------------Get User Stream-------------------------
+function GetUserImages(){
+    $('#MyImageList').empty();
+    $('ul').not('#MenuList').hide();
+    $('body').scrollTop(0);
+    $('#MyImageList').show();
+    socket.emit('GetUserImages', DeviceID);
+}
+
+//----------------------------------------------------------------------------------
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////Receiving Image Streams/////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+//-------------------------Receiving Image for Main Stream--------------------------
+
 socket.on('NewImage', function(msg){
     (function(PhotoSwipe){
         if(mainPhotoSwipe){
@@ -128,13 +283,7 @@ socket.on('NewImage', function(msg){
         }
     });
 });
-function GetUserImages(){
-    $('#MyImageList').empty();
-    $('ul').not('#MenuList').hide();
-    $('body').scrollTop(0);
-    $('#MyImageList').show();
-    socket.emit('GetUserImages', DeviceID);
-}
+
 socket.on('UserImages', function(msg){
     msg = JSON.parse(msg);
     (function(PhotoSwipe){
@@ -194,58 +343,17 @@ socket.on('TopImages', function(msg){
 socket.on('Error', function(msg){
     navigator.notification.alert(msg, DoNothing, 'Error', 'OK')
 });
-var facebookkey = "facebook";
 
-function InitializeFB(){
-    var facebookoptions = {        // create an application in facebook  and populate the values below
-        consumerKey: '379478488778007',
-        consumerSecret: '5d11396e67edc8eb60e64d74cf1220a7',
-        callbackUrl: 'http://www.facebook.com/connect/login_success.html' };
-    var fb = FBConnect.install();
-    fb.connect(facebookoptions);
-    fb.onConnect = onFacebookConnected;
-}
+//----------------------------------------------------------------------------------------------
 
-function onFacebookConnected() {
-    var access_token = window.localStorage.getItem(window.plugins.fbConnect.facebookkey);
-    var req = window.plugins.fbConnect.getUser();
-    req.onload = facebook_register;
-}
 
-function facebook_register(data) {
-    var user = JSON.parse(data.target.responseText);
-    var oauth_token = window.localStorage.getItem(window.plugins.fbConnect.facebookkey);
-}
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////Menu Functions/////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-var twitterkey = "twitter";
-function InitializeTwitter(){
-    var twitteroptions = {
-        consumerKey: 'Mw0KyarFAgUyjeZlWSOVQA',
-        consumerSecret: 'FsocJzVORc2pGMm4Sgks0yOHykvShzwQWASt9cGR0',
-        callbackUrl: 'http://moby.io:8989' };
-    var twitter = TwitterConnect.install();
-    twitter.connect(twitteroptions);
-    twitter.onConnect = onTwitterConnected;
 
-}
 
-function onTwitterConnected() {
-    var access_token = JSON.parse(window.localStorage.getItem(window.plugins.twitterConnect.twitterKey));
-    var twitteroptions = {
-        consumerKey: 'Mw0KyarFAgUyjeZlWSOVQA',
-        consumerSecret: 'FsocJzVORc2pGMm4Sgks0yOHykvShzwQWASt9cGR0',
-        callbackUrl: 'http://moby.io:8989' };
-    twitteroptions.accessTokenKey = access_token.accessTokenKey;
-    twitteroptions.accessTokenSecret = access_token.accessTokenSecret;
-    window.plugins.twitterConnect.getUser(twitteroptions);
-    window.plugins.twitterConnect.onConnect = twitter_register;
-}
 
-function twitter_register(  ) {
-    var user = JSON.parse( window.localStorage.getItem('twitter_info'));
-    var access_token = JSON.parse(window.localStorage.getItem(window.plugins.twitterConnect.twitterKey));
-    var oauth_token = access_token.accessTokenKey;
-}
 $(function(){
     var menuStatus;
 
@@ -260,7 +368,7 @@ $(function(){
             $('#menu').removeClass('SliderMenu');
             $(".ui-page-active").animate({
                 marginLeft: "0px"
-            }, 300, function(){menuStatus = false});
+            }, 200, function(){menuStatus = false});
             return false;
         }
     });
@@ -270,7 +378,7 @@ $(function(){
             $('#menu').removeClass('SliderMenu');
             $(".ui-page-active").animate({
                 marginLeft: "0px"
-            }, 300, function(){menuStatus = false});
+            }, 200, function(){menuStatus = false});
         }
     });
 
@@ -291,6 +399,15 @@ $(function(){
             $("#menu li").removeClass('active');
             $(p).addClass('active');
         }
+    });
+    $('div[data-role="page"]').live('pageshow', function(){
+        menuStatus = false;
+        $('#menu').removeClass('SliderMenu');
+    });
+    $('[data-role="page"]').live('pagebeforehide', function(){
+        $('div[data-role="page"]').animate({
+                marginLeft: "0px"
+            }, 200, DoNothing());
     });
 
 });

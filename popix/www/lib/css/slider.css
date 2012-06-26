@@ -39,10 +39,14 @@
 #menu ul li {
     list-style-type: none;
     margin: 0 0;
-}
-#menu ul li a:link, #menu ul li a:visited {
-    border-bottom: solid #333 1px;
     box-shadow: 0 1px 0 #727272;
+
+}
+#menu ul li input{
+    margin: 10px 0px 10px 10px;
+}
+#menu ul li a:link, #menu ul li a:visited{
+    border-bottom: solid #333 1px;
     color: #fff;
     font-size: 14px;
     font-family: arial;

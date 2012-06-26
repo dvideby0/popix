@@ -16,10 +16,10 @@
     <script type="text/javascript" src="lib/js/jquery.js"></script>
     <script type="text/javascript">
         $(document).bind("mobileinit", function(){
-            $.event.special.swipe.scrollSupressionThreshold = 8;
+            $.event.special.swipe.scrollSupressionThreshold = 10;
             $.event.special.swipe.durationThreshold = 800;
             $.event.special.swipe.horizontalDistanceThreshold = 30;
-            $.event.special.swipe.verticalDistanceThreshold = 20;
+            $.event.special.swipe.verticalDistanceThreshold = 30;
             $.extend(  $.mobile , {
                 defaultPageTransition: "none"
             });
@@ -38,12 +38,13 @@
 <body>
     <div id="menu">
         <ul id="MenuList">
+
             <li><a href="javascript:GetFeedImages();" class="contentLink">Main Feed</a></li>
             <li><a href="javascript:GetTopImages();" class="contentLink">Top Rated</a></li>
             <li><a href="javascript:" class="contentLink">Friends </a></li>
             <li><a href="javascript:GetUserImages();" class="contentLink">My Pix </a></li>
             <li><a href="javascript:AlertTwitter();" class="contentLink">Settings </a></li>
-            <li><a href="javascript:" class="contentLink">Search </a></li>
+            <li><a href="#SearchPage" class="contentLink">Search </a></li>
         </ul>
     </div>
     <div id="LoginPage" data-role="page">
@@ -73,9 +74,22 @@
             </ul>
             <ul class="gallery" id="ImageList">
             </ul>
+            <ul class="gallery" id="SearchImageList">
+            </ul>
         </div>
         <div data-id="Footer" data-role="footer" data-position="fixed">
             <a id="CaptureBtn" href="javascript:TakePicture();">Camera</a>
+        </div>
+    </div>
+    <div id="SearchPage" data-role="page" class="pages">
+        <div data-id="Header" data-role="header" data-position="fixed">
+            <div><input id="SearchInput" placeholder="Search" value="" /></div>
+        </div>
+        <div id="SearchContent" data-role="content" style="padding:45px 0 0 0;">
+
+        </div>
+        <div data-id="Footer" data-role="footer" data-position="fixed" class="LoginFooter">
+            <font color="#1e90ff">moby</font><font color="#7cfc00">io</font>
         </div>
     </div>
     <div data-role="dialog" id="HTForm">
