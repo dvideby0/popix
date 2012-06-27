@@ -66,9 +66,9 @@ io.sockets.on('connection', function(socket) {
                 io.sockets.emit('NewImage', {
                     ImageThumb: 'https://s3.amazonaws.com/popix/imgposts/thumb/' + UUID + '.jpg',
                     ImageFull: 'https://s3.amazonaws.com/popix/imgposts/full/' + UUID + '.jpg',
-                    Sender: msg.Author,
                     Caption: msg.Caption,
-                    ID: UUID
+                    ID: UUID,
+                    Votes: 0
                 });
                 if(msg.Anonymous == 0){
                     socket.emit('ImageURL', {URL:'https://s3.amazonaws.com/popix/imgposts/full/' + UUID + '.jpg', Caption: msg.Caption});
@@ -136,6 +136,19 @@ io.sockets.on('connection', function(socket) {
         posts.find({'HashTag': query}).limit(21).toArray(function (err, array) {
             for(var i = 0; i < array.length; i++){
                 socket.emit('ImageSearchResults',JSON.stringify({
+                    ImageFull: array[i].ImageFull,
+                    ImageThumb: array[i].ImageThumb,
+                    ID: array[i].ID,
+                    Caption: array[i].Caption,
+                    Votes: array[i].Votes
+                }));
+            }
+        });
+    });
+    socket.on('GetNewestImages', function(){
+        posts.find().sort({"Created":-1}).limit(30).toArray(function (err, array) {
+            for(var i = 0; i < array.length; i++){
+                socket.emit('NewImage',JSON.stringify({
                     ImageFull: array[i].ImageFull,
                     ImageThumb: array[i].ImageThumb,
                     ID: array[i].ID,
