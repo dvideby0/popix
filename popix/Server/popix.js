@@ -54,7 +54,7 @@ io.sockets.on('connection', function(socket) {
         im.resize({
             srcData: dataBuffer,
             width:  160,
-            height: 240
+            height: "240!"
         }, function(err, stdout, stderr){
             var imgBuffer = new Buffer(stdout, 'binary');
             if (err) throw err;
@@ -119,7 +119,7 @@ io.sockets.on('connection', function(socket) {
         });
     });
     socket.on('GetTopImages', function(){
-        posts.find().sort({Votes: -1}).limit(20).toArray(function (err, array) {
+        posts.find().sort({Votes: -1}).limit(21).toArray(function (err, array) {
             for(var i = 0; i < array.length; i++){
                 socket.emit('TopImages',JSON.stringify({
                     ImageFull: array[i].ImageFull,

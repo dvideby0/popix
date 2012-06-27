@@ -62,7 +62,7 @@ body{
 .gallery img{
     border: 3px solid #cccccc !important;
 }
-#MainContent div{
+#MainContent ul{
     margin-top: 45px !important;
     margin-bottom: 45px !important;
 }
@@ -161,11 +161,6 @@ div.ui-slider-switch.ui-slider-mini a.ui-slider-handle .ui-btn-inner {
     width:310px;
     margin: 0 auto;
     padding:15px 5px 0 5px;
-}
-#MainContent div img{
-    width: 30% !important;
-    height: 120px !important;
-    margin: 0 2px 0 2px; !important;
 }
 #menu {
     margin-top: 45px;
