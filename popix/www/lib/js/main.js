@@ -81,6 +81,7 @@ function LoginWithFB(){
                 $.mobile.changePage('#MainPage');
                 GetFeedImages();
                 window.plugins.childBrowser.close();
+                socket.emit('GetNewestImages', '');
             }
         }
     });
@@ -257,12 +258,13 @@ function GetUserImages(){
 //-------------------------Receiving Image for Main Stream--------------------------
 
 socket.on('NewImage', function(msg){
+    msg = JSON.parse(msg);
     (function(PhotoSwipe){
         if(mainPhotoSwipe){
             PhotoSwipe.detatch(mainPhotoSwipe);
         }
     }(window.Code.PhotoSwipe));
-    $('#ImageList').append('<li><a id="' + msg.ID + '" href="' + msg.ImageFull + '" rel="external"><img src="' + msg.ImageThumb + '" alt="' + msg.Caption + '"></a></li>');
+    $('#ImageList').append('<li><a id="' + msg.ID + '" href="' + msg.ImageFull + '" rel="external" alt="' + msg.HashTag + '"><img src="' + msg.ImageThumb + '" alt="' + msg.Caption + ' Votes: ' + msg.Votes + '"></a></li>');
     mainPhotoSwipe = $("#ImageList a").photoSwipe({
         captionAndToolbarOpacity: 1,
         captionAndToolbarAutoHideDelay: 0,
