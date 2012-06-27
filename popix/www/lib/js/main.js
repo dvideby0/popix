@@ -217,7 +217,7 @@ socket.on('ImageURL', function(msg){
 //------------------------------Get Main Stream-------------------------
 
 function GetFeedImages(){
-    $('ul').not('#MenuList').hide();
+    $('#TopImageList, #MyImageList, #ImageList, #SearchImageList').hide();
     $('body').scrollTop(0);
     $('#ImageList').show();
 }
@@ -225,7 +225,7 @@ function GetFeedImages(){
 //------------------------------Get Top Stream-------------------------
 function GetTopImages(){
     $('#TopImageList').empty();
-    $('ul').not('#MenuList').hide();
+    $('#TopImageList, #MyImageList, #ImageList, #SearchImageList').hide();
     $('body').scrollTop(0);
     $('#TopImageList').show();
     socket.emit('GetTopImages','');
@@ -241,7 +241,7 @@ function GetSearchImages(query){
 //------------------------------Get User Stream-------------------------
 function GetUserImages(){
     $('#MyImageList').empty();
-    $('ul').not('#MenuList').hide();
+    $('#TopImageList, #MyImageList, #ImageList, #SearchImageList').hide();
     $('body').scrollTop(0);
     $('#MyImageList').show();
     socket.emit('GetUserImages', DeviceID);
@@ -264,7 +264,7 @@ socket.on('NewImage', function(msg){
             PhotoSwipe.detatch(mainPhotoSwipe);
         }
     }(window.Code.PhotoSwipe));
-    $('#ImageList').append('<li><a id="' + msg.ID + '" href="' + msg.ImageFull + '" rel="external" alt="' + msg.HashTag + '"><img src="' + msg.ImageThumb + '" alt="' + msg.Caption + ' Votes: ' + msg.Votes + '"></a></li>');
+    $('#ImageList').append('<a id="' + msg.ID + '" href="' + msg.ImageFull + '" rel="external" alt="' + msg.HashTag + '"><img src="' + msg.ImageThumb + '" alt="' + msg.Caption + ' Votes: ' + msg.Votes + '"></a>');
     mainPhotoSwipe = $("#ImageList a").photoSwipe({
         captionAndToolbarOpacity: 1,
         captionAndToolbarAutoHideDelay: 0,
@@ -293,7 +293,7 @@ socket.on('UserImages', function(msg){
             PhotoSwipe.detatch(myPhotoSwipe);
         }
     }(window.Code.PhotoSwipe));
-    $('#MyImageList').append('<li><a id="' + msg.ID + '" href="' + msg.ImageFull + '" rel="external" alt="' + msg.HashTag + '"><img src="' + msg.ImageThumb + '" alt="' + msg.Caption + ' Votes: ' + msg.Votes + '"></a></li>');
+    $('#MyImageList').append('<a id="' + msg.ID + '" href="' + msg.ImageFull + '" rel="external" alt="' + msg.HashTag + '"><img src="' + msg.ImageThumb + '" alt="' + msg.Caption + ' Votes: ' + msg.Votes + '"></a>');
     myPhotoSwipe = $("#MyImageList a").photoSwipe({
         captionAndToolbarOpacity: 1,
         captionAndToolbarAutoHideDelay: 0,
@@ -321,7 +321,7 @@ socket.on('TopImages', function(msg){
             PhotoSwipe.detatch(topPhotoSwipe);
         }
     }(window.Code.PhotoSwipe));
-    $('#TopImageList').append('<li><a id="' + msg.ID + '" href="' + msg.ImageFull + '" rel="external"><img src="' + msg.ImageThumb + '" alt="' + msg.Caption + ' Votes: ' + msg.Votes + '"></a></li>');
+    $('#TopImageList').append('<a id="' + msg.ID + '" href="' + msg.ImageFull + '" rel="external"><img src="' + msg.ImageThumb + '" alt="' + msg.Caption + ' Votes: ' + msg.Votes + '"></a>');
     topPhotoSwipe = $("#TopImageList a").photoSwipe({
         captionAndToolbarOpacity: 1,
         captionAndToolbarAutoHideDelay: 0,
@@ -349,7 +349,7 @@ socket.on('ImageSearchResults', function(msg){
             PhotoSwipe.detatch(searchPhotoSwipe);
         }
     }(window.Code.PhotoSwipe));
-    $('#SearchImageList').append('<li><a id="' + msg.ID + '" href="' + msg.ImageFull + '" rel="external"><img src="' + msg.ImageThumb + '" alt="' + msg.Caption + ' Votes: ' + msg.Votes + '"></a></li>');
+    $('#SearchImageList').append('<a id="' + msg.ID + '" href="' + msg.ImageFull + '" rel="external"><img src="' + msg.ImageThumb + '" alt="' + msg.Caption + ' Votes: ' + msg.Votes + '"></a>');
     searchPhotoSwipe = $("#SearchImageList a").photoSwipe({
         captionAndToolbarOpacity: 1,
         captionAndToolbarAutoHideDelay: 0,
@@ -426,7 +426,7 @@ $(function(){
     });
     $('#SearchBtn').click(function(){
         EnableScroll();
-        $('ul').not('#MenuList').hide();
+        $('#TopImageList, #MyImageList, #ImageList, #SearchImageList').hide();
         $('body').scrollTop(0);
         $('#menu').removeClass('SliderMenu');
         $(".ui-page-active").animate({

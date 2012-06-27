@@ -59,10 +59,10 @@ body{
     background-image: -webkit-linear-gradient(bottom, rgb(13,13,13) 0%, rgb(51,51,51) 53%, rgb(54,54,54) 77%);
     background-image: -ms-linear-gradient(bottom, rgb(13,13,13) 0%, rgb(51,51,51) 53%, rgb(54,54,54) 77%);
 }
-.gallery li a{
+.gallery img{
     border: 3px solid #cccccc !important;
 }
-#MainContent ul{
+#MainContent div{
     margin-top: 45px !important;
     margin-bottom: 45px !important;
 }
@@ -162,9 +162,13 @@ div.ui-slider-switch.ui-slider-mini a.ui-slider-handle .ui-btn-inner {
     margin: 0 auto;
     padding:15px 5px 0 5px;
 }
-ul li a img{
-    width: 640px;
-    height: 960px;
+#MainContent div{
+    text-align: center !important;
+}
+#MainContent div img{
+    width: 30% !important;
+    height: 120px !important;
+    margin: 0 2px 0 2px; !important;
 }
 #menu {
     margin-top: 45px;
