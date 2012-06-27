@@ -162,9 +162,6 @@ div.ui-slider-switch.ui-slider-mini a.ui-slider-handle .ui-btn-inner {
     margin: 0 auto;
     padding:15px 5px 0 5px;
 }
-#MainContent div{
-    text-align: center !important;
-}
 #MainContent div img{
     width: 30% !important;
     height: 120px !important;

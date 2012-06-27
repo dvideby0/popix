@@ -63,13 +63,13 @@ io.sockets.on('connection', function(socket) {
                 'Content-Type': 'image/jpeg'
             });
             req.on('response', function(){
-                io.sockets.emit('NewImage', {
+                io.sockets.emit('NewImage', JSON.stringify({
                     ImageThumb: 'https://s3.amazonaws.com/popix/imgposts/thumb/' + UUID + '.jpg',
                     ImageFull: 'https://s3.amazonaws.com/popix/imgposts/full/' + UUID + '.jpg',
                     Caption: msg.Caption,
                     ID: UUID,
                     Votes: 0
-                });
+                }));
                 if(msg.Anonymous == 0){
                     socket.emit('ImageURL', {URL:'https://s3.amazonaws.com/popix/imgposts/full/' + UUID + '.jpg', Caption: msg.Caption});
                 }
