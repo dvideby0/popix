@@ -70,11 +70,11 @@ div.ps-caption
     font-size: 15px;
     font-family: "Verdana", Arial, sans-serif !important;
     text-align: center;
-    background-image: linear-gradient(bottom, rgb(15,15,15) 49%, rgb(41,41,41) 52%);
-    background-image: -o-linear-gradient(bottom, rgb(15,15,15) 49%, rgb(41,41,41) 52%);
-    background-image: -moz-linear-gradient(bottom, rgb(15,15,15) 49%, rgb(41,41,41) 52%);
-    background-image: -webkit-linear-gradient(bottom, rgb(15,15,15) 49%, rgb(41,41,41) 52%);
-    background-image: -ms-linear-gradient(bottom, rgb(15,15,15) 49%, rgb(41,41,41) 52%);
+    background-image: linear-gradient(bottom, rgb(19,139,194) 29%, rgb(26,153,212) 67%);
+    background-image: -o-linear-gradient(bottom, rgb(19,139,194) 29%, rgb(26,153,212) 67%);
+    background-image: -moz-linear-gradient(bottom, rgb(19,139,194) 29%, rgb(26,153,212) 67%);
+    background-image: -webkit-linear-gradient(bottom, rgb(19,139,194) 29%, rgb(26,153,212) 67%);
+    background-image: -ms-linear-gradient(bottom, rgb(19,139,194) 29%, rgb(26,153,212) 67%);
 }
 div.ps-caption *  { display: inline; }
 
@@ -103,11 +103,11 @@ div.ps-toolbar
     height: 44px;
     display: table;
     table-layout: fixed;
-    background-image: linear-gradient(bottom, rgb(15,15,15) 49%, rgb(41,41,41) 52%);
-    background-image: -o-linear-gradient(bottom, rgb(15,15,15) 49%, rgb(41,41,41) 52%);
-    background-image: -moz-linear-gradient(bottom, rgb(15,15,15) 49%, rgb(41,41,41) 52%);
-    background-image: -webkit-linear-gradient(bottom, rgb(15,15,15) 49%, rgb(41,41,41) 52%);
-    background-image: -ms-linear-gradient(bottom, rgb(15,15,15) 49%, rgb(41,41,41) 52%);
+    background-image: linear-gradient(bottom, rgb(19,139,194) 29%, rgb(26,153,212) 67%);
+    background-image: -o-linear-gradient(bottom, rgb(19,139,194) 29%, rgb(26,153,212) 67%);
+    background-image: -moz-linear-gradient(bottom, rgb(19,139,194) 29%, rgb(26,153,212) 67%);
+    background-image: -webkit-linear-gradient(bottom, rgb(19,139,194) 29%, rgb(26,153,212) 67%);
+    background-image: -ms-linear-gradient(bottom, rgb(19,139,194) 29%, rgb(26,153,212) 67%);
 }
 div.ps-toolbar * {
     display: block;

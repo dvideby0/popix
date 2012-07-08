@@ -7,6 +7,7 @@ var RealName;
 var mainPhotoSwipe;
 var myPhotoSwipe;
 var topPhotoSwipe;
+var friendPhotoSwipe;
 var searchPhotoSwipe;
 var ImageData;
 
@@ -217,7 +218,7 @@ socket.on('ImageURL', function(msg){
 //------------------------------Get Main Stream-------------------------
 
 function GetFeedImages(){
-    $('#TopImageList, #MyImageList, #ImageList, #SearchImageList').hide();
+    $('#TopImageList, #MyImageList, #ImageList, #SearchImageList, #FriendsList, #FriendImageList').hide();
     $('body').scrollTop(0);
     $('#ImageList').show();
 }
@@ -225,7 +226,7 @@ function GetFeedImages(){
 //------------------------------Get Top Stream-------------------------
 function GetTopImages(){
     $('#TopImageList').empty();
-    $('#TopImageList, #MyImageList, #ImageList, #SearchImageList').hide();
+    $('#TopImageList, #MyImageList, #ImageList, #SearchImageList, #FriendsList, #FriendImageList').hide();
     $('body').scrollTop(0);
     $('#TopImageList').show();
     socket.emit('GetTopImages','');
@@ -241,10 +242,44 @@ function GetSearchImages(query){
 //------------------------------Get User Stream-------------------------
 function GetUserImages(){
     $('#MyImageList').empty();
-    $('#TopImageList, #MyImageList, #ImageList, #SearchImageList').hide();
+    $('#TopImageList, #MyImageList, #ImageList, #SearchImageList, #FriendsList, #FriendImageList').hide();
     $('body').scrollTop(0);
     $('#MyImageList').show();
     socket.emit('GetUserImages', DeviceID);
+}
+
+//--------------------------------Get Friend Images--------------------------
+
+function GetFriendImages(id){
+    $('#FriendImageList').empty();
+    $('#TopImageList, #MyImageList, #ImageList, #SearchImageList, #FriendsList, #FriendImageList').hide();
+    $('body').scrollTop(0);
+    $('#FriendImageList').show();
+    socket.emit('GetFriendImages', id);
+}
+
+//------------------------------Get Facebook Friends-------------------------
+
+
+function GetFriendsList(){
+    $('#FriendsList').empty();
+    $('#TopImageList, #MyImageList, #ImageList, #SearchImageList, #FriendsList, #FriendImageList').hide();
+    $('body').scrollTop(0);
+    $('#FriendsList').show();
+    $.ajax({
+        type: 'GET',
+        url: 'https://graph.facebook.com/me/friends?fields=installed,picture,name&access_token=' + window.localStorage.getItem(window.plugins.fbConnect.facebookkey),
+        cache: false,
+        dataType: 'json',
+        complete: function (xhrObj) {
+            var Response = $.parseJSON(xhrObj.responseText);
+            for (var i = 0; i<Response.data.length; i++){
+                if(Response.data[i].installed){
+                    $('#FriendsList').append('<li onClick="GetFriendImages(\'' + Response.data[i].id + '\')"><img src="' + Response.data[i].picture + '">' + Response.data[i].name + '</li>');
+                }
+            }
+        }
+    });
 }
 
 //----------------------------------------------------------------------------------
@@ -270,6 +305,7 @@ socket.on('NewImage', function(msg){
         captionAndToolbarAutoHideDelay: 0,
         allowUserZoom: false,
         imageScaleMethod: 'zoom',
+        captionAndToolbarFlipPosition: true,
         getToolbar: function(){
             return '<div class="ps-toolbar-close"><div class="ps-toolbar-content"></div></div>' +
                 '<div class="ps-toolbar-play"><div class="ps-toolbar-content"></div></div>' +
@@ -299,6 +335,7 @@ socket.on('UserImages', function(msg){
         captionAndToolbarAutoHideDelay: 0,
         allowUserZoom: false,
         imageScaleMethod: 'zoom',
+        captionAndToolbarFlipPosition: true,
         getToolbar: function(){
             return '<div class="ps-toolbar-close"><div class="ps-toolbar-content"></div></div>' +
                 '<div class="ps-toolbar-play"><div class="ps-toolbar-content"></div></div>' +
@@ -327,6 +364,7 @@ socket.on('TopImages', function(msg){
         captionAndToolbarAutoHideDelay: 0,
         allowUserZoom: false,
         imageScaleMethod: 'zoom',
+        captionAndToolbarFlipPosition: true,
         getToolbar: function(){
             return '<div class="ps-toolbar-close"><div class="ps-toolbar-content"></div></div>' +
                 '<div class="ps-toolbar-play"><div class="ps-toolbar-content"></div></div>' +
@@ -355,6 +393,7 @@ socket.on('ImageSearchResults', function(msg){
         captionAndToolbarAutoHideDelay: 0,
         allowUserZoom: false,
         imageScaleMethod: 'zoom',
+        captionAndToolbarFlipPosition: true,
         getToolbar: function(){
             return '<div class="ps-toolbar-close"><div class="ps-toolbar-content"></div></div>' +
                 '<div class="ps-toolbar-play"><div class="ps-toolbar-content"></div></div>' +
@@ -366,6 +405,35 @@ socket.on('ImageSearchResults', function(msg){
     searchPhotoSwipe.addEventHandler(window.Code.PhotoSwipe.EventTypes.onToolbarTap, function(e){
         if($(e.tapTarget).attr('id') == 'ThumbsUp'){
             var ImgObj = searchPhotoSwipe.getCurrentImage();
+            socket.emit('VoteUp', {ImageID: ImgObj.refObj.id, UserID: DeviceID});
+        }
+    });
+});
+socket.on('FriendImages', function(msg){
+    msg = JSON.parse(msg);
+    (function(PhotoSwipe){
+        if(friendPhotoSwipe){
+            PhotoSwipe.detatch(friendPhotoSwipe);
+        }
+    }(window.Code.PhotoSwipe));
+    $('#FriendImageList').append('<li><a id="' + msg.ID + '" href="' + msg.ImageFull + '" rel="external" alt="' + msg.HashTag + '"><img src="' + msg.ImageThumb + '" alt="' + msg.Caption + ' Votes: ' + msg.Votes + '"></a></li>');
+    friendPhotoSwipe = $("#FriendImageList a").photoSwipe({
+        captionAndToolbarOpacity: 1,
+        captionAndToolbarAutoHideDelay: 0,
+        allowUserZoom: false,
+        imageScaleMethod: 'zoom',
+        captionAndToolbarFlipPosition: true,
+        getToolbar: function(){
+            return '<div class="ps-toolbar-close"><div class="ps-toolbar-content"></div></div>' +
+                '<div class="ps-toolbar-play"><div class="ps-toolbar-content"></div></div>' +
+                '<div class="ps-toolbar-previous"><div class="ps-toolbar-content"></div></div>' +
+                '<div class="ps-toolbar-next"><div class="ps-toolbar-content"></div></div>' +
+                '<div id="SayHi"><img id="ThumbsUp" src="lib/images/thumbs.png" alt=""></div>';
+        }
+    });
+    friendPhotoSwipe.addEventHandler(window.Code.PhotoSwipe.EventTypes.onToolbarTap, function(e){
+        if($(e.tapTarget).attr('id') == 'ThumbsUp'){
+            var ImgObj = friendPhotoSwipe.getCurrentImage();
             socket.emit('VoteUp', {ImageID: ImgObj.refObj.id, UserID: DeviceID});
         }
     });

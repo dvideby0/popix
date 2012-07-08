@@ -13,7 +13,7 @@ var client = knox.createClient({
 });
 var app = http.createServer(function(req, res) {
     res.writeHead(200, {'Content-Type': 'text/html'});
-    res.end('Success!');
+    res.end('<html><body style="color: #292929; text-align: center"><h1 style="font-family: Chalkdust; margin-top: 100px; color: #1e90ff">Success!</h1></body></html>');
 });
 var io = require('socket.io').listen(app);
 io.enable('browser client minification');
@@ -54,7 +54,7 @@ io.sockets.on('connection', function(socket) {
         im.resize({
             srcData: dataBuffer,
             width:  160,
-            height: "240!"
+            height: "200!"
         }, function(err, stdout, stderr){
             var imgBuffer = new Buffer(stdout, 'binary');
             if (err) throw err;
@@ -119,7 +119,7 @@ io.sockets.on('connection', function(socket) {
         });
     });
     socket.on('GetTopImages', function(){
-        posts.find().sort({Votes: -1}).limit(21).toArray(function (err, array) {
+        posts.find().sort({Votes: -1}).limit(24).toArray(function (err, array) {
             for(var i = 0; i < array.length; i++){
                 socket.emit('TopImages',JSON.stringify({
                     ImageFull: array[i].ImageFull,
@@ -133,7 +133,7 @@ io.sockets.on('connection', function(socket) {
     });
     socket.on('SearchForImages', function(msg){
         var query = new RegExp('(' + msg.join(')|(') + ')', 'i');
-        posts.find({'HashTag': query}).limit(21).toArray(function (err, array) {
+        posts.find({'HashTag': query}).limit(24).toArray(function (err, array) {
             for(var i = 0; i < array.length; i++){
                 socket.emit('ImageSearchResults',JSON.stringify({
                     ImageFull: array[i].ImageFull,
@@ -146,9 +146,22 @@ io.sockets.on('connection', function(socket) {
         });
     });
     socket.on('GetNewestImages', function(){
-        posts.find().sort({"Created":-1}).limit(30).toArray(function (err, array) {
+        posts.find().sort({"Created":-1}).limit(24).toArray(function (err, array) {
             for(var i = 0; i < array.length; i++){
                 socket.emit('NewImage',JSON.stringify({
+                    ImageFull: array[i].ImageFull,
+                    ImageThumb: array[i].ImageThumb,
+                    ID: array[i].ID,
+                    Caption: array[i].Caption,
+                    Votes: array[i].Votes
+                }));
+            }
+        });
+    });
+    socket.on('GetFriendImages', function(msg){
+        posts.find({$and: [{'User':msg}, {'Anonymous': 0}]}).limit(24).toArray(function (err, array) {
+            for(var i = 0; i < array.length; i++){
+                socket.emit('FriendImages',JSON.stringify({
                     ImageFull: array[i].ImageFull,
                     ImageThumb: array[i].ImageThumb,
                     ID: array[i].ID,

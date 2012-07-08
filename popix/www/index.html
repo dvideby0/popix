@@ -35,7 +35,7 @@
         <ul id="MenuList">
             <li><a id="MainFeedBtn" href="javascript:GetFeedImages();" class="contentLink">Main Feed</a></li>
             <li><a href="javascript:GetTopImages();" class="contentLink">Top Rated</a></li>
-            <li><a href="javascript:" class="contentLink">Friends </a></li>
+            <li><a href="javascript:GetFriendsList();" class="contentLink">Friends </a></li>
             <li><a href="javascript:GetUserImages();" class="contentLink">My Pix </a></li>
             <li><a href="javascript:AlertTwitter();" class="contentLink">Settings </a></li>
             <li><a href="javascript:" id="SearchBtn" class="contentLink">Search </a></li>
@@ -43,17 +43,21 @@
     </div>
     <div id="LoginPage" data-role="page">
         <div data-id="Header" data-role="header" data-position="fixed">
-            POPIX
+            Popix
         </div>
         <div id="LoginContent" data-role="content">
-            <div class="LoginForm">
-                <img onclick="InitializeFB();" src="lib/images/facebook-login.png">
-                <p>OR</p>
-                <img onclick="InitializeTwitter();" src="lib/images/twitter-login.png">
-            </div>
+            <center>
+                <br /><br />
+                <div class="LoginForm">
+                    <img onclick="InitializeFB();" src="lib/images/facebook-login.png">
+                </div>
+                <div class="LoginForm">
+                    <img onclick="InitializeTwitter();" src="lib/images/twitter-login.png">
+                </div>
+            </center>
         </div>
         <div data-id="Footer" data-role="footer" data-position="fixed" class="LoginFooter">
-            <font color="#1e90ff">moby</font><font color="#7cfc00">io</font>
+            2012 Moby IO
         </div>
     </div>
     <div id="MainPage" data-role="page" class="gallery-page pages">
@@ -72,6 +76,10 @@
             <ul class="gallery" id="ImageList">
             </ul>
             <ul class="gallery" id="SearchImageList">
+            </ul>
+            <ul class="gallery" id="FriendsList">
+            </ul>
+            <ul class="gallery" id="FriendImageList">
             </ul>
         </div>
         <div data-id="Footer" data-role="footer" data-position="fixed">
