@@ -54,12 +54,11 @@ body{
 }
 
 .ui-btn-corner-all{
-    background-image: linear-gradient(bottom, rgb(5,85,138) 0%, rgb(4,121,184) 51%);
-    background-image: -o-linear-gradient(bottom, rgb(5,85,138) 0%, rgb(4,121,184) 51%);
-    background-image: -moz-linear-gradient(bottom, rgb(5,85,138) 0%, rgb(4,121,184) 51%);
-    background-image: -webkit-linear-gradient(bottom, rgb(5,85,138) 0%, rgb(4,121,184) 51%);
-    background-image: -ms-linear-gradient(bottom, rgb(5,85,138) 0%, rgb(4,121,184) 51%);
-    border-color: rgb(5,85,138);
+    background-image: linear-gradient(bottom, rgb(19,139,194) 29%, rgb(26,153,212) 67%);
+    background-image: -o-linear-gradient(bottom, rgb(19,139,194) 29%, rgb(26,153,212) 67%);
+    background-image: -moz-linear-gradient(bottom, rgb(19,139,194) 29%, rgb(26,153,212) 67%);
+    background-image: -webkit-linear-gradient(bottom, rgb(19,139,194) 29%, rgb(26,153,212) 67%);
+    background-image: -ms-linear-gradient(bottom, rgb(19,139,194) 29%, rgb(26,153,212) 67%);
     border-radius: 3px;
     color: #ffffff;
     text-shadow: 0 0 0.3em #000000;
@@ -141,12 +140,12 @@ div.ui-slider-switch.ui-slider-mini a.ui-slider-handle .ui-btn-inner {
     padding: 0;
     margin: 0;
 }
-#CaptureBtn .ui-btn-corner-all{
-    background-image: linear-gradient(bottom, rgb(5,85,138) 0%, rgb(4,121,184) 51%);
-    background-image: -o-linear-gradient(bottom, rgb(5,85,138) 0%, rgb(4,121,184) 51%);
-    background-image: -moz-linear-gradient(bottom, rgb(5,85,138) 0%, rgb(4,121,184) 51%);
-    background-image: -webkit-linear-gradient(bottom, rgb(5,85,138) 0%, rgb(4,121,184) 51%);
-    background-image: -ms-linear-gradient(bottom, rgb(5,85,138) 0%, rgb(4,121,184) 51%);
+.capButton, .showMenu{
+    background-image: linear-gradient(bottom, rgb(19,139,194) 29%, rgb(26,153,212) 67%);
+    background-image: -o-linear-gradient(bottom, rgb(19,139,194) 29%, rgb(26,153,212) 67%);
+    background-image: -moz-linear-gradient(bottom, rgb(19,139,194) 29%, rgb(26,153,212) 67%);
+    background-image: -webkit-linear-gradient(bottom, rgb(19,139,194) 29%, rgb(26,153,212) 67%);
+    background-image: -ms-linear-gradient(bottom, rgb(19,139,194) 29%, rgb(26,153,212) 67%);
     border-color: rgb(5,85,138);
     border-radius: 3px;
     color: #ffffff;
@@ -155,12 +154,11 @@ div.ui-slider-switch.ui-slider-mini a.ui-slider-handle .ui-btn-inner {
     text-shadow: 0 0 0.3em #000000;
 }
 .ui-btn-corner-all:active{
-    background-image: linear-gradient(bottom, rgb(242,137,24) 48%, rgb(255,185,99) 53%);
-    background-image: -o-linear-gradient(bottom, rgb(242,137,24) 48%, rgb(255,185,99) 53%);
-    background-image: -moz-linear-gradient(bottom, rgb(242,137,24) 48%, rgb(255,185,99) 53%);
-    background-image: -webkit-linear-gradient(bottom, rgb(242,137,24) 48%, rgb(255,185,99) 53%);
-    background-image: -ms-linear-gradient(bottom, rgb(242,137,24) 48%, rgb(255,185,99) 53%);
-    border-color: rgb(242,137,24);
+    background-image: linear-gradient(bottom, rgb(5,85,138) 0%, rgb(4,121,184) 51%);
+    background-image: -o-linear-gradient(bottom, rgb(5,85,138) 0%, rgb(4,121,184) 51%);
+    background-image: -moz-linear-gradient(bottom, rgb(5,85,138) 0%, rgb(4,121,184) 51%);
+    background-image: -webkit-linear-gradient(bottom, rgb(5,85,138) 0%, rgb(4,121,184) 51%);
+    background-image: -ms-linear-gradient(bottom, rgb(5,85,138) 0%, rgb(4,121,184) 51%);
     border-radius: 3px;
     color: #ffffff;
 }

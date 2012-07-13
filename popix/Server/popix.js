@@ -68,7 +68,8 @@ io.sockets.on('connection', function(socket) {
                     ImageFull: 'https://s3.amazonaws.com/popix/imgposts/full/' + UUID + '.jpg',
                     Caption: msg.Caption,
                     ID: UUID,
-                    Votes: 0
+                    Votes: 0,
+                    Count: 1
                 }));
                 if(msg.Anonymous == 0){
                     socket.emit('ImageURL', {URL:'https://s3.amazonaws.com/popix/imgposts/full/' + UUID + '.jpg', Caption: msg.Caption});
@@ -82,13 +83,15 @@ io.sockets.on('connection', function(socket) {
     });
     socket.on('GetUserImages', function (msg) {
         posts.find({User: msg}, {ImageFull:1, ImageThumb:1, Caption:1, Votes:1, ID:1}).toArray(function (err, array) {
+            var ACount = array.length;
             for(var i = 0; i < array.length; i++){
                 socket.emit('UserImages',JSON.stringify({
                     ImageFull: array[i].ImageFull,
                     ImageThumb: array[i].ImageThumb,
                     ID: array[i].ID,
                     Caption: array[i].Caption,
-                    Votes: array[i].Votes
+                    Votes: array[i].Votes,
+                    Count: ACount - i
                 }));
             }
         });
@@ -120,13 +123,15 @@ io.sockets.on('connection', function(socket) {
     });
     socket.on('GetTopImages', function(){
         posts.find().sort({Votes: -1}).limit(24).toArray(function (err, array) {
+            var ACount = array.length;
             for(var i = 0; i < array.length; i++){
                 socket.emit('TopImages',JSON.stringify({
                     ImageFull: array[i].ImageFull,
                     ImageThumb: array[i].ImageThumb,
                     ID: array[i].ID,
                     Caption: array[i].Caption,
-                    Votes: array[i].Votes
+                    Votes: array[i].Votes,
+                    Count: ACount - i
                 }));
             }
         })
@@ -134,39 +139,45 @@ io.sockets.on('connection', function(socket) {
     socket.on('SearchForImages', function(msg){
         var query = new RegExp('(' + msg.join(')|(') + ')', 'i');
         posts.find({'HashTag': query}).limit(24).toArray(function (err, array) {
+            var ACount = array.length;
             for(var i = 0; i < array.length; i++){
                 socket.emit('ImageSearchResults',JSON.stringify({
                     ImageFull: array[i].ImageFull,
                     ImageThumb: array[i].ImageThumb,
                     ID: array[i].ID,
                     Caption: array[i].Caption,
-                    Votes: array[i].Votes
+                    Votes: array[i].Votes,
+                    Count: ACount - i
                 }));
             }
         });
     });
     socket.on('GetNewestImages', function(){
         posts.find().sort({"Created":-1}).limit(24).toArray(function (err, array) {
+            var ACount = array.length;
             for(var i = 0; i < array.length; i++){
                 socket.emit('NewImage',JSON.stringify({
                     ImageFull: array[i].ImageFull,
                     ImageThumb: array[i].ImageThumb,
                     ID: array[i].ID,
                     Caption: array[i].Caption,
-                    Votes: array[i].Votes
+                    Votes: array[i].Votes,
+                    Count: ACount - i
                 }));
             }
         });
     });
     socket.on('GetFriendImages', function(msg){
         posts.find({$and: [{'User':msg}, {'Anonymous': 0}]}).limit(24).toArray(function (err, array) {
+            var ACount = array.length;
             for(var i = 0; i < array.length; i++){
                 socket.emit('FriendImages',JSON.stringify({
                     ImageFull: array[i].ImageFull,
                     ImageThumb: array[i].ImageThumb,
                     ID: array[i].ID,
                     Caption: array[i].Caption,
-                    Votes: array[i].Votes
+                    Votes: array[i].Votes,
+                    Count: ACount - i
                 }));
             }
         });

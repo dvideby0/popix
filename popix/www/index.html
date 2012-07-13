@@ -14,6 +14,7 @@
     <script type="text/javascript" src="lib/js/ChildBrowser.js"></script>
     <script type="text/javascript" src="lib/js/jquery.js"></script>
     <script type="text/javascript" src="lib/js/fastclick.js"></script>
+    <script type="text/javascript" src="lib/js/lazyload.js"></script>
     <script type="text/javascript">
         $(document).bind("mobileinit", function(){
             $.extend(  $.mobile , {
@@ -63,10 +64,10 @@
     </div>
     <div id="MainPage" data-role="page" class="gallery-page pages">
         <div data-id="Header" id="MainHeader" data-role="header" data-position="fixed">
-            <a style="margin-top: 3px" href="#"class="showMenu">Menu</a>
+            <a style="margin-top: 3px" href="#" class="showMenu">Menu</a>
             <div id="HeaderItems">POPIX</div>
             <div id="HeaderSearch" style="margin-left: 80px">
-                <input id="SearchInput" placeholder="Search" style="width:93%; height: 15px; margin-top: 5px;" class="ui-input-text ui-body-null ui-corner-all ui-shadow-inset ui-body-c" value="" />
+                <input id="SearchInput" placeholder="Search" style="width:93%; height: 18px; margin-top: 3px;" class="ui-input-text ui-body-null ui-corner-all ui-shadow-inset ui-body-c" value="" />
             </div>
         </div>
         <div id="MainContent" data-role="content" style="margin: 0 !important; padding: 0 !important;">
@@ -84,7 +85,7 @@
             </ul>
         </div>
         <div data-id="Footer" data-role="footer" data-position="fixed">
-            <a id="CaptureBtn" href="javascript:TakePicture();">Camera</a>
+            <a id="CaptureBtn" class="capButton" href="javascript:TakePicture();">Camera</a>
         </div>
     </div>
     <div data-role="dialog" id="HTForm">
