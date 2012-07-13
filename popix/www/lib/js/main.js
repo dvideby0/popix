@@ -37,6 +37,7 @@ function AssignVars(){
     });
     new FastClick(document.body);
     $('img').lazyload();
+    $('#MainFeedBtn').parent().addClass('active');
 }
 
 //--------------------------------Device Ready Listener---------------------------------------
@@ -497,18 +498,6 @@ $(function(){
             return false;
         }
     });
-
-    $("#menu li a").not('#SearchBtn').click(function(){
-        $('#HeaderSearch').hide();
-        $('#HeaderItems').show();
-        var p = $(this).parent();
-        if($(p).hasClass('active')){
-            $("#menu li").removeClass('active');
-        } else {
-            $("#menu li").removeClass('active');
-            $(p).addClass('active');
-        }
-    });
     $('#SearchBtn').click(function(){
         var p = $(this).parent();
         if($(p).hasClass('active')){
@@ -518,7 +507,7 @@ $(function(){
             $(p).addClass('active');
         }
         EnableScroll();
-        $('#TopImageList, #MyImageList, #ImageList, #SearchImageList').hide();
+        $('#TopImageList, #MyImageList, #ImageList, #SearchImageList, #FriendsList, #FriendImageList').hide();
         $('body').scrollTop(0);
         $('#menu').removeClass('SliderMenu');
         $(".ui-page-active").animate({
@@ -527,6 +516,24 @@ $(function(){
             menuStatus = false;
             $('#HeaderItems').hide();
             $('#HeaderSearch').show();
+        });
+    });
+    $('#menu ul li a').not('#SearchBtn').click(function(){
+        var p = $(this).parent();
+        if($(p).hasClass('active')){
+            $("#menu li").removeClass('active');
+        } else {
+            $("#menu li").removeClass('active');
+            $(p).addClass('active');
+        }
+        EnableScroll();
+        $('#TopImageList, #MyImageList, #ImageList, #SearchImageList, #FriendsList, #FriendImageList').hide();
+        $('body').scrollTop(0);
+        $('#menu').removeClass('SliderMenu');
+        $(".ui-page-active").animate({
+            marginLeft: "0px"
+        }, 0, function(){
+            menuStatus = false;
         });
     });
 });
