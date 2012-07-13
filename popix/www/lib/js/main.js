@@ -35,6 +35,7 @@ function AssignVars(){
             GetSearchImages($('#SearchInput').val());
         }
     });
+    new FastClick(document.body);
 }
 
 //--------------------------------Device Ready Listener---------------------------------------
@@ -469,14 +470,14 @@ $(function(){
             $('#menu').addClass('SliderMenu');
             $(".ui-page-active").animate({
                 marginLeft: "165px"
-            }, 100, function(){menuStatus = true});
+            }, 0, function(){menuStatus = true});
             return false;
         } else {
             EnableScroll();
             $('#menu').removeClass('SliderMenu');
             $(".ui-page-active").animate({
                 marginLeft: "0px"
-            }, 100, function(){menuStatus = false});
+            }, 0, function(){menuStatus = false});
             return false;
         }
     });
@@ -506,7 +507,7 @@ $(function(){
         $('#menu').removeClass('SliderMenu');
         $(".ui-page-active").animate({
             marginLeft: "0px"
-        }, 100, function(){
+        }, 0, function(){
             menuStatus = false;
             $('#HeaderItems').hide();
             $('#HeaderSearch').show();

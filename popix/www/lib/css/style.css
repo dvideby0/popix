@@ -186,25 +186,19 @@ div.ui-slider-switch.ui-slider-mini a.ui-slider-handle .ui-btn-inner {
     height: 100%;
     display: block !important;
     float: left;
-    background-image: linear-gradient(bottom, rgb(29,35,59) 0%, rgb(67,76,112) 100%);
-    background-image: -o-linear-gradient(bottom, rgb(29,35,59) 0%, rgb(67,76,112) 100%);
-    background-image: -moz-linear-gradient(bottom, rgb(29,35,59) 0%, rgb(67,76,112) 100%);
-    background-image: -webkit-linear-gradient(bottom, rgb(29,35,59) 0%, rgb(67,76,112) 100%);
-    background-image: -ms-linear-gradient(bottom, rgb(29,35,59) 0%, rgb(67,76,112) 100%);
+    background-image: linear-gradient(bottom, rgb(166,161,166) 0%, rgb(230,230,230) 77%);
+    background-image: -o-linear-gradient(bottom, rgb(166,161,166) 0%, rgb(230,230,230) 77%);
+    background-image: -moz-linear-gradient(bottom, rgb(166,161,166) 0%, rgb(230,230,230) 77%);
+    background-image: -webkit-linear-gradient(bottom, rgb(166,161,166) 0%, rgb(230,230,230) 77%);
+    background-image: -ms-linear-gradient(bottom, rgb(166,161,166) 0%, rgb(230,230,230) 77%);
 }
 #menu h3{
     font-family:arial;
     font-size:18px;
-    color:#fff;
+    color:#264273;
     margin:0;
-    background-image: linear-gradient(bottom, rgb(80,177,242) 0%, rgb(82,191,250) 51%);
-    background-image: -o-linear-gradient(bottom, rgb(80,177,242) 0%, rgb(82,191,250) 51%);
-    background-image: -moz-linear-gradient(bottom, rgb(80,177,242) 0%, rgb(82,191,250) 51%);
-    background-image: -webkit-linear-gradient(bottom, rgb(80,177,242) 0%, rgb(82,191,250) 51%);
-    background-image: -ms-linear-gradient(bottom, rgb(80,177,242) 0%, rgb(82,191,250) 51%);
     padding:4px 0 4px 10px;
-    border-top:solid #6b6b6b 1px;
-    border-bottom:solid #3d3d3d 1px;
+    border-bottom:solid #264273 5px !important;
 }
 #menu ul {
     margin: 0;
@@ -221,8 +215,8 @@ div.ui-slider-switch.ui-slider-mini a.ui-slider-handle .ui-btn-inner {
     margin: 10px 0px 10px 10px;
 }
 #menu ul li a:link, #menu ul li a:visited{
-    border-bottom: solid #aaaaaa 1px;
-    color: #fff;
+    border-bottom: solid #264273 5px;
+    color: #264273;
     font-size: 14px;
     font-family: arial;
     text-decoration: none;
@@ -232,20 +226,15 @@ div.ui-slider-switch.ui-slider-mini a.ui-slider-handle .ui-btn-inner {
     text-shadow: none !important;
 }
 #menu ul li a:hover, #menu ul li a:active {
-    background-image: linear-gradient(bottom, rgb(80,177,242) 0%, rgb(82,191,250) 51%);
-    background-image: -o-linear-gradient(bottom, rgb(80,177,242) 0%, rgb(82,191,250) 51%);
-    background-image: -moz-linear-gradient(bottom, rgb(80,177,242) 0%, rgb(82,191,250) 51%);
-    background-image: -webkit-linear-gradient(bottom, rgb(80,177,242) 0%, rgb(82,191,250) 51%);
-    background-image: -ms-linear-gradient(bottom, rgb(80,177,242) 0%, rgb(82,191,250) 51%);
     text-shadow: none !important;
+    color: #ffffff !important;
 }
 .active{
-    color:#fff;
-    background-image: linear-gradient(bottom, rgb(80,177,242) 0%, rgb(82,191,250) 51%);
-    background-image: -o-linear-gradient(bottom, rgb(80,177,242) 0%, rgb(82,191,250) 51%);
-    background-image: -moz-linear-gradient(bottom, rgb(80,177,242) 0%, rgb(82,191,250) 51%);
-    background-image: -webkit-linear-gradient(bottom, rgb(80,177,242) 0%, rgb(82,191,250) 51%);
-    background-image: -ms-linear-gradient(bottom, rgb(80,177,242) 0%, rgb(82,191,250) 51%);
+    background-image: linear-gradient(bottom, rgb(66,106,171) 0%, rgb(115,176,245) 100%);
+    background-image: -o-linear-gradient(bottom, rgb(66,106,171) 0%, rgb(115,176,245) 100%);
+    background-image: -moz-linear-gradient(bottom, rgb(66,106,171) 0%, rgb(115,176,245) 100%);
+    background-image: -webkit-linear-gradient(bottom, rgb(66,106,171) 0%, rgb(115,176,245) 100%);
+    background-image: -ms-linear-gradient(bottom, rgb(66,106,171) 0%, rgb(115,176,245) 100%);
     text-shadow: none !important;
 
 }
