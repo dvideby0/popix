@@ -1,5 +1,5 @@
 body{
-
+    background-color: #2f487a !important;
 }
 
 [data-role="header"], [data-role="footer"]{
@@ -64,11 +64,8 @@ body{
     text-shadow: 0 0 0.3em #000000;
 }
 [data-role="page"]{
-    background-image: linear-gradient(bottom, rgb(29,35,59) 0%, rgb(67,76,112) 100%);
-    background-image: -o-linear-gradient(bottom, rgb(29,35,59) 0%, rgb(67,76,112) 100%);
-    background-image: -moz-linear-gradient(bottom, rgb(29,35,59) 0%, rgb(67,76,112) 100%);
-    background-image: -webkit-linear-gradient(bottom, rgb(29,35,59) 0%, rgb(67,76,112) 100%);
-    background-image: -ms-linear-gradient(bottom, rgb(29,35,59) 0%, rgb(67,76,112) 100%);
+    background-image: none !important;
+    background-color: #2f487a !important;
 }
 .gallery img{
     border: 3px solid #ffffff !important;
@@ -184,19 +181,7 @@ div.ui-slider-switch.ui-slider-mini a.ui-slider-handle .ui-btn-inner {
     height: 100%;
     display: block !important;
     float: left;
-    background-image: linear-gradient(bottom, rgb(166,161,166) 0%, rgb(230,230,230) 77%);
-    background-image: -o-linear-gradient(bottom, rgb(166,161,166) 0%, rgb(230,230,230) 77%);
-    background-image: -moz-linear-gradient(bottom, rgb(166,161,166) 0%, rgb(230,230,230) 77%);
-    background-image: -webkit-linear-gradient(bottom, rgb(166,161,166) 0%, rgb(230,230,230) 77%);
-    background-image: -ms-linear-gradient(bottom, rgb(166,161,166) 0%, rgb(230,230,230) 77%);
-}
-#menu h3{
-    font-family:arial;
-    font-size:18px;
-    color:#264273;
-    margin:0;
-    padding:4px 0 4px 10px;
-    border-bottom:solid #264273 5px !important;
+    background-color: #2f487a;
 }
 #menu ul {
     margin: 0;
@@ -213,10 +198,10 @@ div.ui-slider-switch.ui-slider-mini a.ui-slider-handle .ui-btn-inner {
     margin: 10px 0px 10px 10px;
 }
 #menu ul li a:link, #menu ul li a:visited{
-    border-bottom: solid #264273 5px;
-    color: #264273;
+    border-bottom: solid #dddddd 3px;
+    color: #ffffff;
     font-size: 14px;
-    font-family: arial;
+    font-family: 'ArialRoundedMTBold';
     text-decoration: none;
     width: 165px;
     display: block;
@@ -238,9 +223,6 @@ div.ui-slider-switch.ui-slider-mini a.ui-slider-handle .ui-btn-inner {
 }
 .SliderMenu{
     position: fixed !important;
-}
-body{
-    background-color: #333333 !important;
 }
 #FriendsList li{
     font-size: 10px;

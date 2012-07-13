@@ -301,7 +301,7 @@ socket.on('NewImage', function(msg){
             PhotoSwipe.detatch(mainPhotoSwipe);
         }
     }(window.Code.PhotoSwipe));
-    $('#ImageList').append('<li><a id="' + msg.ID + '" href="' + msg.ImageFull + '" rel="external" alt="' + msg.HashTag + '"><img src="lib/images/placeholder.jpg"  data-src="' + msg.ImageThumb + '" alt="' + msg.Caption + ' Votes: ' + msg.Votes + '"></a></li>');
+    $('#ImageList').append('<li><a id="' + msg.ID + '" href="' + msg.ImageFull + '" rel="external" alt="' + msg.HashTag + '"><img src="lib/images/placeholder.gif"  data-src="' + msg.ImageThumb + '" alt="' + msg.Caption + ' Votes: ' + msg.Votes + '"></a></li>');
     if(msg.Count == 1){
         $('#ImageList li a img').lazyload();
     }
@@ -334,7 +334,7 @@ socket.on('UserImages', function(msg){
             PhotoSwipe.detatch(myPhotoSwipe);
         }
     }(window.Code.PhotoSwipe));
-    $('#MyImageList').append('<li><a id="' + msg.ID + '" href="' + msg.ImageFull + '" rel="external" alt="' + msg.HashTag + '"><img src="lib/images/placeholder.jpg"  data-src="' + msg.ImageThumb + '" alt="' + msg.Caption + ' Votes: ' + msg.Votes + '"></a></li>');
+    $('#MyImageList').append('<li><a id="' + msg.ID + '" href="' + msg.ImageFull + '" rel="external" alt="' + msg.HashTag + '"><img src="lib/images/placeholder.gif"  data-src="' + msg.ImageThumb + '" alt="' + msg.Caption + ' Votes: ' + msg.Votes + '"></a></li>');
     if(msg.Count == 1){
         $('#MyImageList li a img').lazyload();
     }
@@ -366,7 +366,7 @@ socket.on('TopImages', function(msg){
             PhotoSwipe.detatch(topPhotoSwipe);
         }
     }(window.Code.PhotoSwipe));
-    $('#TopImageList').append('<li><a id="' + msg.ID + '" href="' + msg.ImageFull + '" rel="external" alt="' + msg.HashTag + '"><img src="lib/images/placeholder.jpg"  data-src="' + msg.ImageThumb + '" alt="' + msg.Caption + ' Votes: ' + msg.Votes + '"></a></li>');
+    $('#TopImageList').append('<li><a id="' + msg.ID + '" href="' + msg.ImageFull + '" rel="external" alt="' + msg.HashTag + '"><img src="lib/images/placeholder.gif"  data-src="' + msg.ImageThumb + '" alt="' + msg.Caption + ' Votes: ' + msg.Votes + '"></a></li>');
     if(msg.Count == 1){
         $('#TopImageList li a img').lazyload();
     }
@@ -398,7 +398,7 @@ socket.on('ImageSearchResults', function(msg){
             PhotoSwipe.detatch(searchPhotoSwipe);
         }
     }(window.Code.PhotoSwipe));
-    $('#SearchImageList').append('<li><a id="' + msg.ID + '" href="' + msg.ImageFull + '" rel="external" alt="' + msg.HashTag + '"><img src="lib/images/placeholder.jpg"  data-src="' + msg.ImageThumb + '" alt="' + msg.Caption + ' Votes: ' + msg.Votes + '"></a></li>');
+    $('#SearchImageList').append('<li><a id="' + msg.ID + '" href="' + msg.ImageFull + '" rel="external" alt="' + msg.HashTag + '"><img src="lib/images/placeholder.gif"  data-src="' + msg.ImageThumb + '" alt="' + msg.Caption + ' Votes: ' + msg.Votes + '"></a></li>');
     if(msg.Count == 1){
         $('#SearchImageList li a img').lazyload();
     }
@@ -430,7 +430,7 @@ socket.on('FriendImages', function(msg){
             PhotoSwipe.detatch(friendPhotoSwipe);
         }
     }(window.Code.PhotoSwipe));
-    $('#FriendImageList').append('<li><a id="' + msg.ID + '" href="' + msg.ImageFull + '" rel="external" alt="' + msg.HashTag + '"><img src="lib/images/placeholder.jpg"  data-src="' + msg.ImageThumb + '" alt="' + msg.Caption + ' Votes: ' + msg.Votes + '"></a></li>');
+    $('#FriendImageList').append('<li><a id="' + msg.ID + '" href="' + msg.ImageFull + '" rel="external" alt="' + msg.HashTag + '"><img src="lib/images/placeholder.gif"  data-src="' + msg.ImageThumb + '" alt="' + msg.Caption + ' Votes: ' + msg.Votes + '"></a></li>');
     if(msg.Count == 1){
         $('#FriendImageList li a img').lazyload();
     }

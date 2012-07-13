@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE1946C115B04207003A3FBF /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = EE1946C015B04207003A3FBF /* Default.png */; };
+		EE1946C415B04215003A3FBF /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EE1946C315B04215003A3FBF /* Default@2x.png */; };
 		EE60554C158318B80069492C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE60554B158318B80069492C /* Foundation.framework */; };
 		EE60554E158318B80069492C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE60554D158318B80069492C /* UIKit.framework */; };
 		EE605550158318B80069492C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE60554F158318B80069492C /* CoreGraphics.framework */; };
@@ -46,6 +48,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EE1946C015B04207003A3FBF /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		EE1946C315B04215003A3FBF /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		EE605547158318B80069492C /* popix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = popix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE60554B158318B80069492C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EE60554D158318B80069492C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -127,6 +131,8 @@
 		EE605539158318B80069492C = {
 			isa = PBXGroup;
 			children = (
+				EE1946C315B04215003A3FBF /* Default@2x.png */,
+				EE1946C015B04207003A3FBF /* Default.png */,
 				EE6055A3158318FD0069492C /* www */,
 				EE605565158318B80069492C /* popix */,
 				EE60554A158318B80069492C /* Frameworks */,
@@ -352,6 +358,8 @@
 				EE6055A4158318FD0069492C /* www in Resources */,
 				EEFE32191590090500CD29DE /* ChildBrowser.bundle in Resources */,
 				EEFE321C1590090500CD29DE /* ChildBrowserViewController.xib in Resources */,
+				EE1946C115B04207003A3FBF /* Default.png in Resources */,
+				EE1946C415B04215003A3FBF /* Default@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -2,12 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c6592f20-744a-4f9f-a6d8-85012901d3f3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/popix/www/lib/js/lazyload.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/popix/Default.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/popix/Default@2x.png" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/popix/www/Background.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/popix/www/lib/images/LoadingImage.gif" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/popix/popix.xcodeproj/project.xcworkspace/xcuserdata/rbrookfield.xcuserdatad/UserInterfaceState.xcuserstate" afterPath="$PROJECT_DIR$/popix/popix.xcodeproj/project.xcworkspace/xcuserdata/rbrookfield.xcuserdatad/UserInterfaceState.xcuserstate" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/popix/Server/popix.js" afterPath="$PROJECT_DIR$/popix/Server/popix.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/popix/www/index.html" afterPath="$PROJECT_DIR$/popix/www/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/popix/popix.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/popix/popix.xcodeproj/project.pbxproj" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/popix/popix/popix-Info.plist" afterPath="$PROJECT_DIR$/popix/popix/popix-Info.plist" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/popix/www/lib/css/style.css" afterPath="$PROJECT_DIR$/popix/www/lib/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/popix/www/lib/jqm/css/jquery.mobile-1.1.0.css" afterPath="$PROJECT_DIR$/popix/www/lib/jqm/css/jquery.mobile-1.1.0.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/popix/www/lib/js/main.js" afterPath="$PROJECT_DIR$/popix/www/lib/js/main.js" />
     </list>
     <ignored path="popix.iws" />
@@ -30,10 +34,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/popix/www/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="87" column="47" selection-start="4443" selection-end="4443" vertical-scroll-proportion="-9.26">
+            <state line="61" column="24" selection-start="3193" selection-end="3193" vertical-scroll-proportion="0.89686096">
               <folding />
             </state>
           </provider>
@@ -51,16 +55,16 @@
       <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/popix/www/lib/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="223" column="20" selection-start="8275" selection-end="8281" vertical-scroll-proportion="44.76923">
+            <state line="336" column="162" selection-start="13090" selection-end="13090" vertical-scroll-proportion="61.615383">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="code.photoswipe.jquery-3.0.4.min.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/popix/www/lib/js/code.photoswipe.jquery-3.0.4.min.js">
+      <file leaf-file-name="jquery.mobile-1.1.0.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/popix/www/lib/jqm/css/jquery.mobile-1.1.0.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="68" column="133" selection-start="29864" selection-end="29871" vertical-scroll-proportion="-8.884615">
+            <state line="56" column="29" selection-start="2370" selection-end="2370" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -75,10 +79,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/popix/www/lib/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="60" column="92" selection-start="2104" selection-end="2104" vertical-scroll-proportion="0.30311614">
+            <state line="203" column="38" selection-start="6236" selection-end="6236" vertical-scroll-proportion="-117.11539">
               <folding />
             </state>
           </provider>
@@ -99,7 +103,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/popix/www/lib/css/slider.css" />
         <option value="$USER_HOME$/Library/Caches/TemporaryItems/1-parser.js" />
         <option value="$USER_HOME$/Library/Caches/TemporaryItems/1-qrcode.js" />
         <option value="$USER_HOME$/Library/Caches/TemporaryItems/1-FMCode.js" />
@@ -111,10 +114,11 @@
         <option value="$PROJECT_DIR$/../B2BMobile/www/index.html" />
         <option value="$PROJECT_DIR$/popix/www/lib/js/lazyload.js" />
         <option value="$USER_HOME$/Library/Caches/TemporaryItems/1-popix.js" />
-        <option value="$PROJECT_DIR$/popix/www/lib/js/main.js" />
-        <option value="$PROJECT_DIR$/popix/www/index.html" />
-        <option value="$PROJECT_DIR$/popix/www/lib/css/style.css" />
         <option value="$PROJECT_DIR$/popix/Server/popix.js" />
+        <option value="$PROJECT_DIR$/popix/www/lib/jqm/css/jquery.mobile-1.1.0.css" />
+        <option value="$PROJECT_DIR$/popix/www/lib/js/main.js" />
+        <option value="$PROJECT_DIR$/popix/www/lib/css/style.css" />
+        <option value="$PROJECT_DIR$/popix/www/index.html" />
       </list>
     </option>
   </component>
@@ -224,6 +228,62 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="popix" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="popix" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="popix" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jqm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="popix" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="popix" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="popix" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jqm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -413,20 +473,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/popix/www/lib/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="223" column="20" selection-start="8275" selection-end="8281" vertical-scroll-proportion="44.76923">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/popix/www/lib/js/code.photoswipe.jquery-3.0.4.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="133" selection-start="29864" selection-end="29871" vertical-scroll-proportion="-8.884615">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/popix/www/lib/css/jquery-mobile.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -441,37 +487,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/popix/www/lib/jqm/css/jquery.mobile.structure-1.1.0.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="1987" selection-start="2093" selection-end="2094" vertical-scroll-proportion="0.022354694">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/popix/www/lib/jqm/css/jquery.mobile-1.1.0.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="976" column="0" selection-start="48804" selection-end="48997" vertical-scroll-proportion="0.3323398">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../B2BMobile/www/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="24" column="50" selection-start="1096" selection-end="1096" vertical-scroll-proportion="-9.583333">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/popix/www/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="87" column="47" selection-start="4443" selection-end="4443" vertical-scroll-proportion="-9.26">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Library/Caches/TemporaryItems/1-popix.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="35" selection-start="0" selection-end="7395" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -483,9 +501,51 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/popix/www/lib/jqm/css/jquery.mobile.structure-1.1.0.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="2901" selection-start="3004" selection-end="3008" vertical-scroll-proportion="0.022354694">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Caches/TemporaryItems/1-popix.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="35" selection-start="0" selection-end="7395" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/popix/www/lib/js/code.photoswipe.jquery-3.0.4.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="68" column="133" selection-start="29864" selection-end="29871" vertical-scroll-proportion="-8.884615">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/popix/www/lib/jqm/css/jquery.mobile-1.1.0.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="56" column="29" selection-start="2370" selection-end="2370" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/popix/www/lib/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="336" column="162" selection-start="13090" selection-end="13090" vertical-scroll-proportion="61.615383">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/popix/www/lib/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="92" selection-start="2104" selection-end="2104" vertical-scroll-proportion="0.30311614">
+        <state line="203" column="38" selection-start="6236" selection-end="6236" vertical-scroll-proportion="-117.11539">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/popix/www/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="61" column="24" selection-start="3193" selection-end="3193" vertical-scroll-proportion="0.89686096">
           <folding />
         </state>
       </provider>
