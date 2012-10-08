@@ -20,12 +20,12 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="main.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="299" column="163" selection-start="11211" selection-end="11211" vertical-scroll-proportion="0.723589">
+            <state line="299" column="163" selection-start="11211" selection-end="11211" vertical-scroll-proportion="-19.23077">
               <folding>
-                <marker date="1349677414000" expanded="true" signature="11201:11225" placeholder="..." />
+                <marker date="1349702715000" expanded="true" signature="11201:11225" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -66,10 +66,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="style.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="235" column="1" selection-start="7290" selection-end="7290" vertical-scroll-proportion="-24.192308">
+            <state line="74" column="43" selection-start="2607" selection-end="2607" vertical-scroll-proportion="0.375">
               <folding />
             </state>
           </provider>
@@ -78,7 +78,7 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="83" column="16" selection-start="4313" selection-end="4313" vertical-scroll-proportion="-18.75">
+            <state line="82" column="48" selection-start="4295" selection-end="4295" vertical-scroll-proportion="-18.125">
               <folding>
                 <element signature="n#style#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -110,11 +110,12 @@
         <option value="$PROJECT_DIR$/lib/js/FBConnect.js" />
         <option value="$USER_HOME$/Library/Caches/TemporaryItems/2-popix.js" />
         <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/lib/css/style.css" />
         <option value="$PROJECT_DIR$/lib/js/main.js" />
+        <option value="$PROJECT_DIR$/lib/css/style.css" />
       </list>
     </option>
   </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
     <option name="x" value="4" />
     <option name="y" value="22" />
@@ -222,6 +223,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="FullScreen" value="false" />
   </component>
   <component name="RunManager">
     <list size="0" />
@@ -349,16 +351,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="235" column="1" selection-start="7290" selection-end="7290" vertical-scroll-proportion="-24.192308">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="83" column="16" selection-start="4313" selection-end="4313" vertical-scroll-proportion="-18.75">
+        <state line="82" column="48" selection-start="4295" selection-end="4295" vertical-scroll-proportion="-18.125">
           <folding>
             <element signature="n#style#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
@@ -367,10 +362,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="299" column="163" selection-start="11211" selection-end="11211" vertical-scroll-proportion="0.723589">
+        <state line="299" column="163" selection-start="11211" selection-end="11211" vertical-scroll-proportion="-19.23077">
           <folding>
-            <marker date="1349677414000" expanded="true" signature="11201:11225" placeholder="..." />
+            <marker date="1349702715000" expanded="true" signature="11201:11225" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="74" column="43" selection-start="2607" selection-end="2607" vertical-scroll-proportion="0.375">
+          <folding />
         </state>
       </provider>
     </entry>

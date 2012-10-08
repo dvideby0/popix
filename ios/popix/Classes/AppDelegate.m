@@ -70,7 +70,7 @@
     self.viewController.useSplashScreen = YES;
     self.viewController.wwwFolderName = @"www";
     self.viewController.startPage = @"index.html";
-    self.viewController.invokeString = invokeString;
+    //self.viewController.invokeString = invokeString;
     
     // NOTE: To control the view's frame size, override [self.viewController viewWillAppear:] in your view controller.
     

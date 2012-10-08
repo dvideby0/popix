@@ -297,7 +297,7 @@ function GetFriendsList(){
             var Response = $.parseJSON(xhrObj.responseText);
             console.log(Response);
             for (var i = 0; i<Response.data.length; i++){
-                $('#FriendsList').append('<li class="FriendsListLine"><a href="javascript:GetFriendImages(\'' + Response.data[i].uid + '\')"><img style="height: 85px !important;" src="' + Response.data[i].pic_big + '"></a>' + Response.data[i].name + '</li>');
+                $('#FriendsList').append('<li class="FriendsListLine"><a href="javascript:GetFriendImages(\'' + Response.data[i].uid + '\')"><img style="height: 80px !important;" src="' + Response.data[i].pic_big + '"></a>' + Response.data[i].name + '</li>');
             }
         }
     });

@@ -72,11 +72,16 @@ body{
 }
 .gallery img{
     border: 3px solid #ffffff !important;
-    box-shadow:2px 3px 10px #000000 !important;
+    box-shadow: 2px 2px 3px rgba(25, 25, 25, 0.35);
 }
 .gallery li{
     width: 25% !important;
 }
+
+.gallery{
+    margin-left: -3px;
+}
+
 #MainContent ul{
     margin-top: 45px !important;
     margin-bottom: 45px !important;

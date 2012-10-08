@@ -16,8 +16,6 @@
 		<string>icon-retina.png</string>
 		<string>icon-72.png</string>
 		<string>icon-72@2x.png</string>
-		<string>Default1.png</string>
-		<string>Default1@2x.png</string>
 	</array>
 	<key>CFBundleIcons</key>
 	<dict>
@@ -29,8 +27,6 @@
 				<string>icon-retina.png</string>
 				<string>icon-72.png</string>
 				<string>icon-72@2x.png</string>
-				<string>Default1.png</string>
-				<string>Default1@2x.png</string>
 			</array>
 		</dict>
 	</dict>
