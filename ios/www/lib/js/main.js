@@ -290,16 +290,14 @@ function GetFriendsList(){
     $('#FriendsList').show();
     $.ajax({
         type: 'GET',
-        url: 'https://graph.facebook.com/me/friends?fields=installed,picture,name&access_token=' + window.localStorage.getItem(window.plugins.fbConnect.facebookkey),
+        url: 'https://graph.facebook.com/fql/?q=SELECT uid,name, pic_big,is_app_user FROM user WHERE uid IN(SELECT uid2 FROM friend WHERE uid1 = me()) AND is_app_user=1&access_token=' + window.localStorage.getItem(window.plugins.fbConnect.facebookkey),
         cache: false,
         dataType: 'json',
         complete: function (xhrObj) {
             var Response = $.parseJSON(xhrObj.responseText);
+            console.log(Response);
             for (var i = 0; i<Response.data.length; i++){
-                if(Response.data[i].installed){
-                    $('#FriendsList').append('<div class="item" onClick="GetFriendImages(\'' + Response.data[i].id + '\')"><img class="FriendImage" src="' + Response.data[i].picture + '"><br />' + Response.data[i].name + '</div>');
-                }
-
+                $('#FriendsList').append('<li class="FriendsListLine"><a href="javascript:GetFriendImages(\'' + Response.data[i].uid + '\')"><img style="height: 85px !important;" src="' + Response.data[i].pic_big + '"></a>' + Response.data[i].name + '</li>');
             }
         }
     });

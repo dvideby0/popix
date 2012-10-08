@@ -66,6 +66,9 @@ body{
 [data-role="page"]{
     background-image: none !important;
     background-color: #2f487a !important;
+    -webkit-box-shadow: -3px 0px 10px rgba(0, 0, 0, 0.59);
+    -moz-box-shadow:    -3px 0px 10px rgba(0, 0, 0, 0.59);
+    box-shadow:         -3px 0px 10px rgba(0, 0, 0, 0.59);
 }
 .gallery img{
     border: 3px solid #ffffff !important;
@@ -177,16 +180,20 @@ div.ui-slider-switch.ui-slider-mini a.ui-slider-handle .ui-btn-inner {
 }
 #menu {
     margin-top: 45px;
-    width: 165px;
     height: 100%;
     display: block !important;
     float: left;
-    background-color: #2f487a;
+    background-image: linear-gradient(bottom, #222733 7%, #3E434D 100%);
+    background-image: -o-linear-gradient(bottom, #222733 7%, #3E434D 100%);
+    background-image: -moz-linear-gradient(bottom, #222733 7%, #3E434D 100%);
+    background-image: -webkit-linear-gradient(bottom, #222733 7%, #3E434D 100%);
+    background-image: -ms-linear-gradient(bottom, #222733 7%, #3E434D 100%);
 }
 #menu ul {
     margin: 0;
     padding: 0;
     width: inherit;
+    border-bottom: 1px solid #242A37;
 }
 #menu ul li {
     list-style-type: none;
@@ -198,8 +205,8 @@ div.ui-slider-switch.ui-slider-mini a.ui-slider-handle .ui-btn-inner {
     margin: 10px 0px 10px 10px;
 }
 #menu ul li a:link, #menu ul li a:visited{
-    border-bottom: solid #dddddd 3px;
-    color: #ffffff;
+    border-bottom: none !important;
+    color: #C4CCDA;
     font-size: 14px;
     font-family: 'ArialRoundedMTBold';
     text-decoration: none;
@@ -213,24 +220,17 @@ div.ui-slider-switch.ui-slider-mini a.ui-slider-handle .ui-btn-inner {
     color: #ffffff !important;
 }
 .active{
-    background-image: linear-gradient(bottom, rgb(66,106,171) 0%, rgb(115,176,245) 100%);
-    background-image: -o-linear-gradient(bottom, rgb(66,106,171) 0%, rgb(115,176,245) 100%);
-    background-image: -moz-linear-gradient(bottom, rgb(66,106,171) 0%, rgb(115,176,245) 100%);
-    background-image: -webkit-linear-gradient(bottom, rgb(66,106,171) 0%, rgb(115,176,245) 100%);
-    background-image: -ms-linear-gradient(bottom, rgb(66,106,171) 0%, rgb(115,176,245) 100%);
+    background-image: none;
+    background-color: #222733;
     text-shadow: none !important;
 
 }
 .SliderMenu{
     position: fixed !important;
 }
-
-.item{
-    width: 20%;
-    margin: 1px;
-    float: left;
-    font-size: 4px !important;
-}
-#FriendsList{
-    padding-top: 45px;
+.FriendsListLine{
+    color: #ffffff;
+    text-shadow: none;
+    text-align: center;
+    font-size: 12px;
 }

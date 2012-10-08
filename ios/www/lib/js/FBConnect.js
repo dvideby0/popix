@@ -34,8 +34,6 @@ FBConnect.prototype.connect = function(options)
 
 FBConnect.prototype.onLocationChange = function(loc)
 {
-	
-	console.log("AppLaudLog: onLocationChange : " + loc);
 
     // If user hit "No, thanks" when asked to authorize access
     if (loc.indexOf("login_success.html?error_reason=user_denied") >= 0) {
@@ -48,7 +46,6 @@ FBConnect.prototype.onLocationChange = function(loc)
 
     	var access_token = loc.match(/access_token=(.*)$/)[1];
         access_token = access_token.replace(/\&expires_in.*/, '');
-    	console.log("facebook token: " + access_token);
     	window.localStorage.setItem(window.plugins.fbConnect.facebookkey, access_token);
         LoginWithFB();
     	this.onConnect();
