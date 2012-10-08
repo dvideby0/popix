@@ -28,6 +28,8 @@
 	</array>
 	<key>Plugins</key>
 	<dict>
+		<key>PushNotification</key>
+		<string>PushNotification</string>
 		<key>ChildBrowserCommand</key>
 		<string>ChildBrowserCommand</string>
 		<key>Device</key>

@@ -46,6 +46,7 @@
 		EE61B5B21622441000749F3F /* ChildBrowserCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = EE61B5AE1622441000749F3F /* ChildBrowserCommand.m */; };
 		EE61B5B31622441000749F3F /* ChildBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE61B5B01622441000749F3F /* ChildBrowserViewController.m */; };
 		EE61B5B51622443A00749F3F /* ChildBrowserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE61B5B41622443A00749F3F /* ChildBrowserViewController.xib */; };
+		EE61B5BD1622494800749F3F /* PushNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = EE61B5BC1622494800749F3F /* PushNotification.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +114,8 @@
 		EE61B5AF1622441000749F3F /* ChildBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildBrowserViewController.h; sourceTree = "<group>"; };
 		EE61B5B01622441000749F3F /* ChildBrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildBrowserViewController.m; sourceTree = "<group>"; };
 		EE61B5B41622443A00749F3F /* ChildBrowserViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChildBrowserViewController.xib; sourceTree = "<group>"; };
+		EE61B5BB1622494800749F3F /* PushNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushNotification.h; sourceTree = "<group>"; };
+		EE61B5BC1622494800749F3F /* PushNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushNotification.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -253,6 +256,8 @@
 		307C750510C5A3420062BCA9 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
+				EE61B5BB1622494800749F3F /* PushNotification.h */,
+				EE61B5BC1622494800749F3F /* PushNotification.m */,
 				EE61B5B41622443A00749F3F /* ChildBrowserViewController.xib */,
 				EE61B5AC1622441000749F3F /* ChildBrowser.bundle */,
 				EE61B5AD1622441000749F3F /* ChildBrowserCommand.h */,
@@ -428,6 +433,7 @@
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
 				EE61B5B21622441000749F3F /* ChildBrowserCommand.m in Sources */,
 				EE61B5B31622441000749F3F /* ChildBrowserViewController.m in Sources */,
+				EE61B5BD1622494800749F3F /* PushNotification.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

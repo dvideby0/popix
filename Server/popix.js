@@ -26,17 +26,6 @@ var votes = db.collection("votes");
 io.sockets.on('connection', function(socket) {
     socket.on('ClientSendImage', function(msg){
         var UUID = uuid.v1();
-        posts.insert({
-            ID: UUID,
-            User: msg.Author,
-            Created: new Date,
-            ImageFull: 'https://s3.amazonaws.com/popix/imgposts/full/' + UUID + '.jpg',
-            ImageThumb: 'https://s3.amazonaws.com/popix/imgposts/thumb/' + UUID + '.jpg',
-            Votes: 0,
-            Caption: msg.Caption,
-            HashTag: msg.HashTag,
-            Anonymous: msg.Anonymous
-        });
         var dataBuffer = new Buffer(msg.Image, 'base64');
         im.resize({
             srcData: dataBuffer,
@@ -62,18 +51,32 @@ io.sockets.on('connection', function(socket) {
                 'Content-Length': stdout.length,
                 'Content-Type': 'image/jpeg'
             });
-            req.on('response', function(){
-                io.sockets.emit('NewImage', JSON.stringify({
-                    ImageThumb: 'https://s3.amazonaws.com/popix/imgposts/thumb/' + UUID + '.jpg',
-                    ImageFull: 'https://s3.amazonaws.com/popix/imgposts/full/' + UUID + '.jpg',
-                    Caption: msg.Caption,
-                    ID: UUID,
-                    Votes: 0,
-                    Count: 1
-                }));
-                if(msg.Anonymous == 0){
-                    socket.emit('ImageURL', {URL:'https://s3.amazonaws.com/popix/imgposts/full/' + UUID + '.jpg', Caption: msg.Caption});
+            req.on('response', function(res){
+                if (200 == res.statusCode) {
+                    posts.insert({
+                        ID: UUID,
+                        User: msg.Author,
+                        Created: new Date,
+                        ImageFull: 'https://s3.amazonaws.com/popix/imgposts/full/' + UUID + '.jpg',
+                        ImageThumb: 'https://s3.amazonaws.com/popix/imgposts/thumb/' + UUID + '.jpg',
+                        Votes: 0,
+                        Caption: msg.Caption,
+                        HashTag: msg.HashTag,
+                        Anonymous: msg.Anonymous
+                    });
+                    io.sockets.emit('NewImage', JSON.stringify({
+                        ImageThumb: 'https://s3.amazonaws.com/popix/imgposts/thumb/' + UUID + '.jpg',
+                        ImageFull: 'https://s3.amazonaws.com/popix/imgposts/full/' + UUID + '.jpg',
+                        Caption: msg.Caption,
+                        ID: UUID,
+                        Votes: 0,
+                        Count: 1
+                    }));
+                    if(msg.Anonymous == 0){
+                        socket.emit('ImageURL', {URL:'https://s3.amazonaws.com/popix/imgposts/full/' + UUID + '.jpg', Caption: msg.Caption});
+                    }
                 }
+
             });
             req.end(imgBuffer);
         });

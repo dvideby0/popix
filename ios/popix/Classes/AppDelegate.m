@@ -19,7 +19,7 @@
 
 //
 //  AppDelegate.m
-//  popix
+//  PGPush
 //
 //  Created by ___FULLUSERNAME___ on ___DATE___.
 //  Copyright ___ORGANIZATIONNAME___ ___YEAR___. All rights reserved.
@@ -27,7 +27,7 @@
 
 #import "AppDelegate.h"
 #import "MainViewController.h"
-
+#import "PushNotification.h"
 #import <Cordova/CDVPlugin.h>
 
 
@@ -36,13 +36,13 @@
 @synthesize window, viewController;
 
 - (id) init
-{	
+{
 	/** If you need to do any extra app-specific initialization, you can do it here
 	 *  -jm
 	 **/
-    NSHTTPCookieStorage *cookieStorage = [NSHTTPCookieStorage sharedHTTPCookieStorage]; 
+    NSHTTPCookieStorage *cookieStorage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
     [cookieStorage setCookieAcceptPolicy:NSHTTPCookieAcceptPolicyAlways];
-        
+    
     self = [super init];
     return self;
 }
@@ -53,14 +53,14 @@
  * This is main kick off after the app inits, the views and Settings are setup here. (preferred - iOS4 and up)
  */
 - (BOOL) application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions
-{    
+{
     NSURL* url = [launchOptions objectForKey:UIApplicationLaunchOptionsURLKey];
     NSString* invokeString = nil;
     
     if (url && [url isKindOfClass:[NSURL class]]) {
         invokeString = [url absoluteString];
 		NSLog(@"popix launchOptions = %@", url);
-    }    
+    }
     
     CGRect screenBounds = [[UIScreen mainScreen] bounds];
     self.window = [[UIWindow alloc] initWithFrame:screenBounds];
@@ -71,7 +71,7 @@
     self.viewController.wwwFolderName = @"www";
     self.viewController.startPage = @"index.html";
     self.viewController.invokeString = invokeString;
-
+    
     // NOTE: To control the view's frame size, override [self.viewController viewWillAppear:] in your view controller.
     
     // check whether the current orientation is supported: if it is, keep it, rather than forcing a rotation
@@ -86,8 +86,8 @@
     if (UIDeviceOrientationIsValidInterfaceOrientation(curDevOrientation)) {
         if ([self.viewController supportsOrientation:curDevOrientation]) {
             forceStartupRotation = NO;
-        } 
-    } 
+        }
+    }
     
     if (forceStartupRotation) {
         UIInterfaceOrientation newOrient;
@@ -99,7 +99,7 @@
             newOrient = UIInterfaceOrientationLandscapeRight;
         else
             newOrient = UIInterfaceOrientationPortraitUpsideDown;
-
+        
         NSLog(@"AppDelegate forcing status bar to: %d from: %d", newOrient, curDevOrientation);
         [[UIApplication sharedApplication] setStatusBarOrientation:newOrient];
     }
@@ -107,32 +107,79 @@
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
     
+    // PushNotification - Handle launch from a push notification
+    NSDictionary* userInfo = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+    if(userInfo) {
+        PushNotification *pushHandler = [self.viewController getCommandInstance:@"PushNotification"];
+        NSMutableDictionary* mutableUserInfo = [userInfo mutableCopy];
+        [mutableUserInfo setValue:@"1" forKey:@"applicationLaunchNotification"];
+        [mutableUserInfo setValue:@"0" forKey:@"applicationStateActive"];
+        [pushHandler.pendingNotifications addObject:mutableUserInfo];
+    }
+    
     return YES;
 }
 
 // this happens while we are running ( in the background, or from within our own app )
-// only valid if popix-Info.plist specifies a protocol to handle
-- (BOOL) application:(UIApplication*)application handleOpenURL:(NSURL*)url 
+// only valid if PGPush-Info.plist specifies a protocol to handle
+- (BOOL) application:(UIApplication*)application handleOpenURL:(NSURL*)url
 {
-    if (!url) { 
-        return NO; 
+    if (!url) {
+        return NO;
     }
     
 	// calls into javascript global function 'handleOpenURL'
     NSString* jsString = [NSString stringWithFormat:@"handleOpenURL(\"%@\");", url];
     [self.viewController.webView stringByEvaluatingJavaScriptFromString:jsString];
     
-    // all plugins will get the notification, and their handlers will be called 
+    // all plugins will get the notification, and their handlers will be called
     [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:CDVPluginHandleOpenURLNotification object:url]];
     
-    return YES;    
+    return YES;
 }
 
 - (NSUInteger) application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
-{    
+{
     // IPhone doesn't support upside down by default, while the IPad does.  Override to allow all orientations always, and let the root view controller decide whats allowed (the supported orientations mask gets intersected).
     NSUInteger supportedInterfaceOrientations = (1 << UIInterfaceOrientationPortrait) | (1 << UIInterfaceOrientationLandscapeLeft) | (1 << UIInterfaceOrientationLandscapeRight) | (1 << UIInterfaceOrientationPortraitUpsideDown);
     return supportedInterfaceOrientations;
 }
+
+#pragma PushNotification delegation
+
+- (void)application:(UIApplication*)app didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
+{
+    PushNotification* pushHandler = [self.viewController getCommandInstance:@"PushNotification"];
+    [pushHandler didRegisterForRemoteNotificationsWithDeviceToken:deviceToken];
+}
+
+- (void)application:(UIApplication*)app didFailToRegisterForRemoteNotificationsWithError:(NSError*)error
+{
+    PushNotification* pushHandler = [self.viewController getCommandInstance:@"PushNotification"];
+    [pushHandler didFailToRegisterForRemoteNotificationsWithError:error];
+}
+
+- (void)application:(UIApplication*)application didReceiveRemoteNotification:(NSDictionary*)userInfo
+{
+    PushNotification* pushHandler = [self.viewController getCommandInstance:@"PushNotification"];
+    NSMutableDictionary* mutableUserInfo = [userInfo mutableCopy];
+    
+    // Get application state for iOS4.x+ devices, otherwise assume active
+    UIApplicationState appState = UIApplicationStateActive;
+    if ([application respondsToSelector:@selector(applicationState)]) {
+        appState = application.applicationState;
+    }
+    
+    [mutableUserInfo setValue:@"0" forKey:@"applicationLaunchNotification"];
+    if (appState == UIApplicationStateActive) {
+        [mutableUserInfo setValue:@"1" forKey:@"applicationStateActive"];
+        [pushHandler didReceiveRemoteNotification:mutableUserInfo];
+    } else {
+        [mutableUserInfo setValue:@"0" forKey:@"applicationStateActive"];
+        [mutableUserInfo setValue:[NSNumber numberWithDouble: [[NSDate date] timeIntervalSince1970]] forKey:@"timestamp"];
+        [pushHandler.pendingNotifications addObject:mutableUserInfo];
+    }
+}
+
 
 @end

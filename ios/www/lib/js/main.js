@@ -3,6 +3,7 @@
 
 var socket = io.connect('http://apps.moby.io:8989');
 var DeviceID;
+var DeviceToken;
 var RealName;
 var mainPhotoSwipe;
 var myPhotoSwipe;
@@ -30,6 +31,10 @@ function DoNothing(){}
 
 //----------------------------Called After "Device Ready"------------------------------------
 function AssignVars(){
+    var pushNotification = window.plugins.pushNotification;
+    pushNotification.registerDevice({alert:true, badge:true, sound:true}, function(status) {
+        DeviceToken = status.deviceToken;
+    });
     $('#SearchInput').keyup(function(e) {
         if(e.keyCode == 13){
             GetSearchImages($('#SearchInput').val());
@@ -83,6 +88,7 @@ function LoginWithFB(){
                 DeviceID = Response.id;
                 RealName = Response.name;
                 $.mobile.changePage('#MainPage');
+                RegisterNotifications();
                 GetFeedImages();
                 window.plugins.childBrowser.close();
                 socket.emit('GetNewestImages', '');
@@ -155,6 +161,19 @@ function twitter_register(  ) {
 }
 
 //----------------------------------------------------------------------------------------------
+
+
+
+//------------------------------------Register Notifications------------------------------------
+
+function RegisterNotifications(){
+    //socket.emit('RegisterForNotification', {User:DeviceID, Token:DeviceToken});
+}
+
+
+
+//----------------------------------------------------------------------------------------------
+
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
