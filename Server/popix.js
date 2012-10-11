@@ -13,7 +13,7 @@ var client = knox.createClient({
 });
 var app = http.createServer(function(req, res) {
     res.writeHead(200, {'Content-Type': 'text/html'});
-    res.end('<html><body style="color: #292929; text-align: center"><h1 style="font-family: Chalkdust; margin-top: 100px; color: #1e90ff">Success!</h1></body></html>');
+    res.end('<html><body style="background-color: #000000;"></body></html>');
 });
 var io = require('socket.io').listen(app);
 io.enable('browser client minification');
@@ -23,6 +23,7 @@ io.set('log level', 1);
 var db = server.db("popix");
 var posts = db.collection("posts");
 var votes = db.collection("votes");
+var users = db.collection("users");
 io.sockets.on('connection', function(socket) {
     socket.on('ClientSendImage', function(msg){
         var UUID = uuid.v1();
@@ -83,6 +84,12 @@ io.sockets.on('connection', function(socket) {
 
     });
     socket.on('disconnect', function () {
+    });
+    socket.on('RegisterForNotification', function(msg){
+        users.insert({
+            ID: msg.UserID,
+            PushToken: msg.Token
+        });
     });
     socket.on('GetUserImages', function (msg) {
         posts.find({User: msg}, {ImageFull:1, ImageThumb:1, Caption:1, Votes:1, ID:1}).toArray(function (err, array) {

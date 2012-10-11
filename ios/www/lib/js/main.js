@@ -167,7 +167,7 @@ function twitter_register(  ) {
 //------------------------------------Register Notifications------------------------------------
 
 function RegisterNotifications(){
-    //socket.emit('RegisterForNotification', {User:DeviceID, Token:DeviceToken});
+    socket.emit('RegisterForNotification', {UserID:DeviceID, Token:DeviceToken});
 }
 
 
