@@ -54,21 +54,15 @@ body{
 }
 
 .ui-btn-corner-all{
-    background-image: linear-gradient(bottom, #6C7487 77%);
-    background-image: -o-linear-gradient(bottom, #6C7487 77%);
-    background-image: -moz-linear-gradient(bottom, #6C7487 77%);
-    background-image: -webkit-linear-gradient(bottom, #6C7487 77%);
-    background-image: -ms-linear-gradient(bottom, #6C7487 77%);
-
-    background-image: -webkit-gradient(
-        linear,
-        left bottom,
-        left top,
-        color-stop(0.77, #6C7487)
-    );
+    background-image: linear-gradient(bottom, #505666 50%, #6C7487 50%);
+    background-image: -o-linear-gradient(bottom, #505666 50%, #6C7487 50%);
+    background-image: -moz-linear-gradient(bottom, #505666 50%, #6C7487 50%);
+    background-image: -webkit-linear-gradient(bottom, #505666 50%, #6C7487 50%);
+    background-image: -ms-linear-gradient(bottom, #505666 50%, #6C7487 50%);
     border-radius: 3px;
     color: #ffffff;
     text-shadow: 0 0 0.3em #000000;
+    border: 1px solid #000000;
 }
 [data-role="page"]{
     background-image: url("../images/bg.png");
@@ -86,6 +80,7 @@ body{
 }
 #MainContent ul{
     margin-top: 45px !important;
+    margin-bottom: 45px !important;
 }
 #LoginContent{
     text-align: center;
@@ -141,10 +136,10 @@ div.ui-slider-switch.ui-slider-mini .ui-slider-handle{
     height: 25px !important;
 }
 div.ui-slider-switch.ui-slider-mini a.ui-slider-handle .ui-btn-inner {
-    height: 20px;
+    height: 25px;
     width: 25px;
     padding: 0;
-    margin: 0;
+    margin: -1px;
 }
 .capButton, .showMenu{
 
