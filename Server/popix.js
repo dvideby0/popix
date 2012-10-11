@@ -15,15 +15,48 @@ var app = http.createServer(function(req, res) {
     res.writeHead(200, {'Content-Type': 'text/html'});
     res.end('<html><body style="background-color: #000000;"></body></html>');
 });
+
+//--------------------------------PUSH Setup--------------------------------------------
+
+var apns = require('apn');
+var options = {
+    cert: 'restcert.pem',                 /* Certificate file path */
+    certData: null,                   /* String or Buffer containing certificate data, if supplied uses this instead of cert file path */
+    key:  'restkey.pem',                  /* Key file path */
+    keyData: null,                    /* String or Buffer containing key data, as certData */
+    passphrase: 'S3br!ng1',                 /* A passphrase for the Key file */
+    ca: null,                         /* String or Buffer of CA data to use for the TLS connection */
+    gateway: 'gateway.sandbox.push.apple.com',/* gateway address */
+    port: 2195,                       /* gateway port */
+    enhanced: true,                   /* enable enhanced format */
+    errorCallback: undefined,         /* Callback when error occurs function(err,notification) */
+    cacheLength: 100                  /* Number of notifications to cache for error purposes */
+};
+var apnsConnection = new apns.Connection(options);
+var note = new apns.Notification();
+
+
+//--------------------------------Socket.io--------------------------------------------
+
 var io = require('socket.io').listen(app);
 io.enable('browser client minification');
 io.enable('browser client etag');
 io.enable('browser client gzip');
 io.set('log level', 1);
+
+
+//------------------------------Mongo Setup--------------------------------------------
+
 var db = server.db("popix");
 var posts = db.collection("posts");
 var votes = db.collection("votes");
 var users = db.collection("users");
+
+
+
+
+//-----------------------------Begin APP-----------------------------------------------
+
 io.sockets.on('connection', function(socket) {
     socket.on('ClientSendImage', function(msg){
         var UUID = uuid.v1();
@@ -119,6 +152,15 @@ io.sockets.on('connection', function(socket) {
                             posts.save(post);
                         });
                         votes.update({ID: msg.UserID}, {"$addToSet": { ImageID : msg.ImageID } });
+                        users.findOne({ID: msg.UserID}, function(err, post){
+                            note.expiry = Math.floor(Date.now() / 1000) + 3600; // Expires 1 hour from now.
+                            note.badge = 0;
+                            note.sound = "ping.aiff";
+                            note.alert = 'Someone likes your post';
+                            note.payload = {'messageFrom': 'New Message'};
+                            note.device = new apns.Device(post.PushToken);
+                            apnsConnection.sendNotification(note);
+                        });
                     }
                 });
             }
@@ -127,6 +169,15 @@ io.sockets.on('connection', function(socket) {
                 posts.findOne({ID: msg.ImageID}, function(err, post){
                     post.Votes = post.Votes + 1;
                     posts.save(post);
+                });
+                users.findOne({ID: msg.UserID}, function(err, post){
+                    note.expiry = Math.floor(Date.now() / 1000) + 3600; // Expires 1 hour from now.
+                    note.badge = 0;
+                    note.sound = "ping.aiff";
+                    note.alert = 'Someone likes your post';
+                    note.payload = {'messageFrom': 'New Message'};
+                    note.device = new apns.Device(post.PushToken);
+                    apnsConnection.sendNotification(note);
                 });
             }
         });
