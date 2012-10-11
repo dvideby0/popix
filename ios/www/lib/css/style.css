@@ -7,11 +7,11 @@ body{
     font-size: 20px;
     text-align: center;
     border: #000000 !important;
-    background-image: linear-gradient(bottom, #15181F 36%, #3E434D 77%);
-    background-image: -o-linear-gradient(bottom, #15181F 36%, #3E434D 77%);
-    background-image: -moz-linear-gradient(bottom, #15181F 36%, #3E434D 77%);
-    background-image: -webkit-linear-gradient(bottom, #15181F 36%, #3E434D 77%);
-    background-image: -ms-linear-gradient(bottom, #15181F 36%, #3E434D 77%);
+    background-image: linear-gradient(bottom, #131417 50%, #1D1E24 50%, #272833 75%);
+    background-image: -o-linear-gradient(bottom, #131417 50%, #1D1E24 50%, #272833 75%);
+    background-image: -moz-linear-gradient(bottom, #131417 50%, #1D1E24 50%, #272833 75%);
+    background-image: -webkit-linear-gradient(bottom, #131417 50%, #1D1E24 50%, #272833 75%);
+    background-image: -ms-linear-gradient(bottom, #131417 50%, #1D1E24 50%, #272833 75%);
 }
 [data-role="header"]{
     border-bottom: 1px solid;
@@ -84,10 +84,8 @@ body{
 .gallery{
     margin-left: -3px;
 }
-
 #MainContent ul{
     margin-top: 45px !important;
-    margin-bottom: 45px !important;
 }
 #LoginContent{
     text-align: center;
@@ -111,11 +109,11 @@ body{
     padding: 20px 5px 10px 5px;
     text-align: center;
     color: #ffffff;
-    background-image: linear-gradient(bottom, rgb(13,13,13) 0%, rgb(51,51,51) 53%, rgb(54,54,54) 77%);
-    background-image: -o-linear-gradient(bottom, rgb(13,13,13) 0%, rgb(51,51,51) 53%, rgb(54,54,54) 77%);
-    background-image: -moz-linear-gradient(bottom, rgb(13,13,13) 0%, rgb(51,51,51) 53%, rgb(54,54,54) 77%);
-    background-image: -webkit-linear-gradient(bottom, rgb(13,13,13) 0%, rgb(51,51,51) 53%, rgb(54,54,54) 77%);
-    background-image: -ms-linear-gradient(bottom, rgb(13,13,13) 0%, rgb(51,51,51) 53%, rgb(54,54,54) 77%);
+    background-image: linear-gradient(bottom, #222733 7%, #3E434D 100%);
+    background-image: -o-linear-gradient(bottom, #222733 7%, #3E434D 100%);
+    background-image: -moz-linear-gradient(bottom, #222733 7%, #3E434D 100%);
+    background-image: -webkit-linear-gradient(bottom, #222733 7%, #3E434D 100%);
+    background-image: -ms-linear-gradient(bottom, #222733 7%, #3E434D 100%);
     text-shadow: 0 0 0.3em #000000 !important;
 }
 .ui-dialog-background {
@@ -203,7 +201,6 @@ div.ui-slider-switch.ui-slider-mini a.ui-slider-handle .ui-btn-inner {
 }
 #menu {
     margin-top: 45px;
-    height: 100%;
     display: block !important;
     float: left;
     background-image: linear-gradient(bottom, #222733 7%, #3E434D 100%);

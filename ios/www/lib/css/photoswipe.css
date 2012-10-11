@@ -70,11 +70,11 @@ div.ps-caption
     font-size: 15px;
     font-family: "Verdana", Arial, sans-serif !important;
     text-align: center;
-    background-image: linear-gradient(bottom, #15181F 36%, #3E434D 77%);
-    background-image: -o-linear-gradient(bottom, #15181F 36%, #3E434D 77%);
-    background-image: -moz-linear-gradient(bottom, #15181F 36%, #3E434D 77%);
-    background-image: -webkit-linear-gradient(bottom, #15181F 36%, #3E434D 77%);
-    background-image: -ms-linear-gradient(bottom, #15181F 36%, #3E434D 77%);
+    background-image: linear-gradient(bottom, #131417 50%, #1D1E24 50%, #272833 75%);
+    background-image: -o-linear-gradient(bottom, #131417 50%, #1D1E24 50%, #272833 75%);
+    background-image: -moz-linear-gradient(bottom, #131417 50%, #1D1E24 50%, #272833 75%);
+    background-image: -webkit-linear-gradient(bottom, #131417 50%, #1D1E24 50%, #272833 75%);
+    background-image: -ms-linear-gradient(bottom, #131417 50%, #1D1E24 50%, #272833 75%);
 }
 div.ps-caption *  { display: inline; }
 
@@ -103,11 +103,11 @@ div.ps-toolbar
     height: 44px;
     display: table;
     table-layout: fixed;
-    background-image: linear-gradient(bottom, #15181F 36%, #3E434D 77%);
-    background-image: -o-linear-gradient(bottom, #15181F 36%, #3E434D 77%);
-    background-image: -moz-linear-gradient(bottom, #15181F 36%, #3E434D 77%);
-    background-image: -webkit-linear-gradient(bottom, #15181F 36%, #3E434D 77%);
-    background-image: -ms-linear-gradient(bottom, #15181F 36%, #3E434D 77%);
+    background-image: linear-gradient(bottom, #131417 50%, #1D1E24 50%, #272833 75%);
+    background-image: -o-linear-gradient(bottom, #131417 50%, #1D1E24 50%, #272833 75%);
+    background-image: -moz-linear-gradient(bottom, #131417 50%, #1D1E24 50%, #272833 75%);
+    background-image: -webkit-linear-gradient(bottom, #131417 50%, #1D1E24 50%, #272833 75%);
+    background-image: -ms-linear-gradient(bottom, #131417 50%, #1D1E24 50%, #272833 75%);
 }
 div.ps-toolbar * {
     display: block;

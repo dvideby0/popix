@@ -170,8 +170,6 @@ function RegisterNotifications(){
     socket.emit('RegisterForNotification', {UserID:DeviceID, Token:DeviceToken});
 }
 
-
-
 //----------------------------------------------------------------------------------------------
 
 
@@ -503,6 +501,7 @@ $(function(){
             $('#HeaderSearch').hide();
             $('#HeaderItems').show();
             $('#menu').addClass('SliderMenu');
+            $('#menu').css('height', '100%');
             $(".ui-page-active").animate({
                 marginLeft: "165px"
             }, 0, function(){menuStatus = true});
@@ -513,6 +512,7 @@ $(function(){
             $(".ui-page-active").animate({
                 marginLeft: "0px"
             }, 0, function(){menuStatus = false});
+            $('#menu').css('height', 'auto');
             return false;
         }
     });
@@ -534,6 +534,7 @@ $(function(){
             menuStatus = false;
             $('#HeaderItems').hide();
             $('#HeaderSearch').show();
+            $('#menu').css('height', 'auto');
         });
     });
     $('#menu ul li a').not('#SearchBtn').click(function(){
@@ -552,6 +553,7 @@ $(function(){
             marginLeft: "0px"
         }, 0, function(){
             menuStatus = false;
+            $('#menu').css('height', 'auto');
         });
     });
 });

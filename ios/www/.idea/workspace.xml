@@ -3,7 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="dc568be2-61ef-4fb6-bc76-9df37862ca1f" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../popix.xcodeproj/project.xcworkspace/xcuserdata/rbrookfield.xcuserdatad/UserInterfaceState.xcuserstate" afterPath="$PROJECT_DIR$/../popix.xcodeproj/project.xcworkspace/xcuserdata/rbrookfield.xcuserdatad/UserInterfaceState.xcuserstate" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/images/bg.png" afterPath="$PROJECT_DIR$/lib/images/bg.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../popix.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/../popix.xcodeproj/project.pbxproj" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/css/photoswipe.css" afterPath="$PROJECT_DIR$/lib/css/photoswipe.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/css/style.css" afterPath="$PROJECT_DIR$/lib/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/js/main.js" afterPath="$PROJECT_DIR$/lib/js/main.js" />
     </list>
     <ignored path="www.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,18 +31,18 @@
       <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="161" column="0" selection-start="6101" selection-end="6101" vertical-scroll-proportion="0.0">
+            <state line="555" column="42" selection-start="22986" selection-end="22986" vertical-scroll-proportion="0.0">
               <folding>
-                <marker date="1349914147000" expanded="false" signature="11201:11225" placeholder="..." />
+                <marker date="1349953016000" expanded="false" signature="11199:11223" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="2-popix.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="2-popix.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/Library/Caches/TemporaryItems/2-popix.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="147" column="20" selection-start="5968" selection-end="5968" vertical-scroll-proportion="0.20547946">
+            <state line="147" column="20" selection-start="5968" selection-end="5968" vertical-scroll-proportion="0.0">
               <folding>
                 <marker date="1349920461000" expanded="false" signature="520:546" placeholder="..." />
               </folding>
@@ -75,10 +80,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="style.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="152" column="25" selection-start="4280" selection-end="4280" vertical-scroll-proportion="0.0">
+            <state line="73" column="46" selection-start="2276" selection-end="2276" vertical-scroll-proportion="0.53267044">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="photoswipe.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/css/photoswipe.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="8" column="12" selection-start="277" selection-end="282" vertical-scroll-proportion="-4.6153846">
               <folding />
             </state>
           </provider>
@@ -87,8 +101,11 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="73" selection-start="790" selection-end="790" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="93" column="47" selection-start="4793" selection-end="4793" vertical-scroll-proportion="-17.0">
+              <folding>
+                <element signature="n#style#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#select#0;n#p#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -107,13 +124,13 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/lib/js/FBConnect.js" />
-        <option value="$PROJECT_DIR$/lib/css/photoswipe.css" />
-        <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/lib/css/style.css" />
         <option value="$USER_HOME$/Library/Caches/TemporaryItems/1-popix.js" />
-        <option value="$PROJECT_DIR$/lib/js/main.js" />
         <option value="$USER_HOME$/Library/Caches/TemporaryItems/1-push.js" />
         <option value="$USER_HOME$/Library/Caches/TemporaryItems/2-popix.js" />
+        <option value="$PROJECT_DIR$/lib/css/photoswipe.css" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/lib/js/main.js" />
+        <option value="$PROJECT_DIR$/lib/css/style.css" />
       </list>
     </option>
   </component>
@@ -345,7 +362,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="299" column="163" selection-start="11211" selection-end="11211" vertical-scroll-proportion="0.0">
           <folding>
-            <marker date="1349914147000" expanded="false" signature="11201:11225" placeholder="..." />
+            <marker date="1349953016000" expanded="false" signature="11199:11223" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -384,7 +401,10 @@
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="82" column="48" selection-start="4295" selection-end="4295" vertical-scroll-proportion="0.0">
-          <folding />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#select#0;n#p#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -412,39 +432,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/css/photoswipe.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="109" column="76" selection-start="2562" selection-end="2562" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="73" selection-start="790" selection-end="790" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="152" column="25" selection-start="4280" selection-end="4280" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Library/Caches/TemporaryItems/1-popix.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="111" column="101" selection-start="4313" selection-end="4398" vertical-scroll-proportion="0.67808217">
           <folding>
             <marker date="1349914092000" expanded="false" signature="520:546" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="161" column="0" selection-start="6101" selection-end="6101" vertical-scroll-proportion="0.0">
-          <folding>
-            <marker date="1349914147000" expanded="false" signature="11201:11225" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -458,10 +450,43 @@
     </entry>
     <entry file="file://$USER_HOME$/Library/Caches/TemporaryItems/2-popix.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="147" column="20" selection-start="5968" selection-end="5968" vertical-scroll-proportion="0.20547946">
+        <state line="147" column="20" selection-start="5968" selection-end="5968" vertical-scroll-proportion="0.0">
           <folding>
             <marker date="1349920461000" expanded="false" signature="520:546" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/css/photoswipe.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="12" selection-start="277" selection-end="282" vertical-scroll-proportion="-4.6153846">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="93" column="47" selection-start="4793" selection-end="4793" vertical-scroll-proportion="-17.0">
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#select#0;n#p#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="555" column="42" selection-start="22986" selection-end="22986" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1349953016000" expanded="false" signature="11199:11223" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="73" column="46" selection-start="2276" selection-end="2276" vertical-scroll-proportion="0.53267044">
+          <folding />
         </state>
       </provider>
     </entry>
